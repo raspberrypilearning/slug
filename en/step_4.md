@@ -1,6 +1,8 @@
 ## Draw the slug
 
-The first job is to draw the slug on the Sense HAT's LED display. It is important to keep track of which pixels the slug is inhabiting so that we can move her around the screen.
+The first job is to draw the slug on the Sense HAT's LED display. It is important to keep track of which pixels the slug is inhabiting so that we can move her around the screen
+
+![Draw the slug](images/draw-slug.png)
 
 To be able to light up a pixel on the LED display, we need to specify three things - the x and y coordinates of the pixel and the colour we would like.
 
@@ -12,7 +14,7 @@ To be able to light up a pixel on the LED display, we need to specify three thin
 
 + Choose three pixels in a horizontal row. Each pixel's position will be represented as a list containing its x,y coordinate. For example, we chose the pixels [2,4], [3,4] and [4,4].
 
-+ Add each coordinate to your `slug` list to define where the slug will start. You have now created a 2D list, or a list of lists!
++ Add three lists to your `slug` list to define the coordinates where the slug will start. You have now created a 2D list, or a list of lists!
 
 We also need to specify a colour for the slug.
 
@@ -40,8 +42,12 @@ The `set_pixel` method requires three arguments - the x coordinate of the pixel,
 --- /hint ---
 
 --- hint ---
-The `x` coordinate is the first item in the sublist, so if you called your sublist `segment`, it will be `segment[0]`.
+Your `for` loop will examine each segment of the slug in turn. If you wrote your loop as
 
+```python
+for segment in slug:
+```
+...then `segment[0]` will be the x coordinate of the segment you are currently looking at.
 --- /hint ---
 
 --- hint ---
