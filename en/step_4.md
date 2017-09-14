@@ -12,9 +12,9 @@ To be able to light up a pixel on the LED display, we need to specify three thin
 
 [[[generic-python-create-list]]]
 
-+ Choose three pixels in a horizontal row. Each pixel's position will be represented as a list containing its x,y coordinate. For example, we chose the pixels [2,4], [3,4] and [4,4].
+We will light up three pixels in a horizontal row. Each pixel's position will be represented as a list containing its x,y coordinate.
 
-+ Add three lists to your `slug` list to define the coordinates where the slug will start. You have now created a 2D list, or a list of lists!
++ Add the coordinate lists [2,4], [3,4] and [4,4] (in that order) to your `slug` list to define the coordinates where the slug will start. You have now created a 2D list, or a list of lists!
 
 We also need to specify a colour for the slug.
 
@@ -63,9 +63,10 @@ def draw_slug():
 
 If you run your program at this point, nothing will happen. This is because we haven't _called_ the function, so the code will not execute.
 
-+ In the main program section, call the function by adding the following code:
++ In the main program section, clear the screen and then call the function by adding the following code:
 
 ```python
+sense.clear()
 draw_slug()
 ```
 
