@@ -8,6 +8,6 @@
 
 [[[rpi-sensehat-emulator]]]
 
-+ Open up the [starter file]() if you are using a hardware Sense HAT or the [starter trinket]() if you are using the trinket emulator.
++ Open up the [starter file](resources/starter_code.py) if you are using a hardware Sense HAT or the [starter trinket](https://trinket.io/python/3bfbb0d42b){:target="_blank"} if you are using the trinket emulator.
 
 This file contains the code to connect to the Sense HAT, imports the modules you will need and provides a structure for your code.

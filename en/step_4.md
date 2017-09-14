@@ -4,11 +4,11 @@ The first job is to draw the slug on the Sense HAT's LED display. It is importan
 
 To be able to light up a pixel on the LED display, we need to specify three things - the x and y coordinates of the pixel and the colour we would like.
 
-(coordinates ingredient)
+[[[rpi-sensehat-led-coordinates]]]
 
 + In the variables section, create an empty list called `slug` which we will use to store the x, y coordinates of the pixels which will make up the slug.
 
-(ingredient here?)
+[[[generic-python-create-list]]]
 
 + Choose three pixels in a horizontal row. Each pixel's position will be represented as a list containing its x,y coordinate. For example, we chose the pixels [2,4], [3,4] and [4,4].
 
@@ -22,13 +22,11 @@ We also need to specify a colour for the slug.
 white = (255, 255, 255)
 ```
 
-(colours ingredient)
+[[[generic-theory-colours]]]
 
 + In the functions section, create a function called `draw_slug()` where we will put the code to draw the slug.
 
-(functions ingredient)
-
-We will use a function for this because during the game we will constantly need to redraw the slug as she moves across the screen.
+[[[generic-python-simple-functions]]]
 
 + Inside your `draw_slug()` function, add a `for` loop to loop through each element in the `slug` list.
 
