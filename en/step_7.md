@@ -40,7 +40,7 @@ y = randint(0, 7)
 new = [x, y]
 ```
 --- /hint ---
---- /hint ---
+--- /hints ---
 
 
 + Check if this coordinate is in the slug list. If it is, pick a new one.
