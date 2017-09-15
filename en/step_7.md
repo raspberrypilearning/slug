@@ -53,9 +53,9 @@ Here is some pseudo code to help you. We start off by setting new equal to the f
 
 **SET** `new` to the first coordinate in the `slug` list
 **WHILE** the coordinate is in the `slug` list:
-   **SET** x to a random number between 0 and 7
-   **SET** y to a random number between 0 and 7
-   **SET** new to x, y
+...**SET** x to a random number between 0 and 7
+...**SET** y to a random number between 0 and 7
+...**SET** new to x, y
 --- /hint ---
 
 --- hint ---
