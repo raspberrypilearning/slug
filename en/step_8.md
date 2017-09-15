@@ -25,6 +25,21 @@ Let's also add a score to keep track of how many vegetables the slug has eaten.
 
 --- hints ---
 --- hint ---
-Stuff
+Here is some pseudo code for the check which should occur within the `move()` function:
+
+**IF** new pixel **IS IN** vegetables
+...**REMOVE** new pixel from vegetables list
+...**ADD** 1 to score
+--- /hint ---
+--- hint ---
+Here is the code which should be added to the end of the `move()` function:
+
+```python
+if next in vegetables:
+  vegetables.remove(next)
+  score += 1
+```
+
+Don't forget to also add `global score` on the first line of the `move()` function and to initialise the `score` variable to `0` in the variables section.
 --- /hint ---
 --- /hints ---

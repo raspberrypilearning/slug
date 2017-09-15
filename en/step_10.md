@@ -1,5 +1,5 @@
-## Challenge:
+## Die
 
-Diarrhoea vegetables
-Slug trails
-Veggies inside you
+Check whether you're eating yourself
+
+Display the score
