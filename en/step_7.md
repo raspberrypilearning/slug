@@ -1,6 +1,6 @@
 ## Create vegetables
 
-Our slug is hungry, she needs something to eat! Let's generate some vegetables at random locations on the LED matrix for her to eat.
+Our slug is hungry, she needs something to eat! Let's generate some vegetables at random locations on the LED matrix.
 
 Creating the vegetables is fairly straightforward:
 
@@ -10,9 +10,9 @@ Creating the vegetables is fairly straightforward:
 4. If not, draw the vegetable
 5. Keep track of this vegetable's location in a list
 
-These are all things we've done before with the slug, so why not see if you can do it yourself, and use the hints if you get stuck.
+The code you need is all very similar to things we've done before with the slug, so why not see if you can do it yourself and use the hints if you get stuck.
 
-+ Create a new list called `vegetables` in your variables section
++ Create a new empty list called `vegetables` in your variables section
 
 + Create a new function called `make_veg()`
 
@@ -20,9 +20,56 @@ These are all things we've done before with the slug, so why not see if you can 
 
 [[[generic-python-random]]]
 
+--- hints ---
+--- hint ---
+Generate a random x coordinate and a random y coordinate and then put them together in a list. Both coordinates must be random numbers between 0 and 7.
+--- /hint ---
+--- hint ---
+You can use the `randint` function to generate random numbers. For example, this code generates a random number between 5 and 10.
+
+```python
+a = randint(5, 10)
+```
+--- /hint ---
+--- hint ---
+Here is how your code should look:
+
+```python
+x = randint(0, 7)
+y = randint(0, 7)
+new = [x, y]
+```
+--- /hint ---
+--- /hint ---
+
+
 + Check if this coordinate is in the slug list. If it is, pick a new one.
 
-(ingredient about in list)
+[[[generic-python-item-in-list]]]
+
+--- hints ---
+--- hint ---
+Here is some pseudo code to help you. We start off by setting new equal to the first coordinate in the `slug` list so that it is guaranteed to start off inside the slug, so a new coordinate must be generated.
+
+**SET** `new` to the first coordinate in the `slug` list
+**WHILE** the coordinate is in the `slug` list:
+   **SET** x to a random number between 0 and 7
+   **SET** y to a random number between 0 and 7
+   **SET** new to x, y
+--- /hint ---
+
+--- hint ---
+Here is how your code might look:
+
+```python
+new = slug[0]
+while new in slug:
+    x = randint(0, 7)
+    y = randint(0, 7)
+    new = [x, y]
+```
+--- /hint ---
+--- /hints ---
 
 + If it isn't, draw the vegetable on the screen. Don't forget you'll need to set up a new colour variable for the colour you want your vegetables to be.
 
