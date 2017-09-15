@@ -13,7 +13,7 @@ Your first three vegetables are generated and added to the vegetables list. When
 Since we only generate vegetables when the list contains fewer than 3 coordinates, no new vegetables will ever be generated once the list contains 3 vegetables.
 --- /collapse ---
 
-+ Add some code so that whenever the slug enters a new pixel in the `move()` function, we check if that pixel is in the `vegetables` list.
++ Add some code at the end of the `move()` function so that whenever the slug enters a new pixel, we check if that pixel is in the `vegetables` list.
 
 + If the pixel is in the vegetables list, remove it from the list.
 
