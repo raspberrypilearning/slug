@@ -98,7 +98,7 @@ title: Challenge solution
 ---
 ```python
 # Have a 20% chance of making a veggie if there aren't many about
-  if len(veggies) < 3 and randint(1, 5) > 4:
+if len(veggies) < 3 and randint(1, 5) > 4:
     make_veg()
 ```
 
