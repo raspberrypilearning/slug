@@ -84,9 +84,9 @@ If we always add on 1 to the `x` coordinate, eventually it will reach 8. The LED
 Here is some pseudo code to help you:
 
 **IF** last[0] + 1 **EQUALS** 8
-   next[0] **EQUALS** 0
+...next[0] **EQUALS** 0
 **ELSE**
-   next[0] **EQUALS** last[0] + 1
+...next[0] **EQUALS** last[0] + 1
 --- /hint ---
 
 --- hint ---

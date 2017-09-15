@@ -2,6 +2,8 @@
 
 Our slug is hungry, she needs something to eat! Let's generate some vegetables at random locations on the LED matrix.
 
+![Vegetables](images/vegetables.png)
+
 Creating the vegetables is fairly straightforward:
 
 1. Pick a random coordinate on the LED matrix
@@ -71,7 +73,7 @@ while new in slug:
 --- /hint ---
 --- /hints ---
 
-+ If it isn't, draw the vegetable on the screen. Don't forget you'll need to set up a new colour variable for the colour you want your vegetables to be.
++ If it isn't, draw the vegetable on the screen. Don't forget you'll also need to set up a new colour variable for the colour you want your vegetables to be.
 
 [[[rpi-sensehat-single-pixel]]]
 
@@ -81,4 +83,23 @@ while new in slug:
 
 + In your main program, call the `make_veg` function and check that vegetables are randomly inserted on the LED matrix.
 
-Only create a vegetable if there are < 3 and also do it with an 80% chance so that they don't spawn all the time
+You will probably notice that rather a lot of vegetables appear, and our slug will very quickly be overrun!
+
+![Too many vegetables](images/too-many-veggies.gif)
+
++ Add some code in the main program to only create a new vegetable if there are fewer than 3 vegetables currently in the `vegetables` list.
+
+### Challenge
+Can you change your code so that if there are fewer than 3 vegetables in the list, there is only a 20% chance of creating a new vegetable each time so that the vegetables spawn more unpredictably. To create the 20% chance, randomly generate a number and then only create the vegetable for 1 in 5 of the numbers generated.
+
+--- collapse ---
+---
+title: Challenge solution
+---
+```python
+# Have a 20% chance of making a veggie if there aren't many about
+  if len(veggies) < 3 and randint(1, 5) > 4:
+    make_veg()
+```
+
+--- /collapse ---
