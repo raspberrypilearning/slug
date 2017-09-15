@@ -1,6 +1,6 @@
 ## Move the slug
 
-Next, let's make the slug move. The slug is perpetually moving, so we need a way to store the last direction the player specified the slug should move.
+Next, let's make the slug move. The slug is perpetually moving and only changes direction when the player specifies, so we need a way to store the last direction the player specified the slug should move.
 
 + In the variables section, create a variable called `direction`. The slug will begin the game moving right, so initialise this variable to the string `"right"`.
 
@@ -10,18 +10,25 @@ We deliberately stored the pixel coordinates of the slug's current position in a
 
 ![Move right](images/move-right.png)
 
-+ Find the last item in the `slug` list
-+ Find the next pixel in the `direction` the slug is currently moving
++ Find the last item in the `slug` list (`[4, 4]`)
++ Find the next pixel in the `direction` the slug is currently moving (`[5, 4]`)
 + Add this pixel at the end of the slug list
 + Set this pixel to the slug's colour
-+ Set the first pixel in the `slug` list to blank
++ Set the first pixel in the `slug` list (`[2, 4]`) to blank
 + Remove this pixel from the list
 
 This algorithm works regardless of the direction chosen - the slug will simply bend round the corner!
 
 The slug is actually a **queue** data structure.
 
+--- collapse ---
+---
+title: What is a queue?
+---
+A queue is a data structure where the first piece of data added is the first data to come out - it is called a FIFO or "first in, first out" data structure. This is exactly like when you pay for your shopping: you join the queue at the back, and the person at the front gets to pay for their items first and then leaves the queue.
+
 Imagine the pixels of the slug are bits of food queuing up to be pooped out of the end of the slug and disappear. The first item in the list has reached the front of the queue and will exit the slug and be deleted. New pixels join the slug queue at the end (which is the mouth of the slug) and gradually work their way towards the front of the queue as the slug progresses.
+--- /collapse ---
 
 + In the functions section, create a function called `move()`
 
@@ -38,13 +45,13 @@ def move():
   # Find the last and first items in the slug list
   last = slug[-1]
   first = slug[0]
-  next = []
+  next = list(last)     # Create a copy of the last item
 
   # Find the next pixel in the direction the slug is currently moving
   if direction == "right":
 
-    # Same row, next column along
-    next = [last[0] + 1, last[1]]
+    # Move along the column
+    next[0] = last[0] + 1
 
   # Add this pixel at the end of the slug list
   slug.append(next)
@@ -64,7 +71,35 @@ def move():
 ![Wrap the slug](images/wrap-slug.gif)
 
 --- hints ---
+--- hint ---
+Examine this code:
+```python
+# Move along the column
+next[0] = last[0] + 1
+```
+If we always add on 1 to the `x` coordinate, eventually it will reach 8. The LED matrix only has LEDs 0-7 so 8 doesn't exist and causes the code to crash. How could you **check if** the **value + 1** would be 8, and instead, **set it to 0** to wrap around?
+--- /hint ---
 
+--- hint ---
+Here is some pseudo code to help you:
+
+**IF** last[0] + 1 **EQUALS** 8
+---next[0] **EQUALS** 0
+**ELSE**
+---next[0] **EQUALS** last[0] + 1
+--- /hint ---
+
+--- hint ---
+Here is how you code might look, but there are lots of different ways you could successfully write this code:
+
+```python
+# Move along the column
+if last[0] + 1 == 8:
+ next[0] = 0
+else:
+ next[0] = last[0] + 1
+```
+--- /hint ---
 --- /hints ---
 
 + Add some more code to make the slug able to move up, down, left and right too. This code will be very similar to the code for moving right, but you'll need to work out which coordinate needs to change and whether to add or subtract one.
