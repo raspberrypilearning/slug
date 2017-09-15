@@ -2,6 +2,8 @@
 
 Next, let's link up the Sense HAT's joystick so that the player can use it to control the movement of the slug.
 
+![Moving slug](images/moving-slug.gif)
+
 [[[rpi-python-sensehat-joystick-event-functions]]]
 
 + In the functions section, create a new function:
@@ -51,3 +53,5 @@ sense.stick.direction_any = joystick_moved
 --- /hint ---
 
 --- /hints ---
+
++ Run your program and test that it works. If you are using the emulator, you can simulate moving the joystick by pressing the arrow keys on your keyboard.
