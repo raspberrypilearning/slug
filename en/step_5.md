@@ -84,9 +84,9 @@ If we always add on 1 to the `x` coordinate, eventually it will reach 8. The LED
 Here is some pseudo code to help you:
 
 **IF** last[0] + 1 **EQUALS** 8
----next[0] **EQUALS** 0
+   next[0] **EQUALS** 0
 **ELSE**
----next[0] **EQUALS** last[0] + 1
+   next[0] **EQUALS** last[0] + 1
 --- /hint ---
 
 --- hint ---
@@ -103,3 +103,55 @@ else:
 --- /hints ---
 
 + Add some more code to make the slug able to move up, down, left and right too. This code will be very similar to the code for moving right, but you'll need to work out which coordinate needs to change and whether to add or subtract one.
+
+--- hints ---
+--- hint ---
+Add an `elif` to check whether the direction equals `"left"`. Then check whether moving the slug would result in the x coordinate being off the end of the LED matrix in this direction, i.e. `-1`. If it would, set the x coordinate to wrap around to `7` on the opposite side of the screen.
+
+You can test your program by changing the value of the `direction` variable to `"left"`. Be aware that because this causes the slug to reverse, the slug may appear to behave oddly for the first few moves but will then behave normally.
+--- /hint ---
+
+--- hint ---
+The up and down directions work exactly the same as left and right, except that you will be examining the `y` coordinate instead - `last[1]` and `next[1]`.
+--- /hint ---
+
+--- hint ---
+Here is how your code might look. Again, there are lots of potential solutions so your code may be different but also work correctly:
+
+```python
+# Find the next pixel in the direction the slug is currently moving
+ if direction == "right":
+
+   # Move along the column
+   if last[0] + 1 == 8:
+     next[0] = 0
+   else:
+     next[0] = last[0] + 1
+
+ elif direction == "left":
+
+   # Move along the column
+   if last[0] - 1 == -1:
+     next[0] = 7
+   else:
+     next[0] = last[0] - 1
+
+ elif direction == "down":
+
+   # Move along the column
+   if last[1] + 1 == 8:
+     next[1] = 0
+   else:
+     next[1] = last[1] + 1
+
+ elif direction == "up":
+
+   # Move along the column
+   if last[1] - 1 == -1:
+     next[1] = 7
+   else:
+     next[1] = last[1] - 1
+```
+
+--- /hint ---
+--- /hints ---
