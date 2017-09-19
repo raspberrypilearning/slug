@@ -1,4 +1,4 @@
-## Challenge:
+## Challenge: crazy veggies
 
 There are lots of possibilities you could add to your game to make it more difficult and entertaining for the player.
 
