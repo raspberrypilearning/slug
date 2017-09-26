@@ -45,11 +45,19 @@ sense.stick.direction_any =
 --- /hint ---
 
 --- hint ---
-Here is how your code should look:
+Here is how the code in the **main program** should look:
 
 ```python
 sense.stick.direction_any = joystick_moved
 ```
+
+Here is the full **function** code:
+```python
+def joystick_moved(event):
+    global direction
+    direction = event.direction
+```
+
 --- /hint ---
 
 --- /hints ---
