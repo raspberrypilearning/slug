@@ -4,8 +4,6 @@ Next, let's link up the Sense HAT's joystick so that the player can use it to co
 
 ![Moving slug](images/moving-slug.gif)
 
-[[[rpi-python-sensehat-joystick-event-functions]]]
-
 + In the functions section, create a new function:
 
 ```python
@@ -31,9 +29,11 @@ We can access the direction the joystick was moved in using the `event` paramete
 
 + Finally, in the main part of your program, write a line of code to say that when the Sense HAT joystick is pressed in any direction, call the `joystick_moved` function.
 
+[[[rpi-python-sensehat-joystick-event-functions]]]
+
 --- hints ---
 --- hint ---
-You can find the code to do this in the information "Triggering function calls with the Sense HAT joystick" at the top.
+You can find out how to do this by reading the information "Triggering function calls with the Sense HAT joystick".
 --- /hint ---
 
 --- hint ---

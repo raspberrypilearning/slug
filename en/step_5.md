@@ -38,7 +38,7 @@ Imagine the pixels of the slug are bits of food queuing up to be pooped out of t
 
 Here is some code to start off the `move()` function, but the code **does not work properly**.
 
-+ Copy this code into your function and run the program. Look at what happens to the slug.
++ Copy this code into your function and run the program. We used the colour `white` for the slug, but if you chose a different colour (e.g. `blue`) you will need to change `white` to `blue` in the code. Look at what happens to the slug.
 
 ```python
 def move():

@@ -1,8 +1,10 @@
 ## Draw the slug
 
-The first job is to draw the slug on the Sense HAT's LED display. It is important to keep track of which pixels the slug is inhabiting so that we can move her around the screen
+The first job is to draw the slug on the Sense HAT's LED display. It is important to keep track of which pixels the slug is inhabiting so that we can move her around the screen. We will use a 2D list to store the coordinates of the pixels the slug is currently inhabiting.
 
 ![Draw the slug](images/draw-slug.png)
+
+[[[generic-python-2d-lists]]]
 
 To be able to light up a pixel on the LED display, we need to specify three things - the x and y coordinates of the pixel and the colour we would like.
 
@@ -63,7 +65,7 @@ def draw_slug():
 
 If you run your program at this point, nothing will happen. This is because we haven't _called_ the function, so the code will not execute.
 
-+ In the main program section, clear the screen and then call the function by adding the following code:
++ In the **main program** section, clear the screen and then call the function by adding the following code:
 
 ```python
 sense.clear()

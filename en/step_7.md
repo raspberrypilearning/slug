@@ -7,9 +7,9 @@ Our slug is hungry, she needs something to eat! Let's generate some vegetables a
 Creating the vegetables is fairly straightforward:
 
 1. Pick a random coordinate on the LED matrix
-2. Check that this coordinate isn't somewhere inside the slug
-3. If it is, pick a new location until you pick one that isn't inside the slug
-4. If not, draw the vegetable
+2. Check if this coordinate is somewhere inside the slug
+3. If it is, repeat steps 1 and 2 until you pick a location that isn't inside the slug
+4. Draw the vegetable on the LED matrix
 5. Keep track of this vegetable's location in a list
 
 The code you need is all very similar to things we've done before with the slug, so why not see if you can do it yourself and use the hints if you get stuck.
@@ -45,7 +45,7 @@ new = [x, y]
 --- /hints ---
 
 
-+ Check if this coordinate is in the slug list. If it is, pick a new one.
++ Check if this coordinate is in the slug list. If it is, pick a new one and check it, until the coordinate you pick isn't inside the slug list.
 
 [[[generic-python-item-in-list]]]
 
@@ -73,7 +73,7 @@ while new in slug:
 --- /hint ---
 --- /hints ---
 
-+ If it isn't, draw the vegetable on the screen. Don't forget you'll also need to set up a new colour variable for the colour you want your vegetables to be.
++ Once you have found a coordinate which isn't inside the slug, draw the vegetable on the screen. Don't forget you'll also need to set up a new colour variable for the colour you want your vegetables to be.
 
 [[[rpi-sensehat-single-pixel]]]
 
@@ -89,6 +89,25 @@ You will probably notice that rather a lot of vegetables appear, and our slug wi
 
 + Add some code in the main program to only create a new vegetable if there are fewer than 3 vegetables currently in the `vegetables` list.
 
+--- hints ---
+--- hint ---
+You can use the function `len()` to find out the length of the `vegetables` list, or in other words, how many items are in the list.
+--- /hint ---
+--- hint ---
+Here is some pseudo code to help you:
+**IF** the length of the vegetables list is **LESS THAN** 3
+...**CALL** the `make_veg` function
+--- /hint ---
+--- hint ---
+Here is how your code should look:
+
+```python
+if len(vegetables) < 3:
+   make_veg()
+```
+--- /hint ---
+--- /hints ---
+
 ### Challenge
 Can you change your code so that if there are fewer than 3 vegetables in the list, there is only a 20% chance of creating a new vegetable each time so that the vegetables spawn more unpredictably. To create the 20% chance, randomly generate a number and then only create the vegetable for 1 in 5 of the numbers generated.
 
@@ -98,7 +117,7 @@ title: Challenge solution
 ---
 ```python
 # Have a 20% chance of making a veggie if there aren't many about
-if len(veggies) < 3 and randint(1, 5) > 4:
+if len(vegetables) < 3 and randint(1, 5) > 4:
     make_veg()
 ```
 
