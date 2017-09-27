@@ -4,7 +4,7 @@ To keep the game interesting for the player, as the slug eats vegetables she sho
 
 The code you've written so far makes it so that, when the slug advances a pixel, her end segment is deleted. To enable her to grow, you can add a new segment to the `slug` list but **not** delete the last one. So each time the slug moves, you need to make a decision as to whether to remove a segment or not.
 
-+ At the start of the `move()` function, create a boolean variable called `remove` and set it to `True`, as most of the time we do want to remove the end segment when the slug moves.
++ At the start of the `move()` function, create a Boolean variable called `remove` and set it to `True`, as most of the time we do want to remove the end segment when the slug moves.
 
 + Add a conditional statement to your program so that the following two lines of code are only executed `if` the `remove` variable is `True`.
 
