@@ -81,16 +81,16 @@ Examine this code:
 # Move along the column
 next[0] = last[0] + 1
 ```
-If we always add 1 to the x coordinate, eventually it will reach 8. The LED matrix only has LEDs 0-7 along each axis — 8 doesn't exist, which is why the code crashes. How could you check if `value + 1` would be 8, and in that case set it to 0 instead to make the slug move through the wall?
+If we always add 1 to the x coordinate, eventually it will reach 8. The LED matrix only has LEDs 0-7 along each axis — 8 doesn't exist, which is why the code crashes. How could you check if the `value of the x coordinate + 1` would be 8, and in that case set it to 0 instead to make the slug move through the wall?
 --- /hint ---
 
 --- hint ---
 Here is some pseudo code to help you:
 
-`if` last[0] + 1 `equals` 8
-  next[0] `equals` 0
+`if` `last[0]` + 1 `equals` 8
+  `next[0]` `equals` 0
 `else`
-  next[0] `equals` last[0] + 1
+  `next[0]` `equals` `last[0]` + 1
 --- /hint ---
 
 --- hint ---
