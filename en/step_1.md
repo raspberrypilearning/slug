@@ -1,10 +1,10 @@
 ## Introduction
 
-Create your own fun and frantic version of the classic game "snake" using a Sense HAT. Guide the slug around the screen, eating vegetables to make her grow bigger. Don't eat yourself though or it's game over!
+Create your own fun and frantic version of the classic game Snake on a Sense HAT: guide a slug around the screen to let it eat vegetables which will make it grow bigger. Don't let it eat itself though, or it's game over!
 
 ### What you will make
 
-Use the up, down, left and right keys on your keyboard to move the slug. Click **Run** to start the game.
+Use the `up`, `down`, `left`, and `right` keys on your keyboard to direct the slug. Click **Run** to start the game.
 
 <iframe src="https://trinket.io/embed/python/b9e8a05f5b?outputOnly=true" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
