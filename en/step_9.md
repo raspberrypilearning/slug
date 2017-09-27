@@ -1,4 +1,4 @@
-## Grow and speed up
+## Growing and speeding up
 
 To keep the game interesting for the player, as the slug eats vegetables she should grow in length and move faster. This makes her harder to control — and worse, she might accidentally bite into her own body!
 
