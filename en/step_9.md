@@ -46,18 +46,18 @@ As well as setting `remove` to `False` to grow the slug, let's speed it up! Curr
 sleep(0.5)
 ```
 
-+ In the variables section, create a variable called `speed` which begins as `0.5`.
++ In the variables section, create a variable called `pause` which begins as `0.5`.
 
-+ Replace the `0.5` in the brackets of the `sleep()` function with the variable `speed`. Now the speed of the snake will be determined by the value of this variable.
++ Replace the `0.5` in the brackets of the `sleep()` function with the variable `pause`. Now the speed of the slug will be determined by the value of this variable.
 
 We added some code to section which check whether the current score is a multiple of 5:
 
 ```python
-global speed
+global pause
 
 if score % 5 == 0:
     remove = False
-    speed = speed - 0.1
+    pause = pause - 0.1
 ```
 
 + Add this code to your program, then save and run it. What happens? Why is this code not a very good idea, and how could you improve it?
@@ -66,13 +66,13 @@ if score % 5 == 0:
 ---
 title: Answer
 ---
-If the speed begins at 0.5, and we subtract 0.1 for every 5 eaten vegetables, the speed will eventually become 0. That will make the game impossible!
+If `pause` begins at 0.5, and we subtract 0.1 for every 5 eaten vegetables, the `pause` will eventually become 0. That will make the game impossible!
 
-Instead of subtracting a fixed amount, why not make the speed proportionally smaller? For example:
+Instead of subtracting a fixed amount, why not make the `pause` proportionally smaller? For example:
 
 ```python
-speed = speed * 0.8
+pause = pause * 0.8
 ```
 
-This will make the speed 80% of its previous value. This might sound like it is going to slow the slug down, but remember that `speed` is actually the time the game waits between each movement of the slug, so the smaller the speed, the quicker the slug moves.
+This will make the `pause` 80% of its previous value. This might sound like it is going to slow the slug down, but remember that `pause` is actually the time the game waits between each movement of the slug, so the smaller the pause, the quicker the slug moves.
 --- /collapse ---
