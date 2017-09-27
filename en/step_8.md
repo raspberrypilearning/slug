@@ -1,6 +1,6 @@
 ## Eat vegetables
 
-Your slug already appears to eat the vegetables. Have you noticed that once you've eaten the first three vegetables that appear, no more vegetables ever appear regardless of how long you wait.
+Your slug already appears to eat the vegetables. Have you noticed that, once she has eaten the first three vegetables, no more vegetables ever appear regardless of how long you wait.
 
 **Can you work out why this is?**
 
@@ -8,31 +8,27 @@ Your slug already appears to eat the vegetables. Have you noticed that once you'
 ---
 title: Answer
 ---
-Your first three vegetables are generated and added to the vegetables list. When the slug moves onto a pixel containing a vegetable she appears to "eat" it because the slug's pixels are drawn over the top of the vegetable. However, the vegetable is never removed from the `vegetables` list.
-
-Since we only generate vegetables when the list contains fewer than 3 coordinates, no new vegetables will ever be generated once the list contains 3 vegetables.
+Since the `make_veg` function only generates vegetables if the `vegetables` list contains fewer than three items, no new vegetables will appear once the list contains three vegetables. So at the moment, your first three vegetables are generated and added to the `vegetables` list. When the slug moves onto a pixel containing a vegetable, she appears to eat it because the slug's pixels are drawn over the top of the vegetable. However, the vegetable is never removed from the `vegetables` list.
 --- /collapse ---
 
-+ Add some code at the end of the `move()` function so that whenever the slug enters a new pixel, we check if that pixel is in the `vegetables` list.
-
-+ If the pixel is in the vegetables list, remove it from the list.
++ Add some code at the end of the `move()` function so that, whenever the slug moves to a new pixel, the function checks whether that pixel is in the `vegetables` list. If the pixel is in the `vegetables` list, remove it from the list.
 
 Let's also add a score to keep track of how many vegetables the slug has eaten.
 
-+ In the variables section, create a score variable which starts as `0`
++ In the variables section, create a `score` variable which starts as `0`.
 
-+ Whenever the slug eats a vegetable, also add one to the score. Don't forget that because this variable was created outside of the function, we will need to specify that we want to use `global score` at the start of the `move()` function or we will not be allowed to change its value.
++ Whenever the slug eats a vegetable, add 1 to the score. Don't forget that, because the `score` variable was created outside of the function, you need to specify that you want to use `global score` at the start of the `move()` function so that the function is allowed to change it.
 
 --- hints ---
 --- hint ---
-Here is some pseudo code for the check which should occur within the `move()` function:
+Here is some pseudocode for the check which should occur within the `move()` function:
 
-**IF** new pixel **IS IN** vegetables
-...**REMOVE** new pixel from vegetables list
-...**ADD** 1 to score
+`if` new pixel is `in` vegetables
+`remove` new pixel from vegetables
+`add` 1 to score
 --- /hint ---
 --- hint ---
-Here is the code which should be added to the end of the `move()` function:
+Here is the code you should add to the end of the `move()` function:
 
 ```python
 if next in vegetables:
@@ -40,6 +36,6 @@ if next in vegetables:
   score += 1
 ```
 
-Don't forget to also add `global score` on the first line of the `move()` function and to initialise the `score` variable to `0` in the variables section.
+Don't forget to also add `global score` on the first line of the `move()` function, and to initialise the `score` variable to `0` in the variables section.
 --- /hint ---
 --- /hints ---
