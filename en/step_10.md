@@ -1,4 +1,4 @@
-## Die
+## Dying
 
 Our final check is to test when the slug moves into a new space, whether she would be eating her own body, and thus lose the game. The way to check this is very similar to the way we checked if the slug was eating a vegetable.
 
