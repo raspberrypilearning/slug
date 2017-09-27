@@ -10,9 +10,9 @@ Next, let's link up the Sense HAT's joystick so that the player can use it to co
 def joystick_moved(event):
 ```
 
-We will call this function whenever the joystick is moved. It will automatically receive a parameter called `event` which will let us find out what happened to the joystick - which direction was it moved in?
+You will call this function whenever the joystick is moved. It will automatically receive a parameter called `event`, which will let you find out in which direction the the joystick was moved?
 
-We want to be able to set our `direction` variable to the direction the joystick was pushed in. To be allowed to change the value of this variable from within a function, we need to specify `global` for the variable. To find out why, read about scope in Python functions.
+You'll want to set the `direction` variable to the direction in which the joystick was pushed. To be allowed to change the value of the variable from within this function, you need to specify `global` for the variable. To find out why, read about scope in Python functions.
 
 [[[generic-python-function-scope]]]
 
@@ -23,17 +23,17 @@ def joystick_moved(event):
     global direction
 ```
 
-We can access the direction the joystick was moved in using the `event` parameter we were given. The direction can be found as `event.direction`
+You can access the direction the joystick was moved in with the help of the `event` parameter: use the command `event.direction`.
 
-+ Inside your function, set the `direction` variable to be equal to `event.direction`
++ Inside your function, set the `direction` variable to be equal to `event.direction`.
 
-+ Finally, in the main part of your program, write a line of code to say that when the Sense HAT joystick is pressed in any direction, call the `joystick_moved` function.
++ Finally, in the main part of your program, write a line of code to say that, when the Sense HAT joystick is pressed in any direction, the `joystick_moved` function will be called.
 
 [[[rpi-python-sensehat-joystick-event-functions]]]
 
 --- hints ---
 --- hint ---
-You can find out how to do this by reading the information "Triggering function calls with the Sense HAT joystick".
+You can find out how to do this in the information section 'Triggering function calls with the Sense HAT joystick' found above.
 --- /hint ---
 
 --- hint ---
