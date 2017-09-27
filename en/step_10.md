@@ -1,6 +1,6 @@
-## Dying
+## Game over
 
-Our final check is to test when the slug moves into a new space, whether she would be eating her own body, and thus lose the game. The way to check this is very similar to the way we checked if the slug was eating a vegetable.
+The final thing you need to check when the slug moves to a new pixel is whether she will try biting her own body. This should cause the player to lose the game. The way to do this is very similar to how you checked checked whether the slug is eating a vegetable.
 
 + In the variables section, create a new Boolean variable called `dead` and initialise it to `False` (as we don't want to start off dead!)
 
