@@ -1,6 +1,6 @@
 ## Introduction
 
-Create your own fun and frantic version of the classic game Snake on a Sense HAT: guide a slug around the screen to let it eat vegetables which will make it grow bigger. Don't let it eat itself though, or it's game over!
+Create your own fun and frantic version of the classic game Snake on a Sense HAT: guide a slug around the screen to let it eat vegetables which will make her grow bigger. Don't let her eat herself though, or it's game over!
 
 ### What you will make
 
