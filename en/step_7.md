@@ -45,19 +45,19 @@ new = [x, y]
 --- /hints ---
 
 
-+ Check if this `x, y` coordinate is in the `slug` list. If it is, pick a new coordinate and check it again. Repeat this until the coordinate you pick isn't in the slug list.
++ Check if this `x, y` coordinate is in the `slug` list. If it is, pick a new coordinate and check it against the list. Repeat this until the coordinate you've picked isn't in the slug list.
 
 [[[generic-python-item-in-list]]]
 
 --- hints ---
 --- hint ---
-Here is some pseudocode to help you. We start off by setting `new` equal to the first coordinate in the `slug` list so that it is guaranteed to start off inside the slug, so a new coordinate must be generated.
+Here is some pseudocode to help you. We start off by setting `new` equal to the first coordinate in the `slug` list so that it is guaranteed to start off inside the slug. This way a new coordinate must be generated at least once.
 
 Set `new` to the first coordinate in the `slug` list
-**WHILE** the coordinate is in the `slug` list:
-...**SET** x to a random number between 0 and 7
-...**SET** y to a random number between 0 and 7
-...**SET** new to x, y
+`while` the coordinate is in the `slug` list:
+set x to a random number between 0 and 7
+set y to a random number between 0 and 7
+set `new` to x, y
 --- /hint ---
 
 --- hint ---
@@ -73,30 +73,31 @@ while new in slug:
 --- /hint ---
 --- /hints ---
 
-+ Once you have found a coordinate which isn't inside the slug, draw the vegetable on the screen. Don't forget you'll also need to set up a new colour variable for the colour you want your vegetables to be.
++ Once you have found a coordinate which isn't inside the slug, draw the vegetable on the screen. Don't forget that you'll also need to set up a new colour variable for the colour you want your vegetables to be.
 
 [[[rpi-sensehat-single-pixel]]]
 
-+ Add the coordinates of this vegetable to your `vegetables` list
++ Add the coordinates of the vegetable to your `vegetables` list.
 
 [[[generic-python-append-list]]]
 
 + In your main program, call the `make_veg` function and check that vegetables are randomly inserted on the LED matrix.
 
-You will probably notice that rather a lot of vegetables appear, and our slug will very quickly be overrun!
+You will probably notice that rather a lot of vegetables appear, and your slug is very quickly overrun!
 
 ![Too many vegetables](images/too-many-veggies.gif)
 
-+ Add some code in the main program to only create a new vegetable if there are fewer than 3 vegetables currently in the `vegetables` list.
++ Add some code in the main program to only create a new vegetable if there are fewer than three items in the `vegetables` list.
 
 --- hints ---
 --- hint ---
-You can use the function `len()` to find out the length of the `vegetables` list, or in other words, how many items are in the list.
+You can use the function `len()` to find out the length of the `vegetables` list or, in other words, how many items are in the list.
 --- /hint ---
 --- hint ---
-Here is some pseudo code to help you:
-**IF** the length of the vegetables list is **LESS THAN** 3
-...**CALL** the `make_veg` function
+Here is some pseudocode to help you:
+
+`if` the length of the vegetables list is `less than` 3
+Call the `make_veg` function
 --- /hint ---
 --- hint ---
 Here is how your code should look:
@@ -109,14 +110,14 @@ if len(vegetables) < 3:
 --- /hints ---
 
 ### Challenge
-Can you change your code so that if there are fewer than 3 vegetables in the list, there is only a 20% chance of creating a new vegetable each time so that the vegetables spawn more unpredictably. To create the 20% chance, randomly generate a number and then only create the vegetable for 1 in 5 of the numbers generated.
+Can you change your code so that, if there are fewer than 3 vegetables in the list, there is only a 20% chance of creating a new vegetable each time the function runs? This will make it less predictable when vegetables might appear. To create the 20% chance, randomly pick a number between 1 and 5, and only create a vegetable for one specific number in this range.
 
 --- collapse ---
 ---
 title: Challenge solution
 ---
 ```python
-# Have a 20% chance of making a veggie if there aren't many about
+# Let there be a 20% chance of making a veggie if there aren't many about
 if len(vegetables) < 3 and randint(1, 5) > 4:
     make_veg()
 ```
