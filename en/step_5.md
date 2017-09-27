@@ -87,10 +87,10 @@ If we always add 1 to the x coordinate, eventually it will reach 8. The LED matr
 --- hint ---
 Here is some pseudo code to help you:
 
-`if` `last[0]` + 1 `equals` 8
-  `next[0]` `equals` 0
+`if` last[0] + 1 `equals` 8
+  set next[0] to 0
 `else`
-  `next[0]` `equals` `last[0]` + 1
+  set next[0] to last[0] + 1
 --- /hint ---
 
 --- hint ---
