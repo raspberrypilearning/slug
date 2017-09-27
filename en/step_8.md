@@ -1,4 +1,4 @@
-## Eat vegetables
+## Eating vegetables
 
 Your slug already appears to eat the vegetables. Have you noticed that, once she has eaten the first three vegetables, no more vegetables ever appear regardless of how long you wait.
 
