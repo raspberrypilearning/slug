@@ -1,22 +1,22 @@
 ## Draw the slug
 
-The first job is to draw the slug on the Sense HAT's LED display. It is important to keep track of which pixels the slug is inhabiting so that we can move her around the screen. We will use a 2D list to store the coordinates of the pixels the slug is currently inhabiting.
+The first job is to draw the slug on the Sense HAT's LED display. It is important to keep track of which pixels the slug is inhabiting so that you can move her around the screen. You will use a 2D list to store the coordinates of the pixels the slug is currently inhabiting.
 
 ![Draw the slug](images/draw-slug.png)
 
 [[[generic-python-2d-lists]]]
 
-To be able to light up a pixel on the LED display, we need to specify three things - the x and y coordinates of the pixel and the colour we would like.
+To be able to light up a pixel on the LED display, you need to specify three things: the `x` and `y` coordinates of the pixel, and the colour we would like the LED to be.
 
 [[[rpi-sensehat-led-coordinates]]]
 
-+ In the variables section, create an empty list called `slug` which we will use to store the x, y coordinates of the pixels which will make up the slug.
++ In the variables section of your file, create an empty list called `slug`.
 
 [[[generic-python-create-list]]]
 
-We will light up three pixels in a horizontal row. Each pixel's position will be represented as a list containing its x,y coordinate.
+We will light up three pixels in a horizontal row to make up the slug. Each pixel's position will be represented as a list containing an `x` and a `y` coordinate.
 
-+ Add the coordinate lists [2,4], [3,4] and [4,4] (in that order) to your `slug` list to define the coordinates where the slug will start. You have now created a 2D list, or a list of lists!
++ Add the coordinate lists `[2, 4]`, `[3, 4]`, and `[4, 4]` (in that order) to your `slug` list to define the coordinates where the slug will start out. You have now created a 2D list, or a list of lists!
 
 We also need to specify a colour for the slug.
 
@@ -28,23 +28,23 @@ white = (255, 255, 255)
 
 [[[generic-theory-colours]]]
 
-+ In the functions section, create a function called `draw_slug()` where we will put the code to draw the slug.
++ In the functions section, create a function called `draw_slug()`. You will put the code to draw the slug into it.
 
 [[[generic-python-simple-functions]]]
 
 + Inside your `draw_slug()` function, add a `for` loop to loop through each element in the `slug` list.
 
-Each of the x, y coordinates in the list represents a segment of the slug.
+Each element in the list represents the `x, y` coordinates of one segment of the slug.
 
-+ Use the `set_pixel` method to light up each pixel on the LED display, thus drawing the slug.
++ Inside the for loop, use the `set_pixel` method to light up each pixel you specified in the `slug` list, thus drawing all segments of the slug.
 
 --- hints ---
 --- hint ---
-The `set_pixel` method requires three arguments - the x coordinate of the pixel, the y coordinate of the pixel and the colour.
+The `set_pixel` method requires three arguments: the x coordinate of the pixel, the y coordinate of the pixel, and the colour.
 --- /hint ---
 
 --- hint ---
-Your `for` loop will examine each segment of the slug in turn. If you wrote your loop as
+Your `for` loop will examine each segment of the slug in turn. If you wrote your loop like this:
 
 ```python
 for segment in slug:
@@ -63,13 +63,13 @@ def draw_slug():
 --- /hint ---
 --- /hints ---
 
-If you run your program at this point, nothing will happen. This is because we haven't _called_ the function, so the code will not execute.
+If you run your program at this point, nothing will happen. This is because we haven't called the function, and therefore the code will not execute.
 
-+ In the **main program** section, clear the screen and then call the function by adding the following code:
++ In the **main program** section, clear the LED screen and then call the function by adding the following code:
 
 ```python
 sense.clear()
 draw_slug()
 ```
 
-+ Run your program and check that you see three pixels in a row light up to form your slug.
++ Save and run your program, and check that you see a row of three pixels light up to form your slug.
