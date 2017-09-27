@@ -14,7 +14,7 @@ Creating the vegetables is fairly straightforward:
 
 The code you need is very similar code you've written earlier for the slug, so try to do this bit by yourself. If you get stuck, use the hints.
 
-+ Create a new variable to define the colour the vegetables you're going to make. You can do this in the same way you defined the colour of your slug.
++ Create a new variable to define the colour of the vegetables you're going to make. You can do this in the same way you defined the colour of your slug.
 
 + Create a new empty list called `vegetables` in your variables section.
 
