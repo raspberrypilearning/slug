@@ -10,9 +10,9 @@ Next, let's link up the Sense HAT's joystick so that the player can use it to co
 def joystick_moved(event):
 ```
 
-You will call this function whenever the joystick is moved. It will automatically receive a parameter called `event`, which will let you find out in which direction the the joystick was moved?
+You will call this function whenever the joystick is moved. It will automatically receive a parameter called `event`, which will let you find out in which direction the the joystick was moved.
 
-You'll want to set the `direction` variable to the direction in which the joystick was pushed. To be allowed to change the value of the variable from within this function, you need to specify `global` for the variable. To find out why, read about scope in Python functions.
+You'll want to set the `direction` variable to the direction in which the joystick was pushed. So that you are allowed to change the value of the variable from within this function, you need to specify `global` for the variable. To find out why, read about scope in Python functions.
 
 [[[generic-python-function-scope]]]
 
