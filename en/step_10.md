@@ -17,7 +17,7 @@ if next in vegetables:
     # Do things relating to vegetables
 ```
 
-Can you use some similar code to check whether the next pixel is part of the slug?
+Can you use similar code to check whether the next pixel is part of the slug?
 --- /hint ---
 --- hint ---
 Here is how your code should look. Make sure you add it to the `move()` function **above** the code which adds the `next` pixel to the `slug` list, otherwise you will be permanently dead!
@@ -30,10 +30,12 @@ if next in slug:
 --- /hints ---
 
 
-At the moment, even when the `dead` variable is set to `True`, the game doesn't end.
+Save and run your code. When you make the slug bite itself now, you'll see that the game doesn't end, even though the `dead` variable is changed to `True`!
 
-+ Change the game loop in the main program from an infinite loop (`while True:`) to a loop which only runs while the `dead` variable is not `True`.
++ Change the game loop in the main program from an infinite loop to a loop which only runs while the `dead` variable is not `True`.
 
-+ Add a line of code to display the player's score once they die after the game loop ends. Note: do not indent your code. 
+Once the game loop ends, the player will want to know how they did in their game.
+
++ In the main program, add code to display how many vegetables the player guided the slug to by making use of the `score` variable. 
 
 [[[rpi-sensehat-show-message]]]
