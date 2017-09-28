@@ -1,6 +1,6 @@
 ## Challenge: crazy veggies
 
-There are lots of possible features you could add to your game to make it more difficult and entertaining for the player! Here are a few examples — feel free to come up with your own ideas.
+There are lots of possible features you could add to your game to make it more difficult and entertaining for the player! Here are a few examples — can you come up with your own ideas.
 
 + Growth vegetables: add a new type of vegetable which causes the slug to grow by more than one segment at a time. This makes the game harder because the slug will become big quickly, making it difficult to stop her from biting herself!
 
