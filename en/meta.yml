@@ -6,8 +6,8 @@ duration: 2 # possible values: 1, 2 or 3
 listed: false
 ingredient: false
 copyedit: true
-curriculum: creator, design-0, programming-0, phys-comp-0, manufacture-0, community-0
-interests: ""
+curriculum: creator, design-0, programming-3, phys-comp-0, manufacture-0, community-0
+interests: "games"
 technologies: "sense-hat, physical computing, python"
 site_areas:
 steps:
