@@ -10,7 +10,6 @@ Creating the vegetables is fairly straightforward:
 2. Check if this coordinate is currently inhabited by the slug
 3. If it is, repeat steps 1 and 2 until you pick a location that is outside the slug
 4. Draw the vegetable on the LED matrix
-5. Keep track of this vegetable's location in a list
 
 The code you need is very similar code you've written earlier for the slug, so try to do this bit by yourself. If you get stuck, use the hints.
 
@@ -73,21 +72,15 @@ while new in slug:
 --- /hint ---
 --- /hints ---
 
-+ Once you have found a coordinate which isn't inside the slug, draw the vegetable on the screen.
++ Once you have found an `x, y` coordinate which isn't inside the slug, draw the vegetable on the screen using your new colour variable.
 
-[[[rpi-sensehat-single-pixel]]]
++ In your main program, call the `make_veg` function and check that vegetables randomly appear on the LED matrix.
 
-+ Add the coordinates of the vegetable to your `vegetables` list.
-
-[[[generic-python-append-list]]]
-
-+ In your main program, call the `make_veg` function and check that vegetables are randomly inserted on the LED matrix.
-
-You will probably notice that rather a lot of vegetables appear, and your slug is very quickly overrun!
+You will probably notice that rather a lot of vegetables appear, so your slug is quickly overrun!
 
 ![Too many vegetables](images/too-many-veggies.gif)
 
-You need a way to track how many vegetables there are, so that you can prevent this mass spreading of veggies!
+You need a way to track how many vegetables there are, so that you can prevent this dangerous spreading of veggies!
 
 + Create a new empty list called `vegetables` in your variables section.
 
