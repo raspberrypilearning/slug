@@ -1,12 +1,12 @@
 ## Draw the slug
 
-The first job is to draw the slug on the Sense HAT's LED display. It is important to keep track of which pixels the slug is inhabiting so that you can move her around the screen. You will use a 2D list to store the coordinates of the pixels the slug is currently inhabiting.
+Your first job is to draw the slug on the Sense HAT's LED display. It is important to keep track of which pixels the slug is inhabiting so that you can move her around the screen. You will use a 2D list to store the coordinates of the pixels the slug is currently inhabiting.
 
 ![Draw the slug](images/draw-slug.png)
 
 [[[generic-python-2d-lists]]]
 
-To be able to light up a pixel on the LED display, you need to specify three things: the `x` and `y` coordinates of the pixel, and the colour we would like the LED to be.
+To be able to light up a pixel on the LED display, you need to specify three things: the x and y coordinates of the pixel, and the colour you would like the LED to be.
 
 [[[rpi-sensehat-led-coordinates]]]
 
@@ -14,11 +14,11 @@ To be able to light up a pixel on the LED display, you need to specify three thi
 
 [[[generic-python-create-list]]]
 
-We will light up three pixels in a horizontal row to make up the slug. Each pixel's position will be represented as a list containing an `x` and a `y` coordinate.
+You will light up three pixels in a horizontal row to make up the slug. Each pixel's position will be represented as a list containing an x and a y coordinate.
 
 + Add the coordinate lists `[2, 4]`, `[3, 4]`, and `[4, 4]` (in that order) to your `slug` list to define the coordinates where the slug will start out. You have now created a 2D list, or a list of lists!
 
-We also need to specify a colour for the slug.
+You also need to specify a colour for the slug.
 
 + In the variables section, create a variable to store the RGB colour of your slug. We chose white, but you can choose any colour you like.
 
@@ -36,7 +36,7 @@ white = (255, 255, 255)
 
 Each element in the list represents the `x, y` coordinates of one segment of the slug.
 
-+ Inside the for loop, use the `set_pixel` method to light up each pixel you specified in the `slug` list, thus drawing all segments of the slug.
++ Inside the loop, use the `set_pixel` method to light up each pixel you specified in the `slug` list, thus drawing all segments of the slug.
 
 --- hints ---
 --- hint ---
@@ -63,7 +63,7 @@ def draw_slug():
 --- /hint ---
 --- /hints ---
 
-If you run your program at this point, nothing will happen. This is because we haven't called the function, and therefore the code will not execute.
+If you run your program at this point, nothing will happen. This is because you haven't called the function, and therefore the code will not execute.
 
 + In the **main program** section, clear the LED screen and then call the function by adding the following code:
 
