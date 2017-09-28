@@ -9,6 +9,7 @@ Your slug already appears to eat the vegetables, because the `move` function dra
 title: Answer
 ---
 Since the `make_veg` function only generates vegetables if the `vegetables` list contains fewer than three items, no new vegetables will appear once the list contains three vegetables.
+
 At the moment, your first three vegetables are generated and added to the `vegetables` list. When the slug moves to a pixel containing a vegetable, the vegetable disappears because the slug's pixels are drawn over the top of it. However, the vegetable is never removed from the `vegetables` list, so the `make_veg` function isn't allowed to make more.
 --- /collapse ---
 
