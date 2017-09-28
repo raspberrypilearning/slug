@@ -1,6 +1,6 @@
 ## Eating vegetables
 
-Your slug already appears to eat the vegetables. Have you noticed that, once she has eaten the first three vegetables, no more vegetables ever appear regardless of how long you wait.
+Your slug already appears to eat the vegetables, because the `move` function draws her body over the veggie's pixel once you direct her there. You have probably found that, once she has eaten the first three vegetables, no more vegetables ever appear regardless of how long you wait.
 
 **Can you work out why this is?**
 
@@ -8,7 +8,8 @@ Your slug already appears to eat the vegetables. Have you noticed that, once she
 ---
 title: Answer
 ---
-Since the `make_veg` function only generates vegetables if the `vegetables` list contains fewer than three items, no new vegetables will appear once the list contains three vegetables. So at the moment, your first three vegetables are generated and added to the `vegetables` list. When the slug moves onto a pixel containing a vegetable, she appears to eat it because the slug's pixels are drawn over the top of the vegetable. However, the vegetable is never removed from the `vegetables` list.
+Since the `make_veg` function only generates vegetables if the `vegetables` list contains fewer than three items, no new vegetables will appear once the list contains three vegetables.
+At the moment, your first three vegetables are generated and added to the `vegetables` list. When the slug moves to a pixel containing a vegetable, the vegetable disappears because the slug's pixels are drawn over the top of it. However, the vegetable is never removed from the `vegetables` list, so the `make_veg` function isn't allowed to make more.
 --- /collapse ---
 
 + Add some code at the end of the `move()` function so that, whenever the slug moves to a new pixel, the function checks whether that pixel is in the `vegetables` list. If the pixel is in the `vegetables` list, remove it from the list.
