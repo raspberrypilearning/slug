@@ -14,7 +14,7 @@ At the moment, your first three vegetables are generated and added to the `veget
 
 + Add some code at the end of the `move()` function so that, whenever the slug moves to a new pixel, the function checks whether that pixel is in the `vegetables` list. If the pixel is in the `vegetables` list, remove it from the list.
 
-Let's also add a score to keep track of how many vegetables the slug has eaten.
+Let's also add a score to keep track of how many vegetables the slug has eaten, so that the player knows how well they have done when their round ends.
 
 + In the variables section, create a `score` variable which starts as `0`.
 
