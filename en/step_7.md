@@ -6,8 +6,8 @@ Our slug is hungry, so she needs something to eat! Let's generate some vegetable
 
 Creating the vegetables is fairly straightforward:
 
-1. Pick a random coordinate on the LED matrix
-2. Check if this coordinate is where the slug currently is
+1. Pick a `x, y` random coordinate on the LED matrix
+2. Check if this coordinate is currently inhabited by the slug
 3. If it is, repeat steps 1 and 2 until you pick a location that is outside the slug
 4. Draw the vegetable on the LED matrix
 5. Keep track of this vegetable's location in a list
@@ -15,8 +15,6 @@ Creating the vegetables is fairly straightforward:
 The code you need is very similar code you've written earlier for the slug, so try to do this bit by yourself. If you get stuck, use the hints.
 
 + Create a new variable to define the colour of the vegetables you're going to make. You can do this in the same way you defined the colour of your slug.
-
-+ Create a new empty list called `vegetables` in your variables section.
 
 + Create a new function called `make_veg()` in your functions section.
 
@@ -89,11 +87,19 @@ You will probably notice that rather a lot of vegetables appear, and your slug i
 
 ![Too many vegetables](images/too-many-veggies.gif)
 
-+ Add some code in the main program to only create a new vegetable if there are fewer than three items in the `vegetables` list.
+You need a way to track how many vegetables there are, so that you can prevent this mass spreading of veggies!
+
++ Create a new empty list called `vegetables` in your variables section.
+
++ Write a line of code at the end of your `make_veg` function to add the coordinates of the new vegetable to your `vegetables` list.
+
+[[[generic-python-append-list]]]
+
++ Change the way you call the `make_veg` function in the main program so that it will only create a new vegetable if there are fewer than three items in the `vegetables` list.
 
 --- hints ---
 --- hint ---
-You can use the function `len()` to find out the length of the `vegetables` list or, in other words, how many items are in the list.
+You can use the function `len()` to find out the length of the `vegetables` list, or in other words, how many items are in the list.
 --- /hint ---
 --- hint ---
 Here is some pseudocode to help you:
