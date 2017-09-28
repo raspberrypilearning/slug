@@ -6,4 +6,4 @@ There are lots of possible features you could add to your game to make it more d
 
 + Slug trails: leave a trail behind your slug in a different colour so you can see where you've been. Perhaps you could then make the game harder by not allowing vegetables to be generated in spaces where there is a slug trail?
 
-+ Digest your veg: add code so that, when the slug eats a vegetable, you can see it working its way through the slug's digestive system and getting pooped out of the end! Perhaps you could make the game also end if the slug moves to a space with a pooped-out vegetable? Yuck!
++ Digest the veg: add code so that, when the slug eats a vegetable, you can see it working its way through the slug's digestive system and getting pooped out of the end! Perhaps you could make the game also end if the slug moves to a space with a pooped-out vegetable? Yuck!
