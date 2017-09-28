@@ -1,14 +1,14 @@
 ## Move the slug
 
-Next, let's make the slug move. The slug will always be moving, and will only change direction when the player specifies it. Therefore, you need to store the direction in which the slug is moving.
+Next, let's make the slug move. The slug should always be moving, but it will only change direction when the player specifies it. Therefore, you need to store the direction in which the slug is moving.
 
 + In the variables section, create a variable called `direction`. The slug will begin the game moving right, so initialise this variable to the string `"right"`.
 
-You also need a way to 'erase' pixels, so you can turn off an LED once the slug has moved on.
+You also need a way to 'erase' pixels so you can turn off an LED once the slug has moved on.
 
 + Create a variable called `blank`, and set it to the RGB colour `(0, 0, 0)`.
 
-We stored the pixel coordinates of the slug's current position in a list, so that we can now follow this process to move the slug:
+Since you stored the pixel coordinates of the slug's current position in a list, you can now follow this process to move the slug:
 
 ![Move right](images/move-right.png)
 
@@ -40,7 +40,7 @@ Imagine the pixels of the slug are bits of food queuing up to be pooped out of t
 
 Here is some code to start off the `move()` function. It **does not** work properly yet.
 
-+ Copy this code into your function and run the program. We used the colour variable `white` for the slug, but if you chose a different variable name (e.g. `blue`), you will need to change the name in the code. Look at what happens to the slug.
++ Copy this code into your function and run the program. We used the colour variable `white` for the slug, so if you chose a different variable name, you will need make sure you're using the right name in the function.
 
 ```python
 def move():
@@ -68,9 +68,9 @@ def move():
   slug.remove(first)
 ```
 
-+ Run the program and look at what happens to the slug.
++ Run the program and look at what happens to the slug. Can you explain why you're seeing what you're seeing?
 
-+ Fix the code so that when the slug reaches the right-hand wall, instead of the code crashing, the slug 'moves through' the wall and reappears at the same y coordinate but on the opposite side of the screen.
++ Fix the code so that, when the slug reaches the right-hand wall, she 'moves through' the wall and reappears at the same y coordinate but on the opposite side of the screen.
 
 ![Wrap the slug](images/wrap-slug.gif)
 
@@ -81,11 +81,11 @@ Examine this code:
 # Move along the column
 next[0] = last[0] + 1
 ```
-If we always add 1 to the x coordinate, eventually it will reach 8. The LED matrix only has LEDs 0-7 along each axis — 8 doesn't exist, which is why the code crashes. How could you check if the `value of the x coordinate + 1` would be 8, and in that case set it to 0 instead to make the slug move through the wall?
+If we always add 1 to the x coordinate, eventually it will reach 8. The LED matrix only has LEDs 0-7 along each axis — 8 doesn't exist, which is why the code crashes. How could you check if the value of the x coordinate plus 1 would be 8, and in that case set it to 0 instead to make the slug move through the wall?
 --- /hint ---
 
 --- hint ---
-Here is some pseudo code to help you:
+Here is some pseudocode to help you:
 
 `if` last[0] + 1 `equals` 8
   set next[0] to 0
@@ -106,17 +106,17 @@ else:
 --- /hint ---
 --- /hints ---
 
-+ Add some more code to make the slug able to move up, down, and left. This code will be very similar to the code for moving right, but you'll need to work out which coordinate needs to change and whether to add or subtract 1.
++ Add some more code to make the slug also able to move up, down, and left. This code will be very similar to the code for moving right, but you'll need to work out which coordinate to change and whether to make its value larger or smaller.
 
 --- hints ---
 --- hint ---
-Add an `elif` statement to check whether the direction equals `"left"`. Then check whether moving the slug would result in the x coordinate being outside LED matrix, e.g. `-1`. If that would be the case, set the x coordinate to `7` to make the slug move to the opposite side of the screen.
+Add an `elif` statement to check whether the direction equals `"left"`. Then check whether moving the slug would result in the value of the x coordinate being outside the LED matrix, e.g. `-1`. If that is be the case, set the x coordinate to `7` to make the slug reappear on the opposite side of the screen.
 
 You can test your program by changing the value of the `direction` variable to `"left"`. Note: because this causes the slug to reverse, the slug may appear to behave oddly for the first few moves, but it will then behave normally.
 --- /hint ---
 
 --- hint ---
-The up and down directions work exactly the same as left and right, except that you will be examining the `y` coordinate instead: `last[1]` and `next[1]`.
+The code for the up and down directions works exactly the same as that for left and right, except that you will be examining the y coordinate instead: `last[1]` and `next[1]`.
 --- /hint ---
 
 --- hint ---
