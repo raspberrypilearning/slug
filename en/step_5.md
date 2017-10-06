@@ -94,7 +94,7 @@ Here is some pseudocode to help you:
 --- /hint ---
 
 --- hint ---
-Here is how you code might look, but there are lots of different ways you could successfully write this section:
+Here is how your code might look, but there are lots of different ways you could successfully write this section:
 
 ```python
 # Move along the column

@@ -63,3 +63,5 @@ def joystick_moved(event):
 --- /hints ---
 
 + Run your program and test that it works. If you are using the emulator, you can simulate moving the joystick by pressing the arrow keys on your keyboard.
+
+At this point it is possible to move the slug back "through" herself, which looks rather odd. Later on we will add some code which causes the game to end if the slug bites herself, so there is no need to worry about resolving this glitch.
