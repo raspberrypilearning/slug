@@ -10,7 +10,7 @@ Next, let's link up the Sense HAT's joystick so that the player can use it to co
 def joystick_moved(event):
 ```
 
-You will call this function whenever the joystick is moved. It will automatically receive a parameter called `event`, which will let you find out in which direction the the joystick was moved.
+You will call this function whenever the joystick is moved. It will automatically receive a parameter called `event`, which will let you find out in which direction the joystick was moved.
 
 You'll want to set the `direction` variable to the direction in which the joystick was pushed. So that you are allowed to change the value of the variable from within this function, you need to specify `global` for the variable. To find out why, read about scope in Python functions.
 
@@ -63,3 +63,5 @@ def joystick_moved(event):
 --- /hints ---
 
 + Run your program and test that it works. If you are using the emulator, you can simulate moving the joystick by pressing the arrow keys on your keyboard.
+
+At this point it is possible to move the slug back "through" herself, which looks rather odd. Later on we will add some code which causes the game to end if the slug bites herself, so there is no need to worry about resolving this glitch.

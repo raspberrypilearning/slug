@@ -94,7 +94,7 @@ Here is some pseudocode to help you:
 --- /hint ---
 
 --- hint ---
-Here is how you code might look, but there are lots of different ways you could successfully write this section:
+Here is how your code might look, but there are lots of different ways you could successfully write this section:
 
 ```python
 # Move along the column
@@ -151,3 +151,26 @@ Here is how your code might look. Again, there are lots of potential solutions, 
 
 --- /hint ---
 --- /hints ---
+
+--- collapse ---
+---
+title: A more efficient way
+---
+The code suggested in the previous hint is quite inefficient: there is a lot of repetition. One possible different way of solving this problem would be to first add or subtract from the coordinate value regardless of whether doing so creates a coordinate lying outside the edge of the LED matrix. Then, before performing any actions with the new coordinate, run it through a `wrap()` function to check if it is off the edge and if so, reposition it. Your function might look something like this:
+
+```python
+def wrap(pix):
+    # Wrap x coordinate
+    if pix[0] > 7:
+        pix[0] = 0
+    if pix[0] < 0:
+        pix[0] = 7
+    # Wrap y coordinate
+    if pix[1] < 0:
+        pix[1] = 7
+    if pix[1] > 7:
+        pix[1] = 0
+
+    return pix
+```
+--- /collapse ---

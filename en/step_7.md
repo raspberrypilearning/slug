@@ -15,7 +15,9 @@ The code you need is very similar code you've written earlier for the slug, so t
 
 + Create a new variable to define the colour of the vegetables you're going to make. You can do this in the same way you defined the colour of your slug.
 
-+ Create a new function called `make_veg()` in your functions section.
+### Create the function
+
++ Define a new function called `make_veg()` in your functions section. The code to put inside the function is explained in the following steps.
 
 + Inside the function, write some code to pick a random coordinate on the LED matrix.
 
@@ -74,6 +76,8 @@ while new in slug:
 
 + Once you have found an `x, y` coordinate which isn't inside the slug, draw the vegetable on the screen using your new colour variable.
 
+### Call the function
+
 + In your main program, call the `make_veg` function and check that vegetables randomly appear on the LED matrix.
 
 You will probably notice that rather a lot of vegetables appear, so your slug is quickly overrun!
@@ -81,6 +85,8 @@ You will probably notice that rather a lot of vegetables appear, so your slug is
 ![Too many vegetables](images/too-many-veggies.gif)
 
 You need a way to track how many vegetables there are, so that you can prevent this dangerous spreading of veggies!
+
+## Keep track of the vegetables
 
 + Create a new empty list called `vegetables` in your variables section.
 
