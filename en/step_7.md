@@ -86,6 +86,8 @@ You will probably notice that rather a lot of vegetables appear, so your slug is
 
 You need a way to track how many vegetables there are, so that you can prevent this dangerous spreading of veggies!
 
+## Keep track of the vegetables
+
 + Create a new empty list called `vegetables` in your variables section.
 
 + Write a line of code at the end of your `make_veg` function to add the coordinates of the new vegetable to your `vegetables` list.
