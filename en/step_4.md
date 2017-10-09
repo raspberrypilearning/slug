@@ -6,6 +6,12 @@ Your first job is to draw the slug on the Sense HAT's LED display. It is importa
 
 [[[generic-python-2d-lists]]]
 
+Your slug will begin by inhabiting three pixels on the LED display. Each pixel has a `x`, `y` coordinate which can be stored as a list, e.g. `[2, 4]`. The slug will inhabits three pixels, so it needs three coordinate lists. We will store the coordinate lists in another list, making a list of lists or a **2D list**.
+
+![Storing the slug](images/2d-slug.png)
+
+Let's write the code that will draw the slug.
+
 To be able to light up a pixel on the LED display, you need to specify three things: the x and y coordinates of the pixel, and the colour you would like the LED to be.
 
 [[[rpi-sensehat-led-coordinates]]]
