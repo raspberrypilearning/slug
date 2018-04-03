@@ -2,23 +2,27 @@ title: SLUG!
 hero_image: images/banner.png
 description: Recreate the classic game of Snake on your Sense HAT
 theme: violet # possible values: blue, green, navy, orange, red, turquoise, violet, yellow
-duration: 2 # possible values: 1, 2 or 3
+duration: 2
 listed: true
 ingredient: false
 copyedit: true
-curriculum: creator, design-0, programming-3, phys-comp-0, manufacture-0, community-0
-interests: "games"
-technologies: "sense-hat, physical computing, python"
-site_areas:
-steps:
-  - title: Introduction
-  - title: What you will need
-  - title: Connect to the Sense HAT
-  - title: Draw the slug
-  - title: Move the slug
-  - title: Use the joystick
-  - title: Create vegetables
-  - title: Eating vegetables
-  - title: Growing and speeding up
-  - title: Game over
-  - title: "Challenge: crazy veggies"
+curriculum: 3, design-0, programming-3, phys-comp-0, manufacture-0, community-0
+interests: games
+technologies: sense-hat, electronic-components, python
+site_areas: projects
+hardware: sense-hat, electronic-components
+software: python
+version: 4
+last_tested: 2017-10-01
+steps: 
+- title: Introduction
+- title: What you will need
+- title: Connect to the Sense HAT
+- title: Draw the slug
+- title: Move the slug
+- title: Use the joystick
+- title: Create vegetables
+- title: Eating vegetables
+- title: Growing and speeding up
+- title: Game over
+- title: "Challenge: crazy veggies"
