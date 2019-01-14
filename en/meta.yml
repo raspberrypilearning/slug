@@ -12,9 +12,9 @@ technologies: sense-hat, electronic-components, python
 site_areas: projects
 hardware: sense-hat, electronic-components
 software: python
-version: 4
+version: 4.0.1
 last_tested: 2017-10-01
-steps: 
+steps:
 - title: Introduction
 - title: What you will need
 - title: Connect to the Sense HAT
