@@ -13,3 +13,12 @@ Use the arrow keys on your keyboard to direct the slug. Click **Run** to start t
 This project covers elements from the following strands of the [Raspberry Pi Digital Making Curriculum](http://rpf.io/curriculum){:target="_blank"}:
 
 + [Apply abstraction and decomposition to solve more complex problems](https://curriculum.raspberrypi.org/programming/developer/){:target="_blank"}
+
+--- collapse ---
+---
+title: Additional information for educators
+---
+
+[Here is a link to the resources and solution for this project](https://github.com/raspberrypilearning/slug/tree/master/en).
+
+--- /collapse ---
