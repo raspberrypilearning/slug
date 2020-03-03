@@ -23,18 +23,28 @@ The code you need is very similar code you've written earlier for the slug, so t
 
 [[[generic-python-random]]]
 
---- hints --- --- hint --- Generate a random x coordinate and a random y coordinate and then put them together in a list. Both coordinates must be random numbers between 0 and 7. --- /hint --- --- hint --- You can use the `randint` function to generate random numbers. For example, this code generates a random number between 5 and 10:
+--- hints --- --- hint ---
+
+Generate a random x coordinate and a random y coordinate and then put them together in a list. Both coordinates must be random numbers between 0 and 7.
+
+--- /hint --- --- hint ---
+
+You can use the `randint` function to generate random numbers. For example, this code generates a random number between 5 and 10:
 
 ```python
 a = randint(5, 10)
 ```
---- /hint --- --- hint --- Here is how your code should look:
+
+--- /hint --- --- hint ---
+
+Here is how your code should look:
 
 ```python
 x = randint(0, 7)
 y = randint(0, 7)
 new = [x, y]
 ```
+
 --- /hint --- --- /hints ---
 
 
@@ -42,11 +52,17 @@ new = [x, y]
 
 [[[generic-python-item-in-list]]]
 
---- hints --- --- hint --- Here is some pseudocode to help you. We start off by setting `new` equal to the first coordinate in the `slug` list so that it is guaranteed to start off inside the slug. This way a new coordinate must be generated at least once.
+--- hints --- --- hint ---
 
-Set `new` to the first coordinate in the `slug` list `while` the coordinate is in the `slug` list: set x to a random number between 0 and 7 set y to a random number between 0 and 7 set `new` to x, y --- /hint ---
+Here is some pseudocode to help you. We start off by setting `new` equal to the first coordinate in the `slug` list so that it is guaranteed to start off inside the slug. This way a new coordinate must be generated at least once.
 
---- hint --- Here is how your code might look:
+Set `new` to the first coordinate in the `slug` list `while` the coordinate is in the `slug` list: set x to a random number between 0 and 7 set y to a random number between 0 and 7 set `new` to x, y
+
+--- /hint ---
+
+--- hint ---
+
+Here is how your code might look:
 
 ```python
 new = slug[0]
@@ -55,6 +71,7 @@ while new in slug:
     y = randint(0, 7)
     new = [x, y]
 ```
+
 --- /hint --- --- /hints ---
 
 + Once you have found an `x, y` coordinate which isn't inside the slug, draw the vegetable on the screen using your new colour variable.
@@ -79,14 +96,25 @@ You need a way to track how many vegetables there are, so that you can prevent t
 
 + Change the way you call the `make_veg` function in the main program so that it will only create a new vegetable if there are fewer than three items in the `vegetables` list.
 
---- hints --- --- hint --- You can use the function `len()` to find out the length of the `vegetables` list, or in other words, how many items are in the list. --- /hint --- --- hint --- Here is some pseudocode to help you:
+--- hints --- --- hint ---
 
-`if` the length of the vegetables list is `less than` 3 Call the `make_veg` function --- /hint --- --- hint --- Here is how your code should look:
+You can use the function `len()` to find out the length of the `vegetables` list, or in other words, how many items are in the list.
+
+--- /hint --- --- hint ---
+
+Here is some pseudocode to help you:
+
+`if` the length of the vegetables list is `less than` 3 Call the `make_veg` function
+
+--- /hint --- --- hint ---
+
+Here is how your code should look:
 
 ```python
 if len(vegetables) < 3:
    make_veg()
 ```
+
 --- /hint --- --- /hints ---
 
 ### Challenge
@@ -96,6 +124,7 @@ Can you change your code so that, if there are fewer than 3 vegetables in the li
 ---
 title: Challenge solution
 ---
+
 ```python
 # Let there be a 20% chance of making a veggie if there aren't many about
 if len(vegetables) < 3 and randint(1, 5) > 4:
