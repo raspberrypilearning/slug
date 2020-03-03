@@ -48,19 +48,25 @@ Each element in the list represents the `x, y` coordinates of one segment of the
 
 --- hints ---
 --- hint ---
+
 The `set_pixel` method requires three arguments: the x coordinate of the pixel, the y coordinate of the pixel, and the colour.
+
 --- /hint ---
 
 --- hint ---
+
 Your `for` loop will examine each segment of the slug in turn. If you wrote your loop like this:
 
 ```python
 for segment in slug:
 ```
+
 ...then `segment[0]` will be the x coordinate of the segment you are currently looking at.
+
 --- /hint ---
 
 --- hint ---
+
 Here is how your code might look:
 
 ```python
@@ -68,6 +74,7 @@ def draw_slug():
   for segment in slug:
       sense.set_pixel(segment[0], segment[1], white)
 ```
+
 --- /hint ---
 --- /hints ---
 

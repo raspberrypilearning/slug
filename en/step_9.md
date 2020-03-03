@@ -33,7 +33,9 @@ if next in vegetables:
 ---
 title: Answer
 ---
+
 The code to remove the segment currently runs before the code to check whether the new pixel was a vegetable. This means that the program doesn't care whether we've told it to remove or not remove a segment, because by the time this decision is taken, the segment has already been removed!
+
 --- /collapse ---
 
 + Alter the order of the code so that the last thing in the `move()` function is the code to potentially remove a segment. Test again, and you should see your slug grow.
@@ -66,6 +68,7 @@ if score % 5 == 0:
 ---
 title: Answer
 ---
+
 If `pause` begins at `0.5`, and we subtract `0.1` for every five eaten vegetables, `pause` will eventually become `0`. That will make the game impossible!
 
 Instead of subtracting a fixed amount, why not make `pause` proportionally smaller? For example:
@@ -75,4 +78,5 @@ pause = pause * 0.8
 ```
 
 This will make `pause` 80% of its previous value. In this way, it will never become `0`.
+
 --- /collapse ---
