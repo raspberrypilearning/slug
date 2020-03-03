@@ -27,9 +27,12 @@ The slug is actually a **queue** data structure.
 ---
 title: What is a queue?
 ---
+
 A queue is a data structure where the first piece of data added is the first piece of data to come out. It is also called a FIFO or 'first in, first out' data structure. This is like waiting in a supermarket to pay for your shopping: you join the queue at the back, and the person at the front gets to pay for their items first and then leaves the queue.
 
-Imagine the pixels of the slug are bits of food queuing up to be pooped out of the slug. The first item in the list is at the front of the queue, which is the back of the slug: this item will exit the slug and be deleted. New pixels join the slug queue at the end, which is where the mouth of the slug is. They gradually work their way towards the front of the queue as the slug moves. --- /collapse ---
+Imagine the pixels of the slug are bits of food queuing up to be pooped out of the slug. The first item in the list is at the front of the queue, which is the back of the slug: this item will exit the slug and be deleted. New pixels join the slug queue at the end, which is where the mouth of the slug is. They gradually work their way towards the front of the queue as the slug moves.
+
+--- /collapse ---
 
 + In the functions section, create a function called `move()`.
 
@@ -73,18 +76,30 @@ def move():
 
 ![Wrap the slug](images/wrap-slug.gif)
 
---- hints --- --- hint --- Examine this code:
+--- hints --- --- hint ---
+
+Examine this code:
+
 ```python
 # Move along the column
 next[0] = last[0] + 1
 ```
-If we always add 1 to the x coordinate, eventually it will reach 8. The LED matrix only has LEDs 0-7 along each axis — 8 doesn't exist, which is why the code crashes. How could you check if the value of the x coordinate plus 1 would be 8, and in that case set it to 0 instead to make the slug move through the wall? --- /hint ---
 
---- hint --- Here is some pseudocode to help you:
+If we always add 1 to the x coordinate, eventually it will reach 8. The LED matrix only has LEDs 0-7 along each axis — 8 doesn't exist, which is why the code crashes. How could you check if the value of the x coordinate plus 1 would be 8, and in that case set it to 0 instead to make the slug move through the wall?
 
-`if` last[0] + 1 `equals` 8 set next[0] to 0 `else` set next[0] to last[0] + 1 --- /hint ---
+--- /hint ---
 
---- hint --- Here is how your code might look, but there are lots of different ways you could successfully write this section:
+--- hint ---
+
+Here is some pseudocode to help you:
+
+`if` last[0] + 1 `equals` 8 set next[0] to 0 `else` set next[0] to last[0] + 1
+
+--- /hint ---
+
+--- hint ---
+
+Here is how your code might look, but there are lots of different ways you could successfully write this section:
 
 ```python
 # Move along the column
@@ -93,17 +108,28 @@ if last[0] + 1 == 8:
 else:
  next[0] = last[0] + 1
 ```
+
 --- /hint --- --- /hints ---
 
 + Add some more code to make the slug also able to move up, down, and left. This code will be very similar to the code for moving right, but you'll need to work out which coordinate to change and whether to make its value larger or smaller.
 
---- hints --- --- hint --- Add an `elif` statement to check whether the direction equals `"left"`. Then check whether moving the slug would result in the value of the x coordinate being outside the LED matrix, e.g. `-1`. If that is be the case, set the x coordinate to `7` to make the slug reappear on the opposite side of the screen.
+--- hints --- --- hint ---
 
-You can test your program by changing the value of the `direction` variable to `"left"`. Note: because this causes the slug to reverse, the slug may appear to behave oddly for the first few moves, but it will then behave normally. --- /hint ---
+Add an `elif` statement to check whether the direction equals `"left"`. Then check whether moving the slug would result in the value of the x coordinate being outside the LED matrix, e.g. `-1`. If that is be the case, set the x coordinate to `7` to make the slug reappear on the opposite side of the screen.
 
---- hint --- The code for the up and down directions works exactly the same as that for left and right, except that you will be examining the y coordinate instead: `last[1]` and `next[1]`. --- /hint ---
+You can test your program by changing the value of the `direction` variable to `"left"`. Note: because this causes the slug to reverse, the slug may appear to behave oddly for the first few moves, but it will then behave normally.
 
---- hint --- Here is how your code might look. Again, there are lots of potential solutions, so your code might look different and work correctly anyway.
+--- /hint ---
+
+--- hint ---
+
+The code for the up and down directions works exactly the same as that for left and right, except that you will be examining the y coordinate instead: `last[1]` and `next[1]`.
+
+--- /hint ---
+
+--- hint ---
+
+Here is how your code might look. Again, there are lots of potential solutions, so your code might look different and work correctly anyway.
 
 ```python
 # Find the next pixel in the direction the slug is currently moving
@@ -138,6 +164,7 @@ You can test your program by changing the value of the `direction` variable to `
 ---
 title: A more efficient way
 ---
+
 The code suggested in the previous hint is quite inefficient: there is a lot of repetition. One possible different way of solving this problem would be to first add or subtract from the coordinate value regardless of whether doing so creates a coordinate lying outside the edge of the LED matrix. Then, before performing any actions with the new coordinate, run it through a `wrap()` function to check if it is off the edge and if so, reposition it. Your function might look something like this:
 
 ```python
@@ -155,4 +182,5 @@ def wrap(pix):
 
     return pix
 ```
+
 --- /collapse ---
