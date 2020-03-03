@@ -33,18 +33,23 @@ You can access the direction the joystick was moved in with the help of the `eve
 
 --- hints ---
 --- hint ---
+
 You can find out how to do this in the information section 'Triggering function calls with the Sense HAT joystick' found above.
+
 --- /hint ---
 
 --- hint ---
+
 The code to say "when the joystick is pressed in any direction" is as follows:
 
 ```python
 sense.stick.direction_any =
 ```
+
 --- /hint ---
 
 --- hint ---
+
 Here is how the code in the **main program** should look:
 
 ```python

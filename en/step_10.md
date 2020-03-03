@@ -10,6 +10,7 @@ The final thing you need to check when the slug moves to a new pixel is whether 
 
 --- hints ---
 --- hint ---
+
 Here is the code you used to check whether the pixel the slug was moving to contained a vegetable:
 
 ```python
@@ -18,14 +19,17 @@ if next in vegetables:
 ```
 
 Can you use similar code to check whether the next pixel is part of the slug?
+
 --- /hint ---
 --- hint ---
+
 Here is how your code should look. Make sure you add it to the `move()` function **above** the code which adds the `next` pixel to the `slug` list, otherwise you will be permanently dead!
 
 ```python
 if next in slug:
     dead = True
 ```
+
 --- /hint ---
 --- /hints ---
 
