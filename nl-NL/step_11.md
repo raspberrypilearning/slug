@@ -1,9 +1,9 @@
-## Challenge: crazy veggies
+## Uitdaging: gekke groenten
 
-There are lots of possible features you could add to your game to make it more difficult and entertaining for the player! Here are a few examples — can you come up with your own ideas?
+Er zijn veel mogelijke functies die je aan je spel kunt toevoegen om het voor de speler moeilijker en vermakelijker te maken! Hier zijn een paar voorbeelden - kun je je eigen ideeën bedenken?
 
-+ Growth vegetables: add a new type of vegetable which causes the slug to grow by more than one segment at a time. This makes the game harder because the slug will become big quickly, making it difficult to stop her from biting herself!
++ Groeigroenten: voeg een nieuw soort groente toe waardoor de slak met meer dan één segment tegelijk groeit. Dit maakt het spel moeilijker omdat de slak snel groot wordt, waardoor het moeilijk wordt om te voorkomen dat ze zichzelf bijt!
 
-+ Slug trails: leave a trail behind your slug in a different colour so you can see where you've been. Perhaps you could then make the game harder by not allowing vegetables to be generated in spaces where there is a slug trail?
++ Slakkenpaden: laat een spoor achter na je slak in een andere kleur, zodat je kunt zien waar je bent geweest. Misschien kun je het spel dan moeilijker maken door niet toe te staan dat er groenten worden geproduceerd in ruimtes met een slakkenpad?
 
-+ Digest the veg: add code so that, when the slug eats a vegetable, you can see it working its way through the slug's digestive system and getting pooped out of the end! Perhaps you could make the game also end if the slug moves to a space with a pooped-out vegetable? Yuck!
++ Verteer de groenten: voeg code toe zodat, wanneer de slak een stuk groente eet, je hem door het spijsverteringssysteem van de slak heen ziet werken en aan het einde wordt uitgepoept! Misschien kun je het spel ook laten eindigen als de slak naar een ruimte met een uitgepoepte groente gaat? Jakkes!
