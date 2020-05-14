@@ -1,35 +1,35 @@
-## Create vegetables
+## Maak groenten
 
-Our slug is hungry, so she needs something to eat! Let's generate some vegetables for her at random locations on the LED matrix.
+Onze naaktslak heeft honger, dus ze heeft iets te eten nodig! Laten we wat groenten voor haar genereren op willekeurige locaties op de LED-matrix.
 
-![Vegetables](images/vegetables.png)
+![Groenten](images/vegetables.png)
 
-Creating the vegetables is fairly straightforward:
+Het maken van de groenten is vrij eenvoudig:
 
-1. Pick a `x, y` random coordinate on the LED matrix
-2. Check if this coordinate is currently inhabited by the slug
-3. If it is, repeat steps 1 and 2 until you pick a location that is outside the slug
-4. Draw the vegetable on the LED matrix
+1. Kies een willekeurige coördinaat van `x, y` op de LED-matrix
+2. Controleer of deze coördinaat momenteel wordt bewoond door de naaktslak
+3. Als dit het geval is, herhaal je stap 1 en 2 totdat je een locatie kiest die zich buiten de naaktslak bevindt
+4. Teken de groente op de LED-matrix
 
-The code you need is very similar code you've written earlier for the slug, so try to do this bit by yourself. If you get stuck, use the hints.
+De code die je nodig hebt, lijkt sterk op de code die je eerder voor de slak hebt geschreven, dus probeer dit stukje zelf te doen. Gebruik de hints als je vastloopt.
 
-+ Create a new variable to define the colour of the vegetables you're going to make. You can do this in the same way you defined the colour of your slug.
++ Maak een nieuwe variabele om de kleur te definiëren van de groenten die je gaat maken. Je kunt dit op dezelfde manier doen als je de kleur van je naaktslak hebt gedefinieerd.
 
-### Create the function
+### Creëer de functie
 
-+ Define a new function called `make_veg()` in your functions section. The code to put inside the function is explained in the following steps.
++ Definieer een nieuwe functie met de naam `make_veg ()` in uw functiegedeelte. De code om in de functie te plaatsen wordt in de volgende stappen uitgelegd.
 
-+ Inside the function, write some code to pick a random coordinate on the LED matrix.
++ Schrijf binnen de functie wat code om een willekeurige coördinaat op de LED-matrix te kiezen.
 
 [[[generic-python-random]]]
 
 --- hints --- --- hint ---
 
-Generate a random x coordinate and a random y coordinate and then put them together in a list. Both coordinates must be random numbers between 0 and 7.
+Genereer een willekeurige x-coördinaat en een willekeurige y-coördinaat en plaats ze vervolgens in een lijst. Beide coördinaten moeten willekeurige getallen tussen 0 en 7 zijn.
 
 --- /hint --- --- hint ---
 
-You can use the `randint` function to generate random numbers. For example, this code generates a random number between 5 and 10:
+Je kunt de functie `randint` gebruiken om willekeurige getallen te genereren. Deze code genereert bijvoorbeeld een willekeurig getal tussen 5 en 10:
 
 ```python
 a = randint(5, 10)
@@ -37,98 +37,98 @@ a = randint(5, 10)
 
 --- /hint --- --- hint ---
 
-Here is how your code should look:
+Dit is hoe je code eruit zou moeten zien:
 
 ```python
 x = randint(0, 7)
 y = randint(0, 7)
-new = [x, y]
+nieuw = [x, y]
 ```
 
 --- /hint --- --- /hints ---
 
 
-+ Check if this `x, y` coordinate is in the `slug` list. If it is, pick a new coordinate and check it against the list. Repeat this until the coordinate you've picked isn't in the slug list.
++ Controleer of deze `x, y` coördinaat in de `naaktslak` lijst staat. Als dit het geval is, kies dan een nieuwe coördinaat en vergelijk deze met de lijst. Herhaal dit totdat de gekozen coördinaat niet in de lijst met slakken voorkomt.
 
 [[[generic-python-item-in-list]]]
 
 --- hints --- --- hint ---
 
-Here is some pseudocode to help you. We start off by setting `new` equal to the first coordinate in the `slug` list so that it is guaranteed to start off inside the slug. This way a new coordinate must be generated at least once.
+Hier is wat pseudocode om je te helpen. We beginnen met het instellen van `nieuw` gelijk aan de eerste coördinaat in de `naaktslak` lijst zodat het gegarandeerd in de slak begint. Op deze manier moet minimaal één keer een nieuwe coördinaat worden gegenereerd.
 
-Set `new` to the first coordinate in the `slug` list `while` the coordinate is in the `slug` list: set x to a random number between 0 and 7 set y to a random number between 0 and 7 set `new` to x, y
+Stel `nieuw` in op de eerste coördinaat in de `naaktslak` lijst `terwijl` de coördinaat in de `naaktslak` lijst staat: stel x in op een willekeurig getal tussen 0 en 7 stel y in op een willekeurig getal tussen 0 en 7 zet `nieuw` in op x, y
 
 --- /hint ---
 
 --- hint ---
 
-Here is how your code might look:
+Zo ziet je code eruit:
 
 ```python
-new = slug[0]
-while new in slug:
+nieuw = naaktslak[0]
+while nieuw in naaktslak:
     x = randint(0, 7)
     y = randint(0, 7)
-    new = [x, y]
+    nieuw = [x, y]
 ```
 
 --- /hint --- --- /hints ---
 
-+ Once you have found an `x, y` coordinate which isn't inside the slug, draw the vegetable on the screen using your new colour variable.
++ Zodra je een coördinaat van `x, y` hebt gevonden die zich niet in de slak bevindt, teken je de groente op het scherm met je nieuwe kleurvariabele.
 
-### Call the function
+### Roep de functie aan
 
-+ In your main program, call the `make_veg` function and check that vegetables randomly appear on the LED matrix.
++ Roep in je hoofdprogramma de functie `maak_groente` aan en controleer of groenten willekeurig verschijnen op de LED-matrix.
 
-You will probably notice that rather a lot of vegetables appear, so your slug is quickly overrun!
+Je zult waarschijnlijk merken dat er nogal wat groenten verschijnen, dus je slak wordt snel overschreven!
 
-![Too many vegetables](images/too-many-veggies.gif)
+![Te veel groenten](images/too-many-veggies.gif)
 
-You need a way to track how many vegetables there are, so that you can prevent this dangerous spreading of veggies!
+Je hebt een manier nodig om bij te houden hoeveel groenten er zijn, zodat je deze gevaarlijke verspreiding van groenten kunt voorkomen!
 
-## Keep track of the vegetables
+## Blijf op de hoogte van de groenten
 
-+ Create a new empty list called `vegetables` in your variables section.
++ Maak een nieuwe lege lijst met de naam `groenten` in je variabelensectie.
 
-+ Write a line of code at the end of your `make_veg` function to add the coordinates of the new vegetable to your `vegetables` list.
++ Schrijf een coderegel aan het einde van je `maak_groente` functie om de coördinaten van de nieuwe groente toe te voegen aan je `groenten` lijst.
 
 [[[generic-python-append-list]]]
 
-+ Change the way you call the `make_veg` function in the main program so that it will only create a new vegetable if there are fewer than three items in the `vegetables` list.
++ Wijzig de manier waarop je de functie `maak_groente` in het hoofdprogramma aanroept, zodat deze alleen een nieuwe groente maakt als er minder dan drie items in de lijst met `groenten` staan.
 
 --- hints --- --- hint ---
 
-You can use the function `len()` to find out the length of the `vegetables` list, or in other words, how many items are in the list.
+Je kunt de functie `len()` gebruiken om de lengte van de `groenten` lijst te achterhalen, of met andere woorden, hoeveel items er in de lijst staan.
 
 --- /hint --- --- hint ---
 
-Here is some pseudocode to help you:
+Hier is wat pseudocode om je te helpen:
 
-`if` the length of the vegetables list is `less than` 3 Call the `make_veg` function
+`als` de lengte van de groentenlijst `minder dan` 3 Roep de `maak_groente` functie aan
 
 --- /hint --- --- hint ---
 
-Here is how your code should look:
+Dit is hoe je code eruit zou moeten zien:
 
 ```python
-if len(vegetables) < 3:
-   make_veg()
+if len(groenten) < 3:
+   maak_groente()
 ```
 
 --- /hint --- --- /hints ---
 
-### Challenge
-Can you change your code so that, if there are fewer than 3 vegetables in the list, there is only a 20% chance of creating a new vegetable each time the function runs? This will make it less predictable when vegetables might appear. To create the 20% chance, randomly pick a number between 1 and 5, and only create a vegetable for one specific number in this range.
+### Uitdaging
+Kun je je code zo wijzigen dat, als er minder dan 3 groenten in de lijst staan, er slechts 20% kans is om een nieuwe groente te maken elke keer dat de functie wordt uitgevoerd? Dit maakt het minder voorspelbaar wanneer groenten kunnen verschijnen. Om een kans van 20% te creëren, kies je willekeurig een getal tussen 1 en 5 en maak je alleen een groente voor een specifiek getal in dit bereik.
 
 --- collapse ---
 ---
-title: Challenge solution
+title: Uitdagingsoplossing
 ---
 
 ```python
-# Let there be a 20% chance of making a veggie if there aren't many about
-if len(vegetables) < 3 and randint(1, 5) > 4:
-    make_veg()
+# Laat er een kans van 20% zijn op het maken van een groente als er niet veel zijn
+if len(groenten) < 3 and randint (1, 5) > 4:
+    maak_groente()
 ```
 
 --- /collapse ---
