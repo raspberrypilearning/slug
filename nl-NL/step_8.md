@@ -1,44 +1,44 @@
-## Eating vegetables
+## Groenten eten
 
-Your slug already appears to eat the vegetables — great! However, you have probably found that, once she has eaten the first three vegetables, no more vegetables ever appear regardless of how long you wait.
+Je slak lijkt de groenten al op te eten - geweldig! Je hebt echter waarschijnlijk ontdekt dat, zodra ze de eerste drie groenten heeft gegeten, er nooit meer groenten verschijnen, ongeacht hoe lang je wacht.
 
-**Can you work out why this is?**
+**Kun je achterhalen waarom dit zo is?**
 
 --- collapse ---
 ---
-title: Answer
+title: Antwoord
 ---
 
-Since the `make_veg` function only generates vegetables if the `vegetables` list contains fewer than three items, no new vegetables will appear once the list contains three vegetables.
+Omdat de functie `maak_groente` alleen groenten genereert als de lijst met `groenten` minder dan drie items bevat, worden er geen nieuwe groenten meer weergegeven zodra de lijst drie groenten bevat.
 
-At the moment, your first three vegetables are generated and added to the `vegetables` list. When the slug moves to a pixel containing a vegetable, the vegetable disappears because the `move` function draws the slug's pixels over the top of it. This is why the slug appears to eat it. However, the vegetable is never removed from the `vegetables` list, so the `make_veg` function isn't allowed to make more.
+Op dit moment worden je eerste drie groenten gegenereerd en toegevoegd aan de lijst met `groenten`. Wanneer de slak naar een pixel met een groente gaat, verdwijnt de groente omdat de functie `beweeg` de pixels van de slak eroverheen plaatst. Dit is de reden waarom de naaktslak het lijkt op te eten. De groente wordt echter nooit verwijderd uit de lijst met `groenten`, dus de functie `maak_groente` mag niet meer maken.
 
 --- /collapse ---
 
-+ Add some code at the end of the `move()` function so that, whenever the slug moves to a new pixel, the function checks whether that pixel is in the `vegetables` list. If the pixel is in the `vegetables` list, remove it from the list.
++ Voeg code toe aan het einde van de functie `beweeg()` zodat, telkens wanneer de slak naar een nieuwe pixel wordt verplaatst, de functie controleert of die pixel in de lijst met `groenten` staat. Als de pixel in de lijst `groenten` staat, verwijder je deze uit de lijst.
 
-Let's also add a score to keep track of how many vegetables the slug has eaten, so that the player knows how well they have done when their round ends.
+Laten we ook een score toevoegen om bij te houden hoeveel groenten de slak heeft gegeten, zodat de speler weet hoe goed ze het hebben gedaan als hun ronde is afgelopen.
 
-+ In the variables section, create a `score` variable which starts as `0`.
++ Maak in de sectie met variabelen een variabele met `score` die begint met `0`.
 
-+ Whenever the slug eats a vegetable, add 1 to the score. Don't forget that, because the `score` variable was created outside of the function, you need to specify that you want to use `global score` at the start of the `move()` function so that the function is allowed to change it.
++ Telkens als de slak een groente eet, tel 1 op bij de score. Vergeet niet dat, omdat de variabele `score` buiten de functie is gemaakt, je moet opgeven dat je `global score` wilt gebruiken aan het begin van de functie `beweeg()`, zodat de functie het mag veranderen.
 
 --- hints --- --- hint ---
 
-Here is some pseudocode for the check which should occur within the `move()` function:
+Hier is wat pseudocode voor de controle die zou moeten plaatsvinden binnen de functie `beweeg()`:
 
-`if` new pixel is `in` vegetables `remove` new pixel from vegetables `add` 1 to score
+`als` nieuwe pixel `in` groenten zit `verwijder` nieuwe pixel uit groenten `voeg` 1 toe aan de score
 
 --- /hint --- --- hint ---
 
-Here is the code you should add to the end of the `move()` function:
+Hier is de code die je moet toevoegen aan het einde van de functie `beweeg()`:
 
 ```python
-if next in vegetables:
-  vegetables.remove(next)
+if volgende in groenten:
+  groenten.remove(volgende)
   score += 1
 ```
 
-Don't forget to also add `global score` on the first line of the `move()` function, and to initialise the `score` variable to `0` in the variables section.
+Vergeet niet ook `global score` toe te voegen op de eerste regel van de functie `beweeg()` en de variabele `score` te initialiseren op `0` in het gedeelte met variabelen.
 
 --- /hint --- --- /hints ---
