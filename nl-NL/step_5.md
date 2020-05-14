@@ -25,7 +25,7 @@ De slak is eigenlijk een **wachtrij** gegevensstructuur.
 
 --- collapse ---
 ---
-titel: Wat is een wachtrij?
+title: Wat is een wachtrij?
 ---
 
 Een wachtrij is een gegevensstructuur waarbij het eerste stukje gegevens dat wordt toegevoegd het eerste stuk gegevens is dat eruit komt. Het wordt ook een FIFO of 'first in, first out' (eerste in, eerste uit) datastructuur genoemd. Dit is hetzelfde als wachten in een supermarkt om te betalen voor je boodschappen: je gaat achteraan in de rij staan en de persoon vooraan in de rij mag als eerste zijn items betalen en verlaat dan de rij.
