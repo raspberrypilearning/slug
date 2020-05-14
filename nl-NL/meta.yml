@@ -1,7 +1,7 @@
 ---
-title: SLUG!
+title: NAAKTSLAK!
 hero_image: images/banner.png
-description: Recreate the classic game of Snake on your Sense HAT
+description: Speel het klassieke spel Snake na op je Sense HAT
 theme: violet #possible values: blue, green, navy, orange, red, turquoise, violet, yellow
 duration: 2
 listed: true
@@ -17,24 +17,24 @@ version: 4.0.1
 last_tested: 2017-10-01
 steps:
   - 
-    title: Introduction
+    title: Inleiding
   - 
-    title: What you will need
+    title: Wat heb je nodig
   - 
-    title: Connect to the Sense HAT
+    title: Maak verbinding met de Sense HAT
   - 
-    title: Draw the slug
+    title: Teken de naaktslak
   - 
-    title: Move the slug
+    title: Verplaats de naaktslak
   - 
-    title: Use the joystick
+    title: Gebruik de joystick
   - 
-    title: Create vegetables
+    title: Maak groenten
   - 
-    title: Eating vegetables
+    title: Groenten eten
   - 
-    title: Growing and speeding up
+    title: Groeien en versnellen
   - 
     title: Game over
   - 
-    title: "Challenge: crazy veggies"
+    title: "Uitdaging: gekke groenten"
