@@ -4,9 +4,9 @@ from random import randint
 
 sense = SenseHat()
 
-# Variables ---------------------------
+# Variabelen ---------------------------
 
-# Functions ---------------------------
+# Functies ---------------------------
 
-# Main program ------------------------
+# Hoofdprogramma ------------------------
       
