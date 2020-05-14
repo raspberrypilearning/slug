@@ -1,42 +1,42 @@
 ## Game over
 
-The final thing you need to check when the slug moves to a new pixel is whether she will bite into her own body. If this happens, she will die and the player will lose the game. The way to do this is very similar to how you checked checked whether the slug is eating a vegetable.
+Het laatste wat je moet controleren wanneer de slak naar een nieuwe pixel beweegt, is of ze in haar eigen lichaam zal bijten. Als dit gebeurt, gaat ze dood en verliest de speler het spel. De manier om dit te doen is vergelijkbaar met hoe je hebt gecontroleerd of de slak een groente eet.
 
-+ In the variables section, create a new Boolean variable called `dead` and initialise it to `False` (so the slug doesn't start off dead!).
++ Maak in de sectie met variabelen een nieuwe Booleaanse variabele met de naam `dood` en initialiseer deze op `False` (zodat de slak niet dood begint!).
 
-+ Inside the `move()` function, add some code to check whether the next pixel the slug is moving to is part of herself.
++ Voeg binnen de `beweeg()` functie wat code toe om te controleren of de volgende pixel waar de slak naar toe beweegt een deel van zichzelf is.
 
-+ If it is, set the `dead` variable to `True`. Do you remember what you need to do to allow a function to alter a global variable?
++ Als dit het geval is, stel je de variabele `dood` in op `True`. Weet je nog wat je moet doen om een functie een globale variabele te laten wijzigen?
 
 --- hints --- --- hint ---
 
-Here is the code you used to check whether the pixel the slug was moving to contained a vegetable:
+Hier is de code die je hebt gebruikt om te controleren of de pixel waarnaar de slak werd verplaatst, een groente bevatte:
 
 ```python
-if next in vegetables:
-    # Do things relating to vegetables
+if volgende in groenten:
+    # Doe dingen met betrekking tot groenten
 ```
 
-Can you use similar code to check whether the next pixel is part of the slug?
+Kun je vergelijkbare code gebruiken om te controleren of de volgende pixel deel uitmaakt van de naaktslak?
 
 --- /hint --- --- hint ---
 
-Here is how your code should look. Make sure you add it to the `move()` function **above** the code which adds the `next` pixel to the `slug` list, otherwise you will be permanently dead!
+Hier is hoe je code eruit zou moeten zien. Zorg ervoor dat je het toevoegt aan de `beweeg()` functie **boven** de code die de `komende` pixel toevoegt aan de `naaktslak` lijst, anders zul je permanent dood zijn!
 
 ```python
-if next in slug:
-    dead = True
+if volgende in naaktslak:
+    dood = True
 ```
 
 --- /hint --- --- /hints ---
 
 
-Save and run your code. When you make the slug bite itself now, you'll see that the game doesn't end, even though the `dead` variable is changed to `True`!
+Bewaar en voer je code uit. Wanneer je de slak nu zichzelf laat bijten, zul je zien dat het spel niet eindigt, ook al is de variabele `dood` gewijzigd in `True`!
 
-+ Change the game loop in the main program from an infinite loop to a loop which only runs while the `dead` variable is not `True`.
++ Verander de spel lus in het hoofdprogramma van een oneindige lus in een lus die alleen wordt uitgevoerd als de variabele `dood` niet `True`.
 
-Once the game loop ends, the player will want to know how they did in their game.
+Zodra de spel lus eindigt, wil de speler weten hoe hij het in zijn spel heeft gedaan.
 
-+ In the main program, add code to display how many vegetables the player guided the slug to by making use of the `score` variable.
++ Voeg in het hoofdprogramma code toe om te tonen hoeveel groenten de speler de slak naartoe geleid heeft door gebruik te maken van de variabele `score`.
 
 [[[rpi-sensehat-show-message]]]
