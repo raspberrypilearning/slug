@@ -1,21 +1,21 @@
-## What you will need
+## Wat heb je nodig
 
 ### Hardware
 
-* A Raspberry Pi
-* A Sense HAT (If you do not have a Sense HAT, you could create the project in a web browser using the [Sense HAT emulator](https://trinket.io/sense-hat){:target="_blank"}.)
+* Een Raspberry Pi
+* Een Sense HAT (Als je geen Sense HAT hebt, kun je het project in een webbrowser maken met behulp van de [Sense HAT-emulator](https://trinket.io/sense-hat){:target="_blank"}.)
 
 ### Software
-You will need the [latest version of Raspbian](https://www.raspberrypi.org/downloads/){:target="_blank"}, which already includes the following software packages:
+Je hebt de [nieuwste versie van Raspbian](https://www.raspberrypi.org/downloads/){:target="_blank"} nodig, die al de volgende softwarepakketten bevat:
 
 - Python 3
-- Sense HAT for Python 3
+- Sense HAT voor Python 3
 
-If for any reason you need to install a package manually, follow these instructions:
+Als je om welke reden dan ook een pakket handmatig moet installeren, volg je deze instructies:
 
 [[[rpi-install-software]]]
 
-Type this command into the terminal to install the Sense HAT package:
+Typ deze opdracht in de terminal om het Sense HAT-pakket te installeren:
 
 ```bash
 sudo apt-get install sense-hat
