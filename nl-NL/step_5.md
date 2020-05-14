@@ -1,183 +1,183 @@
-## Move the slug
+## Verplaats de slak
 
-Next, let's make the slug move. The slug should always be moving, but it will only change direction when the player specifies it. Therefore, you need to store the direction in which the slug is moving.
+Laten we vervolgens de slak bewegen. De slak moet altijd in beweging zijn, maar deze zal alleen van richting veranderen als de speler dit aangeeft. Daarom moet je de richting opslaan waarin de naaktslak beweegt.
 
-+ In the variables section, create a variable called `direction`. The slug will begin the game moving right, so initialise this variable to the string `"right"`.
++ Maak in de sectie met variabelen een variabele met de naam `richting`. De slak begint het spel naar rechts te bewegen, dus initialiseer deze variabele met de string `"right"`.
 
-You also need a way to 'erase' pixels so you can turn off an LED once the slug has moved on.
+Je hebt ook een manier nodig om pixels te 'wissen', zodat je een LED kunt uitschakelen zodra de naaktslak is verplaatst.
 
-+ Create a variable called `blank`, and set it to the RGB colour `(0, 0, 0)`.
++ Maak een variabele met de naam `leeg` en stel deze in op RGB-kleur `(0, 0, 0)`.
 
-Since you stored the pixel coordinates of the slug's current position in a list, you can now follow this process to move the slug:
+Omdat je de pixelcoördinaten van de huidige positie van de naaktslak in een lijst hebt opgeslagen, kun je nu dit proces volgen om de slak te verplaatsen:
 
-![Move right](images/move-right.png)
+![Ga naar rechts](images/move-right.png)
 
-+ Find the last item in the `slug` list (`[4, 4]`)
-+ Find the next pixel in the `direction` in the slug is currently moving (`[5, 4]`)
-+ Add this pixel at the end of the `slug` list
-+ Set this pixel to the slug's colour
-+ Set the first pixel in the `slug` list (`[2, 4]`) to `blank`
-+ Remove this pixel from the list
++ Zoek het laatste item in de `naaktslak` lijst (`[4, 4]`)
++ Zoek de volgende pixel in de `richting` in welke de naaktslak momenteel beweegt (`[5, 4]`)
++ Voeg deze pixel toe aan het einde van de `naaktslak` lijst
++ Stel deze pixel in op de kleur van de slak
++ Stel de eerste pixel in de `naaktslak` lijst (`[2, 4]`) in op `leeg`
++ Verwijder deze pixel uit de lijst
 
-This algorithm works even when the player changes the direction of the slug. When that happens, the slug's body will simply bend to point in the new direction.
+Dit algoritme werkt zelfs wanneer de speler de richting van de slak verandert. Wanneer dat gebeurt, buigt het lichaam van de naaktslak eenvoudig om in de nieuwe richting te wijzen.
 
-The slug is actually a **queue** data structure.
+De slak is eigenlijk een **wachtrij** gegevensstructuur.
 
 --- collapse ---
 ---
-title: What is a queue?
+titel: Wat is een wachtrij?
 ---
 
-A queue is a data structure where the first piece of data added is the first piece of data to come out. It is also called a FIFO or 'first in, first out' data structure. This is like waiting in a supermarket to pay for your shopping: you join the queue at the back, and the person at the front gets to pay for their items first and then leaves the queue.
+Een wachtrij is een gegevensstructuur waarbij het eerste stukje gegevens dat wordt toegevoegd het eerste stuk gegevens is dat eruit komt. Het wordt ook een FIFO of 'first in, first out' (eerste in, eerste uit) datastructuur genoemd. Dit is hetzelfde als wachten in een supermarkt om te betalen voor je boodschappen: je gaat achteraan in de rij staan en de persoon vooraan in de rij mag als eerste zijn items betalen en verlaat dan de rij.
 
-Imagine the pixels of the slug are bits of food queuing up to be pooped out of the slug. The first item in the list is at the front of the queue, which is the back of the slug: this item will exit the slug and be deleted. New pixels join the slug queue at the end, which is where the mouth of the slug is. They gradually work their way towards the front of the queue as the slug moves.
+Stel je voor dat de pixels van de slak stukjes voedsel zijn die in de rij staan om uit de slak te worden gepoept. Het eerste item in de lijst staat aan de voorkant van de wachtrij, dat is de achterkant van de slak: dit item verlaat de slak en wordt verwijderd. Nieuwe pixels voegen zich toe aan het einde van de slakkenwachtrij, waar zich de opening van de slak bevindt. Ze werken zich geleidelijk naar de voorkant van de rij terwijl de slak beweegt.
 
 --- /collapse ---
 
-+ In the functions section, create a function called `move()`.
++ Maak in de sectie Functies een functie met de naam `beweeg()`.
 
-+ In the main program section, create an infinite loop which calls this function followed by a `sleep(0.5)`. Once you've written the code for the function, this loop will make the slug continually move around the screen.
++ Maak in het hoofdprogramma een oneindige lus die deze functie aanroept, gevolgd door een `sleep(0.5)`. Nadat je de code voor de functie hebt geschreven, zal deze lus de slak continu over het scherm laten bewegen.
 
 [[[generic-python-while-true]]]
 
-Here is some code to start off the `move()` function. It **does not** work properly yet.
+Hier is wat code om de functie `beweeg()` te starten. Het werkt **nog niet** goed.
 
-+ Copy this code into your function and run the program. We used the colour variable `white` for the slug, so if you chose a different variable name, you will need make sure you're using the right name in the function.
++ Kopieer deze code naar je functie en voer het programma uit. We hebben de kleurvariabele `wit` voor de naaktslak gebruikt, dus als je een andere variabelenaam kiest, moet je ervoor zorgen dat je de juiste naam in de functie gebruikt.
 
 ```python
-def move():
-  # Find the last and first items in the slug list
-  last = slug[-1]
-  first = slug[0]
-  next = list(last)     # Create a copy of the last item
+def beweeg():
+  # Zoek de laatste en eerste items in de naaktslaklijst
+  laatste = naaktslak[-1]
+  eerste = naaktslak[0]
+  volgende = list(laatste) # Maak een kopie van het laatste item
 
-  # Find the next pixel in the direction the slug is currently moving
-  if direction == "right":
+  # Zoek de volgende pixel in de richting die de slak momenteel beweegt
+  if richting == "right":
 
-    # Move along the column
-    next[0] = last[0] + 1
+    # Beweeg langs de kolom
+    volgende[0] = laatste[0] + 1
 
-  # Add this pixel at the end of the slug list
-  slug.append(next)
+  # Voeg deze pixel toe aan het einde van de naaktslakkenlijst
+  naaktslak.append(volgende)
 
-  # Set the new pixel to the slug's colour
-  sense.set_pixel(next[0], next[1], white)
+  # Zet de nieuwe pixel op de kleur van de naaktslak
+  sense.set_pixel(volgende[0], volgende[1], wit)
 
-  # Set the first pixel in the slug list to blank
-  sense.set_pixel(first[0], first[1], blank)
+  # Zet de eerste pixel in de naaktslaklijst op blanco
+  sense.set_pixel(eerste[0], eerste[1], leeg)
 
-  # Remove the first pixel from the list
-  slug.remove(first)
+  # Verwijder de eerste pixel uit de lijst
+  naaktslak.remove(eerste)
 ```
 
-+ Run the program and look at what happens to the slug. Can you explain why you're seeing what you're seeing?
++ Start het programma en kijk wat er met de naaktslak gebeurt. Kun je uitleggen waarom je ziet wat je ziet?
 
-+ Fix the code so that, when the slug reaches the right-hand wall, she 'moves through' the wall and reappears at the same y coordinate but on the opposite side of the screen.
++ Repareer de code zodanig dat, wanneer de slak de rechterwand bereikt, ze door de muur 'beweegt' en weer op dezelfde y-coördinaat verschijnt, maar aan de andere kant van het scherm.
 
-![Wrap the slug](images/wrap-slug.gif)
+![Wikkel de naaktslak rond](images/wrap-slug.gif)
 
 --- hints --- --- hint ---
 
-Examine this code:
+Bekijk deze code:
 
 ```python
-# Move along the column
-next[0] = last[0] + 1
+# Ga langs de kolom
+volgende[0] = laatste[0] + 1
 ```
 
-If we always add 1 to the x coordinate, eventually it will reach 8. The LED matrix only has LEDs 0-7 along each axis — 8 doesn't exist, which is why the code crashes. How could you check if the value of the x coordinate plus 1 would be 8, and in that case set it to 0 instead to make the slug move through the wall?
+Als we altijd 1 toevoegen aan de x-coördinaat, zal deze uiteindelijk 8 bereiken. De LED-matrix heeft alleen LED's 0-7 langs elke as - 8 bestaat niet, daarom crasht de code. Hoe kun je controleren of de waarde van de x-coördinaat plus 1 8 is en in dat geval op 0 zetten om de naaktslak door de muur te laten bewegen?
 
 --- /hint ---
 
 --- hint ---
 
-Here is some pseudocode to help you:
+Hier is wat pseudocode om je te helpen:
 
-`if` last[0] + 1 `equals` 8 set next[0] to 0 `else` set next[0] to last[0] + 1
+`als` laatste[0] + 1 `gelijk is aan` 8 stel volgende[0] in op 0 `anders` stel volgende[0] in op laatste[0] + 1
 
 --- /hint ---
 
 --- hint ---
 
-Here is how your code might look, but there are lots of different ways you could successfully write this section:
+Hier is hoe je code eruit zou kunnen zien, maar er zijn veel verschillende manieren waarop je deze sectie met succes kunt schrijven:
 
 ```python
-# Move along the column
-if last[0] + 1 == 8:
- next[0] = 0
+# Beweeg langs de kolom
+if laatste[0] + 1 == 8:
+ volgende[0] = 0
 else:
- next[0] = last[0] + 1
+ volgende[0] = laatste[0] + 1
 ```
 
 --- /hint --- --- /hints ---
 
-+ Add some more code to make the slug also able to move up, down, and left. This code will be very similar to the code for moving right, but you'll need to work out which coordinate to change and whether to make its value larger or smaller.
++ Voeg nog wat code toe zodat de slak ook omhoog, omlaag en naar links kan bewegen. Deze code lijkt erg op de code om naar rechts te gaan, maar je moet uitzoeken welke coördinaat je moet wijzigen en of je de waarde groter of kleiner moet maken.
 
 --- hints --- --- hint ---
 
-Add an `elif` statement to check whether the direction equals `"left"`. Then check whether moving the slug would result in the value of the x coordinate being outside the LED matrix, e.g. `-1`. If that is be the case, set the x coordinate to `7` to make the slug reappear on the opposite side of the screen.
+Voeg een `elif` statement toe om te controleren of de richting gelijk is aan `"left"`. Controleer vervolgens of het verplaatsen van de slak ertoe zou leiden dat de waarde van de x-coördinaat buiten de LED-matrix komt, bijvoorbeeld `-1`. Als dat het geval is, stel je de x-coördinaat in op `7` om de slak weer aan de andere kant van het scherm te laten verschijnen.
 
-You can test your program by changing the value of the `direction` variable to `"left"`. Note: because this causes the slug to reverse, the slug may appear to behave oddly for the first few moves, but it will then behave normally.
-
---- /hint ---
-
---- hint ---
-
-The code for the up and down directions works exactly the same as that for left and right, except that you will be examining the y coordinate instead: `last[1]` and `next[1]`.
+Je kunt je programma testen door de waarde van de variabele `richting` te wijzigen in `"left"`. Opmerking: omdat hierdoor de slak achteruitgaat, kan de slak zich de eerste paar bewegingen vreemd gedragen, maar zich dan normaal gedragen.
 
 --- /hint ---
 
 --- hint ---
 
-Here is how your code might look. Again, there are lots of potential solutions, so your code might look different and work correctly anyway.
+De code voor de richtingen omhoog en omlaag werkt precies hetzelfde als die voor links en rechts, behalve dat je in plaats daarvan de y-coördinaat onderzoekt: `laatste[1]` en `volgende[1]`.
+
+--- /hint ---
+
+--- hint ---
+
+Hier is hoe je code eruit zou kunnen zien. Nogmaals, er zijn veel mogelijke oplossingen, dus je code kan er anders uitzien en toch correct werken.
 
 ```python
-# Find the next pixel in the direction the slug is currently moving
- if direction == "right":
-   if last[0] + 1 == 8:
-     next[0] = 0
+# Zoek de volgende pixel in de richting waarin de naaktslak momenteel beweegt
+ if richting == "right":
+   if laatste[0] + 1 == 8:
+     volgende[0] = 0
    else:
-     next[0] = last[0] + 1
+     volgende[0] = laatste[0] + 1
 
- elif direction == "left":
-   if last[0] - 1 == -1:
-     next[0] = 7
+ elif richting == "left":
+   if laatste[0] - 1 == -1:
+     volgende[0] = 7
    else:
-     next[0] = last[0] - 1
+     volgende[0] = laatste[0] - 1
 
- elif direction == "down":
-   if last[1] + 1 == 8:
-     next[1] = 0
+ elif richting == "down":
+   if laatste[1] + 1 == 8:
+     volgende[1] = 0
    else:
-     next[1] = last[1] + 1
+     volgende[1] = laatste[1] + 1
 
- elif direction == "up":
-   if last[1] - 1 == -1:
-     next[1] = 7
+ elif richting == "up":
+   if laatste[1] - 1 == -1:
+     volgende[1] = 7
    else:
-     next[1] = last[1] - 1
+     volgende[1] = laatste[1] - 1
 ```
 
 --- /hint --- --- /hints ---
 
 --- collapse ---
 ---
-title: A more efficient way
+title: Een efficiëntere manier
 ---
 
-The code suggested in the previous hint is quite inefficient: there is a lot of repetition. One possible different way of solving this problem would be to first add or subtract from the coordinate value regardless of whether doing so creates a coordinate lying outside the edge of the LED matrix. Then, before performing any actions with the new coordinate, run it through a `wrap()` function to check if it is off the edge and if so, reposition it. Your function might look something like this:
+De in de vorige hint voorgestelde code is vrij inefficiënt: er is veel herhaling. Een mogelijke andere manier om dit probleem op te lossen zou zijn om eerst de coördinaatwaarde toe te voegen of af te trekken, ongeacht of hierdoor een coördinaat ontstaat die buiten de rand van de LED-matrix ligt. Voer vervolgens, voordat je acties met de nieuwe coördinaat uitvoert, laat een `wikkel()` functie er op los die controleert of deze buiten de rand ligt en zo ja, deze verplaatst. Je functie kan er ongeveer zo uitzien:
 
 ```python
-def wrap(pix):
-    # Wrap x coordinate
+def wikkel(pix):
+    # Wikkel x coordinaat
     if pix[0] > 7:
         pix[0] = 0
     if pix[0] < 0:
         pix[0] = 7
-    # Wrap y coordinate
+    # Wikkel y coordinaat
     if pix[1] < 0:
         pix[1] = 7
-    if pix[1] > 7:
+    als pix[1] > 7:
         pix[1] = 0
 
     return pix
