@@ -1,88 +1,88 @@
-## Draw the slug
+## Teken de naaktslak
 
-Your first job is to draw the slug on the Sense HAT's LED display. It is important to keep track of which pixels the slug is inhabiting so that you can move her around the screen. You will use a 2D list to store the coordinates of the pixels the slug is currently inhabiting.
+Je eerste taak is om de naaktslak op het LED-display van de Sense HAT te tekenen. Het is belangrijk om bij te houden welke pixels de naaktslak bewoont, zodat je haar over het scherm kunt bewegen. Je gebruikt een 2D-lijst om de coördinaten op te slaan van de pixels die de slak momenteel bewoont.
 
-![Draw the slug](images/draw-slug.png)
+![Teken de naaktslak](images/draw-slug.png)
 
 [[[generic-python-2d-lists]]]
 
-### How will it work?
+### Hoe gaat het in zijn werk?
 
-Your slug will begin by inhabiting three pixels on the LED display. Each pixel has a `x`, `y` coordinate which can be stored as a list, e.g. `[2, 4]`. The slug will inhabits three pixels, so it needs three coordinate lists. We will store the coordinate lists in another list, making a list of lists or a **2D list**.
+Je naaktslak begint met drie pixels op het LED-scherm. Elke pixel heeft een `x`, `y` coördinaat die kan worden opgeslagen als een lijst, bijvoorbeeld `[2, 4]`. De slak bewoont drie pixels, dus het heeft drie coördinatenlijsten nodig. We slaan de coördinatenlijsten op in een andere lijst en maken een lijst met lijsten of een **2D-lijst**.
 
-![Storing the slug](images/2d-slug.png)
+![Naaktslak bewaren](images/2d-slug.png)
 
-### Write the code
+### Schrijf de code
 
-To be able to light up a pixel on the LED display, you need to specify three things: the x and y coordinates of the pixel, and the colour you would like the LED to be.
+Om een pixel op het LED-display te laten oplichten, moet je drie dingen opgeven: de x- en y-coördinaten van de pixel en de kleur die je wilt dat de LED is.
 
 [[[rpi-sensehat-led-coordinates]]]
 
-+ In the variables section of your file, create an empty list called `slug`.
++ Maak in het gedeelte met variabelen van je bestand een lege lijst met de naam `naaktslak`.
 
 [[[generic-python-create-list]]]
 
-You will light up three pixels in a horizontal row to make up the slug. Each pixel's position will be represented as a list containing an x and a y coordinate.
+Je licht drie pixels op in een horizontale rij om de naaktslak te vormen. De positie van elke pixel wordt weergegeven als een lijst met een x- en een y-coördinaat.
 
-+ Add the coordinate lists `[2, 4]`, `[3, 4]`, and `[4, 4]` (in that order) to your `slug` list to define the coordinates where the slug will start out. You have now created a 2D list, or a list of lists!
++ Voeg de coördinatenlijsten `[2, 4]`, `[3, 4]`en `[4, 4]` (in die volgorde) toe aan je `naaktslak` lijst om de coördinaten te definiëren waar de naaktslak begint. Je hebt nu een 2D-lijst of een lijst met lijsten gemaakt!
 
-You also need to specify a colour for the slug.
+Je moet ook een kleur opgeven voor de slak.
 
-+ In the variables section, create a variable to store the RGB colour of your slug. We chose white, but you can choose any colour you like.
++ Maak in het gedeelte met variabelen een variabele om de RGB-kleur van je slak op te slaan. We hebben gekozen voor wit, maar je kunt elke gewenste kleur kiezen.
 
 ```python
-white = (255, 255, 255)
+wit = (255, 255, 255)
 ```
 
 [[[generic-theory-colours]]]
 
-+ In the functions section, create a function called `draw_slug()`. You will put the code to draw the slug into it.
++ Maak in de sectie Functies de functie `teken_naaktslak()`. Je plaatst de code om de naaktslak erin te tekenen.
 
 [[[generic-python-simple-functions]]]
 
-+ Inside your `draw_slug()` function, add a `for` loop to loop through each element in the `slug` list.
++ Voeg in je `teken_naaktslak()` functie een `for` lus toe om elk element in de `naaktslak` lijst te doorlopen.
 
-Each element in the list represents the `x, y` coordinates of one segment of the slug.
+Elk element in de lijst vertegenwoordigt de `x, y` coördinaten van één segment van de slak.
 
-+ Inside the loop, use the `set_pixel` method to light up each pixel you specified in the `slug` list, thus drawing all segments of the slug.
++ In de lus gebruik `set_pixel` methode oplichten elke pixel opgegeven in de `slug` lijst, waardoor alle segmenten van de prop tekening.
 
 --- hints --- --- hint ---
 
-The `set_pixel` method requires three arguments: the x coordinate of the pixel, the y coordinate of the pixel, and the colour.
+De methode `set_pixel` vereist drie argumenten: de x-coördinaat van de pixel, de y-coördinaat van de pixel en de kleur.
 
 --- /hint ---
 
 --- hint ---
 
-Your `for` loop will examine each segment of the slug in turn. If you wrote your loop like this:
+Je `for` lus onderzoekt elk segment van de slak op zijn beurt. Als je je lus als volgt hebt geschreven:
 
 ```python
-for segment in slug:
+for segment in naaktslak:
 ```
 
-...then `segment[0]` will be the x coordinate of the segment you are currently looking at.
+... dan is `segment[0]` de x-coördinaat van het segment dat je momenteel bekijkt.
 
 --- /hint ---
 
 --- hint ---
 
-Here is how your code might look:
+Zo ziet je code eruit:
 
 ```python
-def draw_slug():
-  for segment in slug:
-      sense.set_pixel(segment[0], segment[1], white)
+def teken_naaktslak():
+  for segment in naaktslak:
+      sense.set_pixel(segment[0], segment[1], wit)
 ```
 
 --- /hint --- --- /hints ---
 
-If you run your program at this point, nothing will happen. This is because you haven't called the function, and therefore the code will not execute.
+Als je je programma op dit punt uitvoert, gebeurt er niets. Dit komt omdat je de functie niet hebt aangeroepen en daarom de code niet wordt uitgevoerd.
 
-+ In the **main program** section, clear the LED screen and then call the function by adding the following code:
++ Wis in de sectie **hoofdprogramma** het LED-scherm en roep vervolgens de functie op door de volgende code toe te voegen:
 
 ```python
 sense.clear()
-draw_slug()
+teken_naaktslak()
 ```
 
-+ Save and run your program, and check that you see a row of three pixels light up to form your slug.
++ Sla je programma op en voer het uit en controleer of een rij van drie pixels oplicht om je naaktslak te vormen.
