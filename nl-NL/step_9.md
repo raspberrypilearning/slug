@@ -1,82 +1,82 @@
-## Growing and speeding up
+## Groeien en versnellen
 
-To keep the game interesting for the player, as the slug eats vegetables she should grow in length and move faster. This makes her harder to control — and worse, she might accidentally bite into her own body!
+Om het spel interessant te houden voor de speler, moet de slak groenten eten en sneller groeien. Dit maakt haar moeilijker te beheersen - en erger, ze zou per ongeluk in haar eigen lichaam kunnen bijten!
 
-The code you've written so far makes it so that, when the slug advances a pixel, her end segment is deleted. To enable her to grow, you can add a new segment to the `slug` list but **not** delete the last one. So each time the slug moves, you need to make a decision as to whether to remove a segment or not.
+De code die je tot nu toe hebt geschreven, zorgt ervoor dat, wanneer de naaktslak een pixel vooruitgaat, haar eindsegment wordt verwijderd. Om haar in staat te stellen te groeien, kun je een nieuw segment toevoegen aan de lijst `naaktslak`, maar **niet** de laatste verwijderen. Elke keer dat de slak beweegt, moet je dus beslissen of je een segment wilt verwijderen of niet.
 
-+ At the start of the `move()` function, create a Boolean variable called `remove` and set it to `True`, as most of the time we do want to remove the end segment when the slug moves.
++ Maak aan het begin van de functie `beweeg()` een Booleaanse variabele met de naam `verwijder` en stel deze in op `True`, omdat we meestal het eindsegment willen verwijderen wanneer de slak beweegt.
 
-+ Add a conditional statement to your function so that the following two lines of code are only executed `if` the `remove` variable is `True`.
++ Voeg een voorwaardelijke instructie toe aan je functie, zodat de volgende twee coderegels alleen worden uitgevoerd `als` de variabele `verwijder` `True` is.
 
 ```python
-sense.set_pixel(first[0], first[1], blank)
-slug.remove(first)
+sense.set_pixel(eerste[0], eerste[1], leeg)
+naakslak.remove(eerste)
 ```
 
-+ Decide how often you want your slug to grow. In our example, we chose for our slug to grow one segment for every 5 vegetables she eats.
++ Bepaal hoe vaak je je naaktslak wilt laten groeien. In ons voorbeeld kozen we voor onze slak om haar één segment te laten groeien voor elke 5 groenten die ze eet.
 
-To help your program decide when to trigger the slug to grow, you can use the **mod** operator `%`. By using it, you can work out whether the current score is a multiple of 5.
+Om je programma te helpen beslissen wanneer je de naaktslak wilt activeren, kun je de **mod** operator `%` gebruiken. Door het te gebruiken, kun je bepalen of de huidige score een veelvoud van 5 is.
 
 [[[generic-python-mod-operator]]]
 
-You'll want to ensure that the slug can only grow when it has eaten a vegetable. To do this, you should add your new code to potentially grow the slug inside this `if` statement:
+Je wilt ervoor zorgen dat de slak alleen kan groeien als hij een groente heeft gegeten. Om dit te doen, moet je je nieuwe code toevoegen om de naaktslak in deze `if` instructie mogelijk te laten groeien:
 
 ```python
-if next in vegetables:
+if volgende in groenten:
 ```
 
-+ Add code to check whether the current score is a multiple of 5. If it is, set `remove` to `False` so no segment gets removed.
++ Voeg code toe om te controleren of de huidige score een veelvoud van 5 is. Als dit het geval is, stel je `verwijder` in op `False` zodat er geen segment wordt verwijderd.
 
-+ Save and run the code. You might be disappointed to see that, when you eat 5 vegetables, the slug doesn't grow! Why not?
++ Sla op en voer de code uit. Je zult misschien teleurgesteld zijn om te zien dat als je 5 groenten eet, de slak niet groeit! Waarom niet?
 
 --- collapse ---
 ---
-title: Answer
+title: Antwoord
 ---
 
-The code to remove the segment currently runs before the code to check whether the new pixel was a vegetable. This means that the program doesn't care whether we've told it to remove or not remove a segment, because by the time this decision is taken, the segment has already been removed!
+De code om het segment te verwijderen, loopt momenteel vóór de code om te controleren of de nieuwe pixel een groente was. Dit betekent dat het programma niet uitmaakt of we het hebben verteld om een segment te verwijderen of niet, want tegen de tijd dat deze beslissing wordt genomen, is het segment al verwijderd!
 
 --- /collapse ---
 
-+ Alter the order of the code so that the last thing in the `move()` function is the code to potentially remove a segment. Test again, and you should see your slug grow.
++ Wijzig de volgorde van de code zodat het laatste in de functie `beweeg()` de code is om mogelijk een segment te verwijderen. Test opnieuw en je zou je naaktslak moeten zien groeien.
 
-As well as setting `remove` to `False` to grow the slug, let's speed it up! Currently, the slug's speed is regulated by this line of code in the main program:
+Evenals `verwijder` in te stellen op `False` om de naaktslak te laten groeien, laten we het versnellen! Momenteel wordt de snelheid van de slak geregeld door deze coderegel in het hoofdprogramma:
 
 ```python
 sleep(0.5)
 ```
 
-This command tells your infinite loop to wait for half a second between each run, so that the slug moves at a speed of one pixel per half-second. To make it move faster, you'll want to gradually decrease this pause.
+Dit commando vertelt je oneindige lus om een halve seconde te wachten tussen elke run, zodat de slak beweegt met een snelheid van één pixel per halve seconde. Om het sneller te laten gaan, wil je deze pauze geleidelijk verminderen.
 
-+ In the variables section, create a variable called `pause` and set it to `0.5`.
++ Maak in de sectie met variabelen een variabele met de naam `pauze` en stel deze in op `0.5`.
 
-+ Replace the `0.5` in the brackets of the `sleep()` function with the variable `pause`. Now the speed of the slug will be determined by the value of `pause`.
++ Vervang de `0.5` tussen haakjes van de functie `sleep ()` door de variabele `pauze`. Nu wordt de snelheid van de slak bepaald door de waarde van `pauze`.
 
-You've already added some code to section which check whether the current score is a multiple of 5, so your slug can grow. That is also the point at which the value of `pause` should become smaller. Amend your `move` function like this:
+Je hebt al wat code toegevoegd aan de sectie die controleert of de huidige score een veelvoud van 5 is, zodat je slak kan groeien. Dat is ook het punt waarop de waarde van `pauze` kleiner moet worden. Wijzig uw `beweeg` functie als volgt:
 
 ```python
-global pause
+global pauze
 
-if score % 5 == 0:
-    remove = False
-    pause = pause - 0.1
+if score% 5 == 0:
+    verwijder = False
+    pauze = pauze - 0.1
 ```
 
-+ Save and run your program. What happens? Why is this code not a very good idea, and how could you improve it?
++ Sla je programma op en voer het uit. Wat gebeurt er? Waarom is deze code geen goed idee, en hoe kun je deze verbeteren?
 
 --- collapse ---
 ---
-title: Answer
+title: Antwoord
 ---
 
-If `pause` begins at `0.5`, and we subtract `0.1` for every five eaten vegetables, `pause` will eventually become `0`. That will make the game impossible!
+Als `pauze` begint bij `0.5`, en we trekken `0.1` af voor elke vijf gegeten groenten, dan wordt `pauze` uiteindelijk `0`. Dat maakt het spel onmogelijk!
 
-Instead of subtracting a fixed amount, why not make `pause` proportionally smaller? For example:
+Waarom maak je in plaats van een vaste hoeveelheid er vanaf te trekken, `pauze` niet verhoudingsgewijs kleiner? Bijvoorbeeld:
 
 ```python
-pause = pause * 0.8
+pauze = pauze * 0.8
 ```
 
-This will make `pause` 80% of its previous value. In this way, it will never become `0`.
+Dit maakt `pauze` 80% van de vorige waarde. Op deze manier wordt het nooit `0`.
 
 --- /collapse ---
