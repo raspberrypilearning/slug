@@ -23,7 +23,7 @@ def joystick_moved(event):
     global richting
 ```
 
-U kunt toegang krijgen tot de richting waarin de joystick is verplaatst met behulp van de parameter `event`: gebruik het commando `event.direction`.
+Je kunt toegang krijgen tot de richting waarin de joystick is verplaatst met behulp van de parameter `event`: gebruik het commando `event.direction`.
 
 + Stel in je functie de variabele `richting` in op `event.direction`.
 
@@ -66,6 +66,6 @@ def joystick_moved(event):
 
 --- /hints ---
 
-+ Voer je programma uit en test of het werkt. Als je de emulator gebruikt, kun je simuleren dat u de joystick verplaatst door op de pijltoetsen op je toetsenbord te drukken.
++ Voer je programma uit en test of het werkt. Als je de emulator gebruikt, kun je simuleren dat je de joystick verplaatst door op de pijltoetsen op je toetsenbord te drukken.
 
 Op dit punt is het mogelijk om de slak terug "door" zichzelf te bewegen, wat er nogal vreemd uitziet. Later zullen we wat code toevoegen waardoor het spel eindigt als de slak zichzelf bijt, dus je hoeft je geen zorgen te maken over het oplossen van deze uitglijder.
