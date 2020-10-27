@@ -17,7 +17,7 @@ De code die je nodig hebt, lijkt sterk op de code die je eerder voor de slak heb
 
 ### Creëer de functie
 
-+ Definieer een nieuwe functie met de naam `make_veg ()` in uw functiegedeelte. De code om in de functie te plaatsen wordt in de volgende stappen uitgelegd.
++ Definieer een nieuwe functie met de naam `make_veg ()` in je functiegedeelte. De code om in de functie te plaatsen wordt in de volgende stappen uitgelegd.
 
 + Schrijf binnen de functie wat code om een willekeurige coördinaat op de LED-matrix te kiezen.
 
