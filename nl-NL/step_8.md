@@ -23,7 +23,8 @@ Laten we ook een score toevoegen om bij te houden hoeveel groenten de slak heeft
 
 + Telkens als de slak een groente eet, tel 1 op bij de score. Vergeet niet dat, omdat de variabele `score` buiten de functie is gemaakt, je moet opgeven dat je `global score` wilt gebruiken aan het begin van de functie `beweeg()`, zodat de functie het mag veranderen.
 
---- hints --- --- hint ---
+--- hints ---
+ --- hint ---
 
 Hier is wat pseudocode voor de controle die zou moeten plaatsvinden binnen de functie `beweeg()`:
 
@@ -41,4 +42,4 @@ if volgende in groenten:
 
 Vergeet niet ook `global score` toe te voegen op de eerste regel van de functie `beweeg()` en de variabele `score` te initialiseren op `0` in het gedeelte met variabelen.
 
---- /hint --- --- /hints ---
+--- /hint ------ /hints ---

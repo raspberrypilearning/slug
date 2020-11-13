@@ -17,13 +17,14 @@ De code die je nodig hebt, lijkt sterk op de code die je eerder voor de slak heb
 
 ### Creëer de functie
 
-+ Definieer een nieuwe functie met de naam `make_veg ()` in uw functiegedeelte. De code om in de functie te plaatsen wordt in de volgende stappen uitgelegd.
++ Definieer een nieuwe functie met de naam `make_veg ()` in je functiegedeelte. De code om in de functie te plaatsen wordt in de volgende stappen uitgelegd.
 
 + Schrijf binnen de functie wat code om een willekeurige coördinaat op de LED-matrix te kiezen.
 
 [[[generic-python-random]]]
 
---- hints --- --- hint ---
+--- hints ---
+ --- hint ---
 
 Genereer een willekeurige x-coördinaat en een willekeurige y-coördinaat en plaats ze vervolgens in een lijst. Beide coördinaten moeten willekeurige getallen tussen 0 en 7 zijn.
 
@@ -45,14 +46,15 @@ y = randint(0, 7)
 nieuw = [x, y]
 ```
 
---- /hint --- --- /hints ---
+--- /hint ------ /hints ---
 
 
 + Controleer of deze `x, y` coördinaat in de `naaktslak` lijst staat. Als dit het geval is, kies dan een nieuwe coördinaat en vergelijk deze met de lijst. Herhaal dit totdat de gekozen coördinaat niet in de lijst met slakken voorkomt.
 
 [[[generic-python-item-in-list]]]
 
---- hints --- --- hint ---
+--- hints ---
+ --- hint ---
 
 Hier is wat pseudocode om je te helpen. We beginnen met het instellen van `nieuw` gelijk aan de eerste coördinaat in de `naaktslak` lijst zodat het gegarandeerd in de slak begint. Op deze manier moet minimaal één keer een nieuwe coördinaat worden gegenereerd.
 
@@ -72,7 +74,7 @@ while nieuw in naaktslak:
     nieuw = [x, y]
 ```
 
---- /hint --- --- /hints ---
+--- /hint ------ /hints ---
 
 + Zodra je een coördinaat van `x, y` hebt gevonden die zich niet in de slak bevindt, teken je de groente op het scherm met je nieuwe kleurvariabele.
 
@@ -96,7 +98,8 @@ Je hebt een manier nodig om bij te houden hoeveel groenten er zijn, zodat je dez
 
 + Wijzig de manier waarop je de functie `maak_groente` in het hoofdprogramma aanroept, zodat deze alleen een nieuwe groente maakt als er minder dan drie items in de lijst met `groenten` staan.
 
---- hints --- --- hint ---
+--- hints ---
+ --- hint ---
 
 Je kunt de functie `len()` gebruiken om de lengte van de `groenten` lijst te achterhalen, of met andere woorden, hoeveel items er in de lijst staan.
 
@@ -115,7 +118,7 @@ if len(groenten) < 3:
    maak_groente()
 ```
 
---- /hint --- --- /hints ---
+--- /hint ------ /hints ---
 
 ### Uitdaging
 Kun je je code zo wijzigen dat, als er minder dan 3 groenten in de lijst staan, er slechts 20% kans is om een nieuwe groente te maken elke keer dat de functie wordt uitgevoerd? Dit maakt het minder voorspelbaar wanneer groenten kunnen verschijnen. Om een kans van 20% te creëren, kies je willekeurig een getal tussen 1 en 5 en maak je alleen een groente voor een specifiek getal in dit bereik.

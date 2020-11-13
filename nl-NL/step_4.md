@@ -46,7 +46,8 @@ Elk element in de lijst vertegenwoordigt de `x, y` coördinaten van één segmen
 
 + In de lus gebruik `set_pixel` methode oplichten elke pixel opgegeven in de `slug` lijst, waardoor alle segmenten van de prop tekening.
 
---- hints --- --- hint ---
+--- hints ---
+ --- hint ---
 
 De methode `set_pixel` vereist drie argumenten: de x-coördinaat van de pixel, de y-coördinaat van de pixel en de kleur.
 
@@ -74,7 +75,7 @@ def teken_naaktslak():
       sense.set_pixel(segment[0], segment[1], wit)
 ```
 
---- /hint --- --- /hints ---
+--- /hint ------ /hints ---
 
 Als je je programma op dit punt uitvoert, gebeurt er niets. Dit komt omdat je de functie niet hebt aangeroepen en daarom de code niet wordt uitgevoerd.
 
