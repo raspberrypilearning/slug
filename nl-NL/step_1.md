@@ -5,8 +5,7 @@ Maak je eigen leuke en hectische versie van het klassieke spel Snake op een Sens
 ### Wat ga je maken
 
 Gebruik de pijltjestoetsen op je toetsenbord om de naaktslak te richten. Klik op **Run** om het spel te starten. 
-
-<iframe src="https://trinket.io/embed/python/bb0f1a130a?outputOnly=true" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
+<iframe src="https://trinket.io/embed/python/b9e8a05f5b?outputOnly=true" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
 
 ### Wat ga je leren
 
@@ -19,6 +18,6 @@ Dit project behandelt elementen uit de volgende onderdelen van de [Raspberry Pi 
 title: Aanvullende informatie voor docenten
 ---
 
-[Hier is een link naar de bronnen en oplossing voor dit project](https://github.com/raspberrypilearning/slug/tree/master/nl-NL).
+[Hier is een link naar de bronnen en oplossing voor dit project](https://github.com/raspberrypilearning/slug/tree/master/en).
 
 --- /collapse ---

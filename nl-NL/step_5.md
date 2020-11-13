@@ -1,4 +1,4 @@
-## Verplaats de slak
+## Verplaats de naaktslak
 
 Laten we vervolgens de slak bewegen. De slak moet altijd in beweging zijn, maar deze zal alleen van richting veranderen als de speler dit aangeeft. Daarom moet je de richting opslaan waarin de naaktslak beweegt.
 
@@ -76,7 +76,8 @@ def beweeg():
 
 ![Wikkel de naaktslak rond](images/wrap-slug.gif)
 
---- hints --- --- hint ---
+--- hints ---
+ --- hint ---
 
 Bekijk deze code:
 
@@ -109,11 +110,12 @@ else:
  volgende[0] = laatste[0] + 1
 ```
 
---- /hint --- --- /hints ---
+--- /hint ------ /hints ---
 
 + Voeg nog wat code toe zodat de slak ook omhoog, omlaag en naar links kan bewegen. Deze code lijkt erg op de code om naar rechts te gaan, maar je moet uitzoeken welke coördinaat je moet wijzigen en of je de waarde groter of kleiner moet maken.
 
---- hints --- --- hint ---
+--- hints ---
+ --- hint ---
 
 Voeg een `elif` statement toe om te controleren of de richting gelijk is aan `"left"`. Controleer vervolgens of het verplaatsen van de slak ertoe zou leiden dat de waarde van de x-coördinaat buiten de LED-matrix komt, bijvoorbeeld `-1`. Als dat het geval is, stel je de x-coördinaat in op `7` om de slak weer aan de andere kant van het scherm te laten verschijnen.
 
@@ -158,7 +160,7 @@ Hier is hoe je code eruit zou kunnen zien. Nogmaals, er zijn veel mogelijke oplo
      volgende[1] = laatste[1] - 1
 ```
 
---- /hint --- --- /hints ---
+--- /hint ------ /hints ---
 
 --- collapse ---
 ---

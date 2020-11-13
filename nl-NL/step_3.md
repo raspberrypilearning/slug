@@ -8,6 +8,6 @@
 
 [[[rpi-sensehat-emulator]]]
 
-+ Open het [startbestand](resources/starter_code.py) als je een hardware Sense HAT gebruikt, of de [start Trinket](https://trinket.io/embed/python/ba13461d81){:target="_blank"} als je de emulator gebruikt.
++ Open het [startbestand](resources/starter_code.py) als je een hardware Sense HAT gebruikt, of de [start Trinket](https://trinket.io/embed/python/3bfbb0d42b){:target="_blank"} als je de emulator gebruikt.
 
 Dit bestand bevat de code om verbinding te maken met de Sense HAT, importeert de modules die je nodig hebt en biedt een structuur voor je code.

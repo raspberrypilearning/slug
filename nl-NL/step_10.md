@@ -8,7 +8,8 @@ Het laatste wat je moet controleren wanneer de slak naar een nieuwe pixel beweeg
 
 + Als dit het geval is, stel je de variabele `dood` in op `True`. Weet je nog wat je moet doen om een functie een globale variabele te laten wijzigen?
 
---- hints --- --- hint ---
+--- hints ---
+ --- hint ---
 
 Hier is de code die je hebt gebruikt om te controleren of de pixel waarnaar de slak werd verplaatst, een groente bevatte:
 
@@ -28,7 +29,7 @@ if volgende in naaktslak:
     dood = True
 ```
 
---- /hint --- --- /hints ---
+--- /hint ------ /hints ---
 
 
 Bewaar en voer je code uit. Wanneer je de slak nu zichzelf laat bijten, zul je zien dat het spel niet eindigt, ook al is de variabele `dood` gewijzigd in `True`!
