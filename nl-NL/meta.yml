@@ -2,7 +2,7 @@
 title: NAAKTSLAK!
 hero_image: images/banner.png
 description: Speel het klassieke spel Snake na op je Sense HAT
-theme: violet #possible values: blue, green, navy, orange, red, turquoise, violet, yellow
+theme: violet
 duration: 2
 listed: true
 ingredient: false
@@ -16,14 +16,18 @@ software: python
 version: 4.0.1
 last_tested: 2017-10-01
 steps:
-  - title: Inleiding
-  - title: Wat heb je nodig
-  - title: Maak verbinding met de Sense HAT
-  - title: Teken de naaktslak
-  - title: Verplaats de naaktslak
-  - title: Gebruik de joystick
-  - title: Maak groenten
-  - title: Groenten eten
-  - title: Groeien en versnellen
-  - title: Game over
-  - title: "Uitdaging: gekke groenten"
+- title: Inleiding
+- title: Wat heb je nodig
+- title: Maak verbinding met de Sense HAT
+- title: Teken de naaktslak
+  completion:
+  - engaged
+- title: Verplaats de naaktslak
+- title: Gebruik de joystick
+- title: Maak groenten
+- title: Groenten eten
+- title: Groeien en versnellen
+- title: Game over
+  completion:
+  - internal
+- title: 'Uitdaging: gekke groenten'
