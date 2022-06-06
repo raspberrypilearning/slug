@@ -18,14 +18,16 @@ last_tested: 2017-10-01
 steps:
 - title: Inleiding
 - title: Wat heb je nodig
-  completion: engaged
 - title: Maak verbinding met de Sense HAT
 - title: Teken de naaktslak
+  completion:
+  - engaged
 - title: Verplaats de naaktslak
 - title: Gebruik de joystick
 - title: Maak groenten
 - title: Groenten eten
 - title: Groeien en versnellen
 - title: Game over
-  completion: internal
+  completion:
+  - internal
 - title: 'Uitdaging: gekke groenten'

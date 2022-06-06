@@ -18,14 +18,16 @@ last_tested: 2017-10-01
 steps:
 - title: Introduction
 - title: What you will need
-  completion: engaged
 - title: Connect to the Sense HAT
 - title: Draw the slug
+  completion:
+  - engaged
 - title: Move the slug
 - title: Use the joystick
 - title: Create vegetables
 - title: Eating vegetables
 - title: Growing and speeding up
 - title: Game over
-  completion: internal
+  completion:
+  - internal
 - title: 'Challenge: crazy veggies'
