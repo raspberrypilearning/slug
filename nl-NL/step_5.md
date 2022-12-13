@@ -1,4 +1,4 @@
-## Verplaats de slak
+## Verplaats de naaktslak
 
 Laten we vervolgens de slak bewegen. De slak moet altijd in beweging zijn, maar deze zal alleen van richting veranderen als de speler dit aangeeft. Daarom moet je de richting opslaan waarin de naaktslak beweegt.
 
@@ -13,7 +13,7 @@ Omdat je de pixelcoördinaten van de huidige positie van de naaktslak in een lij
 ![Ga naar rechts](images/move-right.png)
 
 + Zoek het laatste item in de `naaktslak` lijst (`[4, 4]`)
-+ Zoek de volgende pixel in de `richting` in welke de naaktslak momenteel beweegt (`[5, 4]`)
++ Find the next pixel in the `direction` in which the slug is currently moving (`[5, 4]`)
 + Voeg deze pixel toe aan het einde van de `naaktslak` lijst
 + Stel deze pixel in op de kleur van de slak
 + Stel de eerste pixel in de `naaktslak` lijst (`[2, 4]`) in op `leeg`
@@ -25,7 +25,7 @@ De slak is eigenlijk een **wachtrij** gegevensstructuur.
 
 --- collapse ---
 ---
-titel: Wat is een wachtrij?
+title: Wat is een wachtrij?
 ---
 
 Een wachtrij is een gegevensstructuur waarbij het eerste stukje gegevens dat wordt toegevoegd het eerste stuk gegevens is dat eruit komt. Het wordt ook een FIFO of 'first in, first out' (eerste in, eerste uit) datastructuur genoemd. Dit is hetzelfde als wachten in een supermarkt om te betalen voor je boodschappen: je gaat achteraan in de rij staan en de persoon vooraan in de rij mag als eerste zijn items betalen en verlaat dan de rij.
