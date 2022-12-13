@@ -1,88 +1,88 @@
-## Draw the slug
+## Dibuja la babosa
 
-Your first job is to draw the slug on the Sense HAT's LED display. It is important to keep track of which pixels the slug is inhabiting so that you can move her around the screen. You will use a 2D list to store the coordinates of the pixels the slug is currently inhabiting.
+Tu primera tarea será dibujar la babosa en la pantalla LED del Sense HAT. Es importante hacer un seguimiento de los pixeles en los que habita la babosa para que puedas moverla por la pantalla. Utilizarás una lista 2D para almacenar las coordenadas de los pixeles en los que habita actualmente la babosa.
 
-![Draw the slug](images/draw-slug.png)
+![Dibuja la babosa](images/draw-slug.png)
 
 [[[generic-python-2d-lists]]]
 
-### How will it work?
+### ¿Cómo funcionará?
 
-Your slug will begin by inhabiting three pixels on the LED display. Each pixel has a `x`, `y` coordinate which can be stored as a list, e.g. `[2, 4]`. The slug will inhabits three pixels, so it needs three coordinate lists. We will store the coordinate lists in another list, making a list of lists or a **2D list**.
+Tu babosa comenzará habitando tres pixeles en la pantalla LED. Cada pixel tiene una coordenada `x` y una coordenada `y` que pueden ser almacenadas como una lista, por ejemplo, `[2, 4]`. La babosa habitará tres pixeles, por lo que necesita tres listas de coordenadas. Almacenaremos las listas de coordenadas en otra lista, haciendo una lista de listas o una **lista 2D**.
 
-![Storing the slug](images/2d-slug.png)
+![Almacenar la babosa](images/2d-slug.png)
 
-### Write the code
+### Escribe el código
 
-To be able to light up a pixel on the LED display, you need to specify three things: the x and y coordinates of the pixel, and the colour you would like the LED to be.
+Para poder iluminar un pixel en la pantalla LED, necesitas especificar tres cosas: las coordenadas x e y del pixel y el color que deseas que tenga el LED.
 
 [[[rpi-sensehat-led-coordinates]]]
 
-+ In the variables section of your file, create an empty list called `slug`.
++ En la sección de variables de tu archivo, crea una lista vacía llamada `babosa`.
 
 [[[generic-python-create-list]]]
 
-You will light up three pixels in a horizontal row to make up the slug. Each pixel's position will be represented as a list containing an x and a y coordinate.
+Iluminarás tres pixeles en una fila horizontal para formar la babosa. La posición de cada pixel se representará como una lista que contiene una coordenada "x" y una coordenada "y".
 
-+ Add the coordinate lists `[2, 4]`, `[3, 4]`, and `[4, 4]` (in that order) to your `slug` list to define the coordinates where the slug will start out. You have now created a 2D list, or a list of lists!
++ Agrega las listas de coordenadas `[2, 4]`, `[3, 4]`, y `[4, 4]` (en ese orden) a tu lista `babosa` para definir las coordenadas desde donde la babosa comenzará a moverse. ¡Acabas de crear una lista 2D o una lista de listas!
 
-You also need to specify a colour for the slug.
+También debes especificar un color para la babosa.
 
-+ In the variables section, create a variable to store the RGB colour of your slug. We chose white, but you can choose any colour you like.
++ En la sección de variables, crea una variable para almacenar el color RGB de tu babosa. Nosotros elegimos el blanco, pero puedes elegir el color que desees.
 
 ```python
-white = (255, 255, 255)
+blanco = (255, 255, 255)
 ```
 
 [[[generic-theory-colours]]]
 
-+ In the functions section, create a function called `draw_slug()`. You will put the code to draw the slug into it.
++ En la sección de funciones, crea una función llamada `dibujar_babosa()`. Pondrás el código para dibujar la babosa en él.
 
 [[[generic-python-simple-functions]]]
 
-+ Inside your `draw_slug()` function, add a `for` loop to loop through each element in the `slug` list.
++ Dentro de tu función `dibujar_babosa()`, añade un bucle `for` para recorrer a través de cada elemento de la lista `babosa`.
 
-Each element in the list represents the `x, y` coordinates of one segment of the slug.
+Cada elemento en la lista representa las coordenadas `x, y` de un segmento de la babosa.
 
-+ Inside the loop, use the `set_pixel` method to light up each pixel you specified in the `slug` list, thus drawing all segments of the slug.
++ Dentro del bucle, usa el método `set_pixel` para iluminar cada pixel que especificaste en la lista `babosa`, dibujando así todos los segmentos de la babosa.
 
 --- hints --- --- hint ---
 
-The `set_pixel` method requires three arguments: the x coordinate of the pixel, the y coordinate of the pixel, and the colour.
+El método `set_pixel` requiere tres argumentos: la coordenada "x" del pixel, la coordenada "y" del pixel y el color.
 
 --- /hint ---
 
 --- hint ---
 
-Your `for` loop will examine each segment of the slug in turn. If you wrote your loop like this:
+Tu bucle `for` examinará a su vez cada segmento de la babosa. Si escribiste tu bucle así:
 
 ```python
-for segment in slug:
+for segmento in babosa:
 ```
 
-...then `segment[0]` will be the x coordinate of the segment you are currently looking at.
+... entonces `segmento[0]` será la coordenada "x" del segmento que estás viendo actualmente.
 
 --- /hint ---
 
 --- hint ---
 
-Here is how your code might look:
+Así es como podría verse tu código:
 
 ```python
-def draw_slug():
-  for segment in slug:
-      sense.set_pixel(segment[0], segment[1], white)
+def dibujar_babosa():
+  for segmento in babosa:
+      sense.set_pixel(segmento[0], segmento[1], blanco)
 ```
 
 --- /hint --- --- /hints ---
 
-If you run your program at this point, nothing will happen. This is because you haven't called the function, and therefore the code will not execute.
+Si ejecutas tu programa ahora, no pasará nada. Esto se debe a que no has llamado a la función y, por lo tanto, el código no se ejecutará.
 
-+ In the **main program** section, clear the LED screen and then call the function by adding the following code:
++ En la sección **programa principal**, vacía la pantalla LED y luego llama a la función agregando el siguiente código:
 
 ```python
 sense.clear()
-draw_slug()
+dibujar_babosa()
 ```
 
-+ Save and run your program, and check that you see a row of three pixels light up to form your slug.
++ Guarda y ejecuta tu programa, verificando que se encienda una fila de tres pixeles para formar tu babosa.
