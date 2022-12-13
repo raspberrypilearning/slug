@@ -1,0 +1,23 @@
+Find the last and first items in the slug list
+
+Create a copy of the last item
+
+Find the next pixel in the direction the slug is currently moving
+
+Move along the column
+
+Add this pixel at the end of the slug list
+
+Set the new pixel to the slug's colour
+
+Set the first pixel in the slug list to blank
+
+Remove the first pixel from the list
+
+Wrap x coordinate
+
+Wrap y coordinate
+
+Let there be a 20% chance of making a veggie if there aren't many about
+
+Do things relating to vegetables
