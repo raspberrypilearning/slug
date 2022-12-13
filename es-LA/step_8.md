@@ -1,44 +1,44 @@
-## Eating vegetables
+## Comer verduras
 
-Your slug already appears to eat the vegetables — great! However, you have probably found that, once she has eaten the first three vegetables, no more vegetables ever appear regardless of how long you wait.
+Tu babosa ya parece comerse las verduras. ¡Genial! Sin embargo, probablemente hayas descubierto que, una vez que ha comido las tres primeras verduras, no aparecen más verduras, independientemente de cuánto tiempo esperes.
 
-**Can you work out why this is?**
+**¿Puedes determinar por qué pasa esto?**
 
 --- collapse ---
 ---
-title: Answer
+título: Respuesta
 ---
 
-Since the `make_veg` function only generates vegetables if the `vegetables` list contains fewer than three items, no new vegetables will appear once the list contains three vegetables.
+Dado que la función `crear_verdura` solo genera verduras si la lista `verduras` contiene menos de tres elementos, no aparecerán nuevas verduras una vez que la lista contenga tres verduras.
 
-At the moment, your first three vegetables are generated and added to the `vegetables` list. When the slug moves to a pixel containing a vegetable, the vegetable disappears because the `move` function draws the slug's pixels over the top of it. This is why the slug appears to eat it. However, the vegetable is never removed from the `vegetables` list, so the `make_veg` function isn't allowed to make more.
+Por el momento, tus primeras tres verduras se generan y se agregan a la lista `verduras`. Cuando la babosa se mueve a un pixel que contiene una verdura, la verdura desaparece porque la función `mover()` dibuja los pixeles de la babosa sobre ella. Por eso la babosa parece comérsela. Sin embargo, la verdura nunca es eliminada de la lista `verduras`, por lo que la función `crear_verdura` no puede crear más.
 
 --- /collapse ---
 
-+ Add some code at the end of the `move()` function so that, whenever the slug moves to a new pixel, the function checks whether that pixel is in the `vegetables` list. If the pixel is in the `vegetables` list, remove it from the list.
++ Agrega un poco de código al final de la función `mover()` para que, cada vez que la babosa se mueva a un nuevo pixel, la función verifique si ese pixel está en la lista `verduras`. Si el pixel está en la lista `verduras`, elimínalo de la lista.
 
-Let's also add a score to keep track of how many vegetables the slug has eaten, so that the player knows how well they have done when their round ends.
+Agreguemos también un puntaje para monitorear cuántas verduras se ha comido la babosa, de modo que el jugador sepa qué tan bien lo ha hecho al terminar su ronda.
 
-+ In the variables section, create a `score` variable which starts as `0`.
++ En la sección de variables, crea una variable `puntaje` que comience en `0`.
 
-+ Whenever the slug eats a vegetable, add 1 to the score. Don't forget that, because the `score` variable was created outside of the function, you need to specify that you want to use `global score` at the start of the `move()` function so that the function is allowed to change it.
++ Cada vez que la babosa se coma una verdura, suma 1 al puntaje. No olvides que, debido a que la variable `puntaje` ha sido creada fuera de la función, debes especificar que quieres usar `puntaje global` al comienzo de la función `mover()` para que la función pueda cambiarla.
 
 --- hints --- --- hint ---
 
-Here is some pseudocode for the check which should occur within the `move()` function:
+Aquí hay un poco de pseudocódigo para la verificación que debería ocurrir dentro de la función `mover()`:
 
-`if` new pixel is `in` vegetables `remove` new pixel from vegetables `add` 1 to score
+`Si` hay nuevo pixel `en` verduras `eliminar` nuevo pixel en verduras `agregar` 1 a puntaje
 
 --- /hint --- --- hint ---
 
-Here is the code you should add to the end of the `move()` function:
+Aquí está el código que debes agregar al final de la función `mover()`:
 
 ```python
-if next in vegetables:
-  vegetables.remove(next)
-  score += 1
+if siguiente in verduras:
+  verduras.remove(siguiente)
+  puntaje += 1
 ```
 
-Don't forget to also add `global score` on the first line of the `move()` function, and to initialise the `score` variable to `0` in the variables section.
+No olvides agregar también `global puntaje` en la primera línea de la función `mover()` e inicializar la variable `puntaje` a `0` en la sección de variables.
 
 --- /hint --- --- /hints ---
