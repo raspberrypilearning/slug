@@ -1,35 +1,35 @@
-## Create vegetables
+## Crea verduras
 
-Our slug is hungry, so she needs something to eat! Let's generate some vegetables for her at random locations on the LED matrix.
+Nuestra babosa tiene hambre, ¡y necesita algo de comer! Vamos a generar algunas verduras para ella en ubicaciones aleatorias en la matriz LED.
 
-![Vegetables](images/vegetables.png)
+![Verduras](images/vegetables.png)
 
-Creating the vegetables is fairly straightforward:
+Crear las verduras es bastante sencillo:
 
-1. Pick a `x, y` random coordinate on the LED matrix
-2. Check if this coordinate is currently inhabited by the slug
-3. If it is, repeat steps 1 and 2 until you pick a location that is outside the slug
-4. Draw the vegetable on the LED matrix
+1. Elige una coordenada aleatoria `x, y` en la matriz LED.
+2. Comprueba si esta coordenada está actualmente habitada por la babosa.
+3. Si es así, repite los pasos 1 y 2 hasta que escojas una ubicación que esté fuera de la babosa.
+4. Dibuja la verdura en la matriz LED.
 
-The code you need is very similar code you've written earlier for the slug, so try to do this bit by yourself. If you get stuck, use the hints.
+El código que necesitas es muy similar al que has escrito anteriormente para la babosa, así que intenta hacerlo tú mismo. Si te quedas atascado, usa las pistas.
 
-+ Create a new variable to define the colour of the vegetables you're going to make. You can do this in the same way you defined the colour of your slug.
++ Crea una nueva variable para definir el color de las verduras que vas a hacer. Puedes hacer esto de la misma manera que definiste el color de tu babosa.
 
-### Create the function
+### Crea la función
 
-+ Define a new function called `make_veg()` in your functions section. The code to put inside the function is explained in the following steps.
++ Define una nueva función llamada `crear_verdura()` en la sección de funciones. El código a poner dentro de la función se explica en los siguientes pasos.
 
-+ Inside the function, write some code to pick a random coordinate on the LED matrix.
++ Dentro de la función, escribe un poco de código para elegir una coordenada aleatoria en la matriz LED.
 
 [[[generic-python-random]]]
 
 --- hints --- --- hint ---
 
-Generate a random x coordinate and a random y coordinate and then put them together in a list. Both coordinates must be random numbers between 0 and 7.
+Genera una coordenada "x" aleatoria y una coordenada "y" aleatoria, y luego ponlas juntas en una lista. Ambas coordenadas deben ser números aleatorios entre 0 y 7.
 
 --- /hint --- --- hint ---
 
-You can use the `randint` function to generate random numbers. For example, this code generates a random number between 5 and 10:
+Puedes usar la función `randint` para generar números aleatorios. Por ejemplo, este código genera un número aleatorio entre 5 y 10:
 
 ```python
 a = randint(5, 10)
@@ -37,98 +37,98 @@ a = randint(5, 10)
 
 --- /hint --- --- hint ---
 
-Here is how your code should look:
+Así es como debería verse tu código:
 
 ```python
 x = randint(0, 7)
 y = randint(0, 7)
-new = [x, y]
+nuevo = [x, y]
 ```
 
 --- /hint --- --- /hints ---
 
 
-+ Check if this `x, y` coordinate is in the `slug` list. If it is, pick a new coordinate and check it against the list. Repeat this until the coordinate you've picked isn't in the slug list.
++ Verifica si esta coordenada `x, y` está en la lista `babosa`. Si es así, elige una nueva coordenada y compárala con la lista. Repite esto hasta que la coordenada que has elegido no esté en la lista.
 
 [[[generic-python-item-in-list]]]
 
 --- hints --- --- hint ---
 
-Here is some pseudocode to help you. We start off by setting `new` equal to the first coordinate in the `slug` list so that it is guaranteed to start off inside the slug. This way a new coordinate must be generated at least once.
+Aquí tienes un poco de pseudocódigo para ayudarte. Empecemos por configurar `nuevo` igual a la primera coordenada de la lista `babosa` para garantizar que comenzará dentro de la babosa. De esta manera, una nueva coordenada debe ser generada al menos una vez.
 
-Set `new` to the first coordinate in the `slug` list `while` the coordinate is in the `slug` list: set x to a random number between 0 and 7 set y to a random number between 0 and 7 set `new` to x, y
+Configura `nuevo` con la primera coordenada de la lista `babosa` `mientras` la coordenada está en la lista `babosa`: configura "x" con un número aleatorio entre 0 y 7 configura "y" con un número aleatorio entre 0 y 7 configura `nuevo` con x, y
 
 --- /hint ---
 
 --- hint ---
 
-Here is how your code might look:
+Así es como podría verse tu código:
 
 ```python
-new = slug[0]
-while new in slug:
+nuevo = babosa[0]
+while nuevo in babosa:
     x = randint(0, 7)
     y = randint(0, 7)
-    new = [x, y]
+    nuevo = [x, y]
 ```
 
 --- /hint --- --- /hints ---
 
-+ Once you have found an `x, y` coordinate which isn't inside the slug, draw the vegetable on the screen using your new colour variable.
++ Una vez que hayas encontrado una coordenada `x, y` que no esté dentro de la babosa, dibuja la verdura en la pantalla usando tu nueva variable de color.
 
-### Call the function
+### Llama a la función
 
-+ In your main program, call the `make_veg` function and check that vegetables randomly appear on the LED matrix.
++ En tu programa principal, llama a la función `crear_verdura` y verifica que las verduras aparezcan al azar en la matriz LED.
 
-You will probably notice that rather a lot of vegetables appear, so your slug is quickly overrun!
+Probablemente notarás que aparecen muchas verduras, ¡por lo que tu babosa se ve invadida rápidamente!
 
-![Too many vegetables](images/too-many-veggies.gif)
+![Demasiadas verduras](images/too-many-veggies.gif)
 
-You need a way to track how many vegetables there are, so that you can prevent this dangerous spreading of veggies!
+¡Necesitas una forma de rastrear cuántas verduras hay para evitar esta peligrosa propagación de verduras!
 
-## Keep track of the vegetables
+## Haz un seguimiento de las verduras
 
-+ Create a new empty list called `vegetables` in your variables section.
++ Crea una nueva lista vacía llamada `verduras` en tu sección de variables.
 
-+ Write a line of code at the end of your `make_veg` function to add the coordinates of the new vegetable to your `vegetables` list.
++ Escribe una línea de código al final de tu función `crear_verdura` para agregar las coordenadas de la nueva verdura a tu lista `verduras`.
 
 [[[generic-python-append-list]]]
 
-+ Change the way you call the `make_veg` function in the main program so that it will only create a new vegetable if there are fewer than three items in the `vegetables` list.
++ Cambia la forma en que llamas a la función `crear_verdura` en el programa principal para que solo cree una nueva verdura si hay menos de tres elementos en la lista `verduras`.
 
 --- hints --- --- hint ---
 
-You can use the function `len()` to find out the length of the `vegetables` list, or in other words, how many items are in the list.
+Puedes usar la función `len()` para averiguar la longitud de la lista `verduras`, o en otras palabras, cuántos elementos hay en la lista.
 
 --- /hint --- --- hint ---
 
-Here is some pseudocode to help you:
+Aquí tienes un poco de pseudocódigo para ayudarte:
 
-`if` the length of the vegetables list is `less than` 3 Call the `make_veg` function
+`si` la longitud de la lista de verduras es `menor que` 3, llamar a la función `crear_verdura`
 
 --- /hint --- --- hint ---
 
-Here is how your code should look:
+Así es como debería verse tu código:
 
 ```python
-if len(vegetables) < 3:
-   make_veg()
+if len(verduras) < 3:
+   crear_verdura()
 ```
 
 --- /hint --- --- /hints ---
 
-### Challenge
-Can you change your code so that, if there are fewer than 3 vegetables in the list, there is only a 20% chance of creating a new vegetable each time the function runs? This will make it less predictable when vegetables might appear. To create the 20% chance, randomly pick a number between 1 and 5, and only create a vegetable for one specific number in this range.
+### Desafío
+¿Puedes cambiar tu código para que, si hay menos de 3 verduras en la lista, solo haya un 20% de posibilidades de crear una nueva verdura cada vez que se ejecute la función? Esto hará que sea menos predecible cuando puedan aparecer verduras. Para crear el 20% de probabilidad, elige al azar un número entre 1 y 5, y solo crea una verdura para un número específico en este rango.
 
 --- collapse ---
 ---
-title: Challenge solution
+título: Solución del desafío
 ---
 
 ```python
-# Let there be a 20% chance of making a veggie if there aren't many about
-if len(vegetables) < 3 and randint(1, 5) > 4:
-    make_veg()
+# Dejar que haya un 20% de probabilidad de crear una verdura si no hay muchas alrededor
+if len(verduras) < 3 and randint(1, 5) > 4:
+    crear_verdura ()
 ```
 
 --- /collapse ---
