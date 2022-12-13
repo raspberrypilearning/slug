@@ -5,111 +5,111 @@ from random import randint
 sense = SenseHat()
 
 # Variables ---------------------------
-slug = [[2,4], [3,4], [4,4]]
-white = (255, 255, 255)
-blank = (0, 0, 0)
-red = (255, 0, 0)
-direction = "right"
-vegetables = []
-score = 0
-pause = 0.5
-dead = False
+babosa = [[2,4], [3,4], [4,4]]
+blanco = (255, 255, 255)
+vacio = (0, 0, 0)
+rojo = (255, 0, 0)
+direccion = "derecha"
+verduras = []
+puntaje = 0
+pausa = 0.5
+muerta = False
 
-# Functions ---------------------------
-def draw_slug():
-  for segment in slug:
-    sense.set_pixel(segment[0], segment[1], white)
+# Funciones ---------------------------
+def dibujar_babosa():
+  for segmento in babosa:
+    sense.set_pixel(segmento[0], segmento[1], blanco)
 
-def move():
-  global score, pause, dead
-  remove = True
+def mover():
+  puntaje global, pausa, muerta
+  eliminar = True
 
-  # Find the last and first items in the slug list
-  last = slug[-1]
-  first = slug[0]
-  next = list(last) # Create a copy of the last item
+  # Encontrar el último y el primer elemento en la lista babosa
+  ultimo = babosa[-1]
+  primero = babosa[0]
+  siguiente = lista(ultimo) # Crea una copia del último elemento
 
-  # Find the next pixel in the direction the slug is currently moving
-  if direction == "right":
+  # Encontrar el siguiente pixel en la dirección en la que la babosa se está moviendo actualmente
+  if direccion == "derecha":
 
-    # Move along the column
-    if last[0] + 1 == 8:
-      next[0] = 0
+    # Mover a lo largo de la columna
+    if ultimo[0] + 1 == 8:
+      siguiente[0] = 0
     else:
-      next[0] = last[0] + 1
+      siguiente[0] = ultimo[0] + 1
 
-  elif direction == "left":
+  elif direccion == "izquierda":
 
-    if last[0] - 1 == -1:
-      next[0] = 7
+    if ultimo[0] - 1 == -1:
+      siguiente[0] = 7
     else:
       next[0] = last[0] - 1
 
-  elif direction == "down":
+  elif direccion == "abajo":
 
-    if last[1] + 1 == 8:
-      next[1] = 0
+    if ultimo[1] + 1 == 8:
+      siguiente[1] = 0
     else:
-      next[1] = last[1] + 1
+      siguiente[1] = ultimo[1] + 1
 
-  elif direction == "up":
+  elif direccion == "arriba":
 
-    if last[1] - 1 == -1:
-      next[1] = 7
+    if ultimo[1] - 1 == -1:
+      siguiente[1] = 7
     else:
-      next[1] = last[1] - 1
+      siguiente[1] = ultimo[1] - 1
 
-  # Did I die?
-  if next in slug:
-    dead = True
+  # ¿He muerto?
+  if siguiente in babosa:
+    muerta = True
 
-  # Add this pixel at the end of the slug list
-  slug.append(next)
+  # Agregar este pixel al final de la lista babosa
+  babosa.append(siguiente)
 
-  # Set the new pixel to the slug's colour
-  sense.set_pixel(next[0], next[1], white)
+  # Configurar el nuevo pixel con el color de la babosa
+  sense.set_pixel(siguiente[0], siguiente[1], white)
 
-  if next in vegetables:
-    vegetables.remove(next)
-    score += 1
+  if siguiente in verduras:
+    verduras.eliminar(siguiente)
+    puntaje += 1
 
-    if score % 5 == 0:
-      remove = False
-      pause = pause * 0.8
+    if puntaje % 5 == 0:
+      eliminar = False
+      pausa = pausa * 0.8
 
-  if remove == True:
-    # Set the first pixel in the slug list to blank
-    sense.set_pixel(first[0], first[1], blank)
+  if eliminar == True:
+    # Configurar el primer pixel en la lista babosa como vacío
+    sense.set_pixel(primero[0], primero[1], vacio)
 
-    # Remove the first pixel from the list
-    slug.remove(first)
+    # Eliminar el primer pixel de la lista
+    babosa.remove(primero)
 
 
-def joystick_moved(event):
-  global direction
-  direction = event.direction
+def palanca_de_mando_movida(event):
+  direccion global
+  direccion = event.direction
 
-def make_veg():
-  new = slug[0]
-  while new in slug:
+def crear_verdura():
+  nuevo = babosa[0]
+  while nuevo in babosa:
     x = randint(0, 7)
     y = randint(0, 7)
-    new = [x, y]
+    nuevo = [x, y]
   sense.set_pixel(x, y, red)
-  vegetables.append(new)
+  verduras.append(nuevo)
 
-# Main program ------------------------
+# Programa principal ------------------------
 sense.clear()
-draw_slug()
+dibujar_babosa()
 
-sense.stick.direction_any = joystick_moved
+sense.stick.direction_any = palanca_de_mando_movida
 
-while not dead:
-  move()
-  sleep(pause)
+while not muerta:
+  mover()
+  sleep(pausa)
 
-  # Have a 20% chance of making a veggie if there aren't many about
-  if len(vegetables) < 3 and randint(1, 5) > 4:
-    make_veg()
+  # Ten un 20% de posibilidades de crear una verdura si no hay muchas alrededor
+  if len(verduras) < 3 y randint(1, 5) > 4:
+    crear_verdura()
 
-sense.show_message( str(score) )
+sense.show_message( str(puntaje) )
