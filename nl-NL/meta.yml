@@ -2,7 +2,7 @@
 title: NAAKTSLAK!
 hero_image: images/banner.png
 description: Speel het klassieke spel Snake na op je Sense HAT
-theme: violet #possible values: blue, green, navy, orange, red, turquoise, violet, yellow
+theme: violet
 duration: 2
 listed: true
 ingredient: false
@@ -24,6 +24,8 @@ steps:
     title: Maak verbinding met de Sense HAT
   - 
     title: Teken de naaktslak
+    completion:
+      - engaged
   - 
     title: Verplaats de naaktslak
   - 
@@ -36,5 +38,7 @@ steps:
     title: Groeien en versnellen
   - 
     title: Game over
+    completion:
+      - internal
   - 
-    title: "Uitdaging: gekke groenten"
+    title: 'Uitdaging: gekke groenten'
