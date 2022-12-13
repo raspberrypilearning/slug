@@ -1,45 +1,45 @@
-## Use the joystick
+## Usa la palanca de mando
 
-Next, let's link up the Sense HAT's joystick so that the player can use it to control the movement of the slug.
+A continuación, conectemos la palanca de mando del Sense HAT para que el jugador pueda controlar el movimiento de la babosa.
 
-![Moving slug](images/moving-slug.gif)
+![Babosa en movimiento](images/moving-slug.gif)
 
-+ In the functions section, create a new function:
++ En la sección de funciones, crea una nueva función:
 
 ```python
-def joystick_moved(event):
+def palanca_de_mando_movida(event):
 ```
 
-You will call this function whenever the joystick is moved. It will automatically receive a parameter called `event`, which will let you find out in which direction the joystick was moved.
+Llamarás a esta función cada vez que la palanca de mando se mueva. Recibirá automáticamente un parámetro llamado `event`, que te permitirá saber en qué dirección se movió la palanca de mando.
 
-You'll want to set the `direction` variable to the direction in which the joystick was pushed. So that you are allowed to change the value of the variable from within this function, you need to specify `global` for the variable. To find out why, read about scope in Python functions.
+Necesitarás configurar la variable `direccion` en la dirección en la que se movió la palanca de mando. Para poder cambiar el valor de la variable desde dentro de esta función, debes especificar `global` para la variable. Para averiguar por qué, lee sobre el alcance de las funciones de Python.
 
 [[[generic-python-function-scope]]]
 
-+ Add `global direction` to your function:
++ Añade `global direccion` a tu función:
 
 ```python
-def joystick_moved(event):
-    global direction
+def palanca_de_mando_movida(event):
+    global direccion
 ```
 
-You can access the direction the joystick was moved in with the help of the `event` parameter: use the command `event.direction`.
+Puedes acceder a la dirección en la que se movió la palanca de mando con la ayuda del parámetro `event`: usa el comando `event.direction`.
 
-+ Inside your function, set the `direction` variable to be equal to `event.direction`.
++ Dentro de tu función, configura la variable `direccion` para que sea igual a `event.direction`.
 
-+ Finally, in the main part of your program, write a line of code to say that, when the Sense HAT joystick is pressed in any direction, the `joystick_moved` function will be called.
++ Finalmente, en la sección principal de tu programa, escribe una línea de código para decir que, cuando se mueva la palanca de mando del Sense HAT en cualquier dirección, se llame a la función `palanca_de_mando_movida`.
 
 [[[rpi-python-sensehat-joystick-event-functions]]]
 
 --- hints --- --- hint ---
 
-You can find out how to do this in the information section 'Triggering function calls with the Sense HAT joystick' found above.
+Puedes averiguar cómo hacer esto en la sección de información "Activación de llamadas de función con la palanca de mando de Sense HAT" que se encuentra arriba.
 
 --- /hint ---
 
 --- hint ---
 
-The code to say "when the joystick is pressed in any direction" is as follows:
+El código para decir "cuando se presione la palanca de mando en cualquier dirección" es el siguiente:
 
 ```python
 sense.stick.direction_any =
@@ -49,23 +49,23 @@ sense.stick.direction_any =
 
 --- hint ---
 
-Here is how the code in the **main program** should look:
+Así es como debería verse el código en el **programa principal**:
 
 ```python
-sense.stick.direction_any = joystick_moved
+sense.stick.direction_any = palanca_de_mando_movida
 ```
 
-Here is the full **function** code:
+Aquí está el código completo de la **función**:
 ```python
-def joystick_moved(event):
-    global direction
-    direction = event.direction
+def palanca_de_mando_movida(event):
+    global direccion
+    direccion = event.direction
 ```
 
 --- /hint ---
 
 --- /hints ---
 
-+ Run your program and test that it works. If you are using the emulator, you can simulate moving the joystick by pressing the arrow keys on your keyboard.
++ Ejecuta tu programa y prueba si funciona. Si estás usando el emulador, puedes simular el movimiento de la palanca de mando presionando las teclas de flecha en tu teclado.
 
-At this point it is possible to move the slug back "through" herself, which looks rather odd. Later on we will add some code which causes the game to end if the slug bites herself, so there is no need to worry about resolving this glitch.
+En este momento, es posible mover la babosa hacia atrás "a través" de ella misma, lo que parece bastante extraño. Más adelante agregaremos un código que hará que el juego termine si la babosa se muerde a sí misma, por lo que no hay necesidad de preocuparse por resolver este problema técnico.
