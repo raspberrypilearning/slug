@@ -1,9 +1,9 @@
-## Challenge: crazy veggies
+## Desafío: verduras locas
 
-There are lots of possible features you could add to your game to make it more difficult and entertaining for the player! Here are a few examples — can you come up with your own ideas?
+¡Hay muchas funcionalidades posibles que podrías agregar a tu juego para hacerlo más difícil y entretenido para el jugador! Aquí hay algunos ejemplos: ¿se te ocurren tus propias ideas?
 
-+ Growth vegetables: add a new type of vegetable which causes the slug to grow by more than one segment at a time. This makes the game harder because the slug will become big quickly, making it difficult to stop her from biting herself!
++ Verduras de crecimiento: agrega un nuevo tipo de verdura que haga que la babosa crezca en más de un segmento a la vez. Esto hace que el juego sea más difícil porque la babosa crecerá rápidamente, ¡haciendo que sea difícil evitar que se muerda a sí misma!
 
-+ Slug trails: leave a trail behind your slug in a different colour so you can see where you've been. Perhaps you could then make the game harder by not allowing vegetables to be generated in spaces where there is a slug trail?
++ Rastros de babosa: deja un rastro detrás de tu babosa en un color diferente para que puedas ver dónde has estado. ¿Quizás podrías hacer el juego más difícil al no permitir que se generen verduras en espacios donde hay un rastro de babosas?
 
-+ Digest the veg: add code so that, when the slug eats a vegetable, you can see it working its way through the slug's digestive system and getting pooped out of the end! Perhaps you could make the game also end if the slug moves to a space with a pooped-out vegetable? Yuck!
++ Digerir la verdura: agrega un código para que, cuando la babosa coma una verdura, puedas verla pasar a través de su sistema digestivo ¡y ser defecada por el extremo final! ¿Tal vez podrías hacer que el juego también terminara si la babosa se mueve a un espacio con una verdura que ha sido defecada? ¡Qué asco!
