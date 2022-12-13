@@ -4,7 +4,7 @@ Maak je eigen leuke en hectische versie van het klassieke spel Snake op een Sens
 
 ### Wat ga je maken
 
-Gebruik de pijltjestoetsen op je toetsenbord om de naaktslak te richten. Klik op **Run** om het spel te starten. <iframe src="https://trinket.io/embed/python/b9e8a05f5b?outputOnly=true" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
+Gebruik de pijltjestoetsen op je toetsenbord om de naaktslak te richten. Klik op **Run** om het spel te starten. <iframe src="https://trinket.io/embed/python/b9e8a05f5b?outputOnly=true" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 ### Wat ga je leren
 
