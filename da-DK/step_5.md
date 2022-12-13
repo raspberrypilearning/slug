@@ -13,7 +13,7 @@ Since you stored the pixel coordinates of the slug's current position in a list,
 ![Move right](images/move-right.png)
 
 + Find the last item in the `slug` list (`[4, 4]`)
-+ Find the next pixel in the `direction` in the slug is currently moving (`[5, 4]`)
++ Find the next pixel in the `direction` in which the slug is currently moving (`[5, 4]`)
 + Add this pixel at the end of the `slug` list
 + Set this pixel to the slug's colour
 + Set the first pixel in the `slug` list (`[2, 4]`) to `blank`
