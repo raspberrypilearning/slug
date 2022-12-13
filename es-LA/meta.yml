@@ -1,8 +1,8 @@
 ---
-title: SLUG!
+title: '¡BABOSA!'
 hero_image: images/banner.png
-description: Recreate the classic game of Snake on your Sense HAT
-theme: violet #possible values: blue, green, navy, orange, red, turquoise, violet, yellow
+description: Recrea el clásico juego de Snake en tu Sense HAT
+theme: violet
 duration: 2
 listed: true
 ingredient: false
@@ -17,24 +17,28 @@ version: 4.0.1
 last_tested: 2017-10-01
 steps:
   - 
-    title: Introduction
+    title: Introducción
   - 
-    title: What you will need
+    title: Lo que necesitarás
   - 
-    title: Connect to the Sense HAT
+    title: Conéctate al Sense HAT
   - 
-    title: Draw the slug
+    title: Dibuja la babosa
+    completion:
+      - engaged
   - 
-    title: Move the slug
+    title: Mueve la babosa
   - 
-    title: Use the joystick
+    title: Usa la palanca de mando
   - 
-    title: Create vegetables
+    title: Crea verduras
   - 
-    title: Eating vegetables
+    title: Comer verduras
   - 
-    title: Growing and speeding up
+    title: Crecer y acelerar
   - 
-    title: Game over
+    title: Fin del juego
+    completion:
+      - internal
   - 
-    title: "Challenge: crazy veggies"
+    title: 'Desafío: verduras locas'
