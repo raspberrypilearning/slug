@@ -6,7 +6,7 @@ sense = SenseHat()
 
 # Variables ---------------------------
 
-# Functions ---------------------------
+# Funciones ---------------------------
 
-# Main program ------------------------
+# Programa principal ------------------------
       
