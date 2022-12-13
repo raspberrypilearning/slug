@@ -1,180 +1,180 @@
-## Move the slug
+## Mueve la babosa
 
-Next, let's make the slug move. The slug should always be moving, but it will only change direction when the player specifies it. Therefore, you need to store the direction in which the slug is moving.
+A continuación, hagamos que la babosa se mueva. La babosa siempre debe estar en movimiento, pero solo cambiará de dirección cuando el jugador lo especifique. Por lo tanto, debes almacenar la dirección en la que se mueve la babosa.
 
-+ In the variables section, create a variable called `direction`. The slug will begin the game moving right, so initialise this variable to the string `"right"`.
++ En la sección de variables, crea una variable llamada `direccion`. La babosa comenzará el juego moviéndose hacia la derecha, de modo que inicializa esta variable en la cadena `"derecha"`.
 
-You also need a way to 'erase' pixels so you can turn off an LED once the slug has moved on.
+También necesitas una forma de "borrar" los pixeles para poder apagar un LED una vez que la babosa haya seguido adelante.
 
-+ Create a variable called `blank`, and set it to the RGB colour `(0, 0, 0)`.
++ Crea una variable llamada `vacio` y configúrala con el color RGB `(0, 0, 0)`.
 
-Since you stored the pixel coordinates of the slug's current position in a list, you can now follow this process to move the slug:
+Dado que almacenaste las coordenadas de pixeles de la posición actual de la babosa en una lista, ahora puedes seguir este proceso para mover la babosa:
 
-![Move right](images/move-right.png)
+![Mover a la derecha](images/move-right.png)
 
-+ Find the last item in the `slug` list (`[4, 4]`)
-+ Find the next pixel in the `direction` in the slug is currently moving (`[5, 4]`)
-+ Add this pixel at the end of the `slug` list
-+ Set this pixel to the slug's colour
-+ Set the first pixel in the `slug` list (`[2, 4]`) to `blank`
-+ Remove this pixel from the list
++ Encuentra el último elemento en la lista `babosa` (`[4, 4]`)
++ Find the next pixel in the `direction` in which the slug is currently moving (`[5, 4]`)
++ Agrega este pixel al final de la lista `babosa`
++ Configura este pixel al color de la babosa
++ Configura el primer pixel en la lista `babosa` (`[2, 4]`) como `vacio`
++ Elimina este pixel de la lista
 
-This algorithm works even when the player changes the direction of the slug. When that happens, the slug's body will simply bend to point in the new direction.
+Este algoritmo funciona incluso cuando el jugador cambia la dirección de la babosa. Cuando eso sucede, el cuerpo de la babosa simplemente se doblará para apuntar en la nueva dirección.
 
-The slug is actually a **queue** data structure.
+La babosa es en realidad una estructura de datos **cola**.
 
 --- collapse ---
 ---
-title: What is a queue?
+título: ¿Qué es una cola?
 ---
 
-A queue is a data structure where the first piece of data added is the first piece of data to come out. It is also called a FIFO or 'first in, first out' data structure. This is like waiting in a supermarket to pay for your shopping: you join the queue at the back, and the person at the front gets to pay for their items first and then leaves the queue.
+Una cola es una estructura de datos donde el primer dato agregado es el primer dato que sale. También es llamada una estructura de datos PEPS o "primero en entrar, primero en salir" (FIFO en inglés). Es como esperar en la fila de un supermercado para pagar tus compras: te unes a la cola en la parte de atrás, y la persona en la parte delantera tiene que pagar primero sus artículos y luego deja la cola.
 
-Imagine the pixels of the slug are bits of food queuing up to be pooped out of the slug. The first item in the list is at the front of the queue, which is the back of the slug: this item will exit the slug and be deleted. New pixels join the slug queue at the end, which is where the mouth of the slug is. They gradually work their way towards the front of the queue as the slug moves.
+Imagina que los pixeles de la babosa son trozos de comida haciendo cola para ser expulsados de la babosa. El primer elemento de la lista está al principio de la cola, que es la parte posterior de la babosa: este elemento saldrá de la babosa y se eliminará. Nuevos pixeles se unen al final de la cola de la babosa, que es donde está la boca de la babosa. Poco a poco se abren camino hacia el frente de la cola a medida que se mueve la babosa.
 
 --- /collapse ---
 
-+ In the functions section, create a function called `move()`.
++ En la sección de funciones, crea una función llamada `mover()`.
 
-+ In the main program section, create an infinite loop which calls this function followed by a `sleep(0.5)`. Once you've written the code for the function, this loop will make the slug continually move around the screen.
++ En la sección principal del programa, crea un bucle infinito que llame a esta función seguido de `sleep(0.5)`. Una vez que hayas escrito el código para la función, este bucle hará que la babosa se mueva continuamente por la pantalla.
 
 [[[generic-python-while-true]]]
 
-Here is some code to start off the `move()` function. It **does not** work properly yet.
+Aquí hay algo de código para iniciar la función `mover()`. **No** funciona correctamente aún.
 
-+ Copy this code into your function and run the program. We used the colour variable `white` for the slug, so if you chose a different variable name, you will need make sure you're using the right name in the function.
++ Copia este código en tu función y ejecuta el programa. Usamos la variable de color `blanco` para la babosa, por lo que si eliges un nombre de variable diferente, deberás asegurarte de estar usando el nombre correcto en la función.
 
 ```python
-def move():
-  # Find the last and first items in the slug list
-  last = slug[-1]
-  first = slug[0]
-  next = list(last)     # Create a copy of the last item
+def mover():
+  # Encontrar el último y el primer elemento en la lista babosa
+  ultimo = babosa[-1]
+  primero = babosa[0]
+  siguiente = lista(ultimo)     # Crea una copia del último elemento
 
-  # Find the next pixel in the direction the slug is currently moving
-  if direction == "right":
+  # Encontrar el siguiente pixel en la dirección en la que la babosa se mueve actualmente
+  if direcciun == "derecha":
 
-    # Move along the column
-    next[0] = last[0] + 1
+    # Mover a lo largo de la columna
+    siguiente[0] = ultimo[0] + 1
 
-  # Add this pixel at the end of the slug list
-  slug.append(next)
+  # Añadir este pixel al final de la lista babosa
+  babosa.append(siguiente)
 
-  # Set the new pixel to the slug's colour
-  sense.set_pixel(next[0], next[1], white)
+  # Configurar el nuevo pixel con el color de la babosa
+  sense.set_pixel(siguiente[0], siguiente[1], blanco)
 
-  # Set the first pixel in the slug list to blank
-  sense.set_pixel(first[0], first[1], blank)
+  # Configurar el primer pixel en la lista como vacío
+  sense.set_pixel(primero[0], primero[1], vacio)
 
-  # Remove the first pixel from the list
-  slug.remove(first)
+  # Eliminar el primer pixel de la lista
+  babosa.eliminar(primero)
 ```
 
-+ Run the program and look at what happens to the slug. Can you explain why you're seeing what you're seeing?
++ Ejecuta el programa y observa lo que le sucede a la babosa. ¿Puedes explicar por qué estás viendo lo que estás viendo?
 
-+ Fix the code so that, when the slug reaches the right-hand wall, she 'moves through' the wall and reappears at the same y coordinate but on the opposite side of the screen.
++ Arregla el código para que cuando la babosa llegue a la pared de la derecha, "se mueva" a través de ella y reaparezca en la misma coordenada "y" pero en el lado opuesto de la pantalla.
 
-![Wrap the slug](images/wrap-slug.gif)
+![Envolver la babosa](images/wrap-slug.gif)
 
 --- hints --- --- hint ---
 
-Examine this code:
+Examina este código:
 
 ```python
-# Move along the column
-next[0] = last[0] + 1
+# Mover a lo largo de la columna
+siguiente[0] = último[0] + 1
 ```
 
-If we always add 1 to the x coordinate, eventually it will reach 8. The LED matrix only has LEDs 0-7 along each axis — 8 doesn't exist, which is why the code crashes. How could you check if the value of the x coordinate plus 1 would be 8, and in that case set it to 0 instead to make the slug move through the wall?
+Si siempre agregamos 1 a la coordenada "x", finalmente llegará a 8. La matriz LED solo tiene LEDs del 0 al 7 a lo largo de cada eje; 8 no existe, por lo que el código falla. ¿Cómo podrías verificar que el valor de la coordenada "x" más 1 sea igual a 8 y, en ese caso, configurarlo a 0 para que la babosa se mueva a través de la pared?
 
 --- /hint ---
 
 --- hint ---
 
-Here is some pseudocode to help you:
+Aquí hay un pseudocódigo para ayudarte:
 
-`if` last[0] + 1 `equals` 8 set next[0] to 0 `else` set next[0] to last[0] + 1
+`si` ultimo[0] + 1 `es igual a` 8 configurar siguiente[0] como 0 `si no` configurar siguiente[0] como ultimo[0] + 1
 
 --- /hint ---
 
 --- hint ---
 
-Here is how your code might look, but there are lots of different ways you could successfully write this section:
+Así es como se vería tu código, pero hay muchas maneras diferentes en las que podrías escribir esta sección con éxito:
 
 ```python
-# Move along the column
-if last[0] + 1 == 8:
- next[0] = 0
+# Mover a lo largo de la columna
+if ultimo[0] + 1 == 8:
+ siguiente[0] = 0
 else:
- next[0] = last[0] + 1
+ siguiente[0] = ultimo[0] + 1
 ```
 
 --- /hint --- --- /hints ---
 
-+ Add some more code to make the slug also able to move up, down, and left. This code will be very similar to the code for moving right, but you'll need to work out which coordinate to change and whether to make its value larger or smaller.
++ Agrega un poco más de código para que la babosa también pueda moverse hacia arriba, hacia abajo y hacia la izquierda. Este código será muy similar al código para moverse hacia la derecha, pero necesitarás determinar qué coordenada debe cambiar y si debes aumentar o disminuir su valor.
 
 --- hints --- --- hint ---
 
-Add an `elif` statement to check whether the direction equals `"left"`. Then check whether moving the slug would result in the value of the x coordinate being outside the LED matrix, e.g. `-1`. If that is be the case, set the x coordinate to `7` to make the slug reappear on the opposite side of the screen.
+Añade una condicional `elif` para verificar si la dirección es igual a `"izquierda"`. Luego verifica si mover la babosa daría como resultado que el valor de la coordenada "x" esté fuera de la matriz LED, por ejemplo, `-1`. Si ese es el caso, configura la coordenada "x" como `7` para que la babosa vuelva a aparecer en el lado opuesto de la pantalla.
 
-You can test your program by changing the value of the `direction` variable to `"left"`. Note: because this causes the slug to reverse, the slug may appear to behave oddly for the first few moves, but it will then behave normally.
-
---- /hint ---
-
---- hint ---
-
-The code for the up and down directions works exactly the same as that for left and right, except that you will be examining the y coordinate instead: `last[1]` and `next[1]`.
+Puedes probar tu programa cambiando el valor de la variable `direccion` `"izquierda"`. Nota: debido a que esto hace que la babosa se revierta, puede parecer que la babosa se comporta de manera extraña durante los primeros movimientos, pero luego se comportará normalmente.
 
 --- /hint ---
 
 --- hint ---
 
-Here is how your code might look. Again, there are lots of potential solutions, so your code might look different and work correctly anyway.
+El código para las direcciones "arriba" y "abajo" funciona exactamente igual que el de "izquierda" y "derecha", excepto que, en su lugar, estarás examinando la coordenada "y": `ultimo[1]` y `siguiente[1]`.
+
+--- /hint ---
+
+--- hint ---
+
+Así es como podría verse tu código. Nuevamente, hay muchas soluciones potenciales, por lo que tu código puede verse diferente y funcionar correctamente de todos modos.
 
 ```python
-# Find the next pixel in the direction the slug is currently moving
- if direction == "right":
-   if last[0] + 1 == 8:
-     next[0] = 0
+# Encontrar el siguiente pixel en la dirección en la que se mueve la babosa actualmente
+ if direccion == "derecha":
+   if ultimo[0] + 1 == 8:
+     siguiente[0] = 0
    else:
-     next[0] = last[0] + 1
+     siguiente[0] = ultimo[0] + 1
 
- elif direction == "left":
-   if last[0] - 1 == -1:
-     next[0] = 7
+ elif direccion == "izquierda":
+   if ultimo[0] - 1 == -1:
+     siguiente[0] = 7
    else:
-     next[0] = last[0] - 1
+     siguiente[0] = ultimo[0] - 1
 
- elif direction == "down":
-   if last[1] + 1 == 8:
-     next[1] = 0
+ elif dirección == "abajo":
+   if ultimo[1] + 1 == 8:
+     siguiente[1] = 0
    else:
-     next[1] = last[1] + 1
+     siguiente[1] = ultimo[1] + 1
 
- elif direction == "up":
-   if last[1] - 1 == -1:
-     next[1] = 7
+ elif dirección == "arriba":
+   if ultimo[1] - 1 == -1:
+     siguiente[1] = 7
    else:
-     next[1] = last[1] - 1
+     siguiente[1] = ultimo[1] - 1
 ```
 
 --- /hint --- --- /hints ---
 
 --- collapse ---
 ---
-title: A more efficient way
+título: Una forma más eficiente
 ---
 
-The code suggested in the previous hint is quite inefficient: there is a lot of repetition. One possible different way of solving this problem would be to first add or subtract from the coordinate value regardless of whether doing so creates a coordinate lying outside the edge of the LED matrix. Then, before performing any actions with the new coordinate, run it through a `wrap()` function to check if it is off the edge and if so, reposition it. Your function might look something like this:
+El código sugerido en la pista anterior es bastante ineficiente: hay mucha repetición. Una posible forma diferente de resolver este problema sería primero sumar o restar el valor de la coordenada, independientemente de si hacerlo crea una coordenada fuera del borde de la matriz LED. Luego, antes de realizar cualquier acción con la nueva coordenada, ejecútala a través de una función `envolver()` para verificar si está fuera del borde y, de ser así, reposiciónala. Tu función podría verse así:
 
 ```python
-def wrap(pix):
-    # Wrap x coordinate
+def envolver(pix):
+    # Envolver la coordenada x
     if pix[0] > 7:
         pix[0] = 0
     if pix[0] < 0:
         pix[0] = 7
-    # Wrap y coordinate
+    # Envolver la coordenada y
     if pix[1] < 0:
         pix[1] = 7
     if pix[1] > 7:
