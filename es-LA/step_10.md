@@ -1,42 +1,42 @@
-## Game over
+## Fin del juego
 
-The final thing you need to check when the slug moves to a new pixel is whether she will bite into her own body. If this happens, she will die and the player will lose the game. The way to do this is very similar to how you checked checked whether the slug is eating a vegetable.
+Lo último que debes verificar cuando la babosa se mueva a un nuevo pixel es si morderá su propio cuerpo. Si esto sucede, ella morirá y el jugador perderá el juego. La forma de hacer esto es muy similar a cómo verificaste si la babosa está comiendo una verdura.
 
-+ In the variables section, create a new Boolean variable called `dead` and initialise it to `False` (so the slug doesn't start off dead!).
++ En la sección de variables, crea una nueva variable booleana llamada `muerta` e inicialízala en `False` (¡para que la babosa no empiece el juego muerta!).
 
-+ Inside the `move()` function, add some code to check whether the next pixel the slug is moving to is part of herself.
++ Dentro de la función `mover()`, agrega un poco de código para verificar si el siguiente pixel al que se mueve la babosa es parte de sí misma.
 
-+ If it is, set the `dead` variable to `True`. Do you remember what you need to do to allow a function to alter a global variable?
++ Si es así, configura la variable `muerta` como `True`. ¿Recuerdas lo que debes hacer para permitir que una función altere una variable global?
 
 --- hints --- --- hint ---
 
-Here is the code you used to check whether the pixel the slug was moving to contained a vegetable:
+Aquí está el código que usaste para verificar si el pixel al que se movía la babosa contenía una verdura:
 
 ```python
-if next in vegetables:
-    # Do things relating to vegetables
+if siguiente in verduras:
+    # Hacer cosas relacionadas con verduras
 ```
 
-Can you use similar code to check whether the next pixel is part of the slug?
+¿Puedes usar un código similar para verificar si el siguiente pixel es parte de la babosa?
 
 --- /hint --- --- hint ---
 
-Here is how your code should look. Make sure you add it to the `move()` function **above** the code which adds the `next` pixel to the `slug` list, otherwise you will be permanently dead!
+Así es como debería verse tu código. Asegúrate de agregarlo a la función `mover()` **arriba** del código que agrega el `siguiente` pixel a la lista `babosa`, de lo contrario, ¡estarás permanentemente muerto!
 
 ```python
-if next in slug:
-    dead = True
+if siguiente in babosa:
+    muerta = True
 ```
 
 --- /hint --- --- /hints ---
 
 
-Save and run your code. When you make the slug bite itself now, you'll see that the game doesn't end, even though the `dead` variable is changed to `True`!
+Graba y ejecuta tu código. Ahora, cuando hagas que la babosa se muerda a sí misma, verás que el juego no termina, ¡aunque la variable `muerta` cambie a `True`!
 
-+ Change the game loop in the main program from an infinite loop to a loop which only runs while the `dead` variable is not `True`.
++ Cambia el ciclo del juego en el programa principal de un bucle infinito a un bucle que solo se ejecute mientras la variable `muerta` no sea `True`.
 
-Once the game loop ends, the player will want to know how they did in their game.
+Una vez que finaliza el ciclo del juego, el jugador querrá saber cómo le fue en su juego.
 
-+ In the main program, add code to display how many vegetables the player guided the slug to by making use of the `score` variable.
++ En el programa principal, agrega código para mostrar cuántas verduras comió la babosa, haciendo uso de la variable `puntaje`.
 
 [[[rpi-sensehat-show-message]]]
