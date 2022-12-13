@@ -4,7 +4,7 @@ Create your own fun and frantic version of the classic game Snake on a Sense HAT
 
 ### What you will make
 
-Use the arrow keys on your keyboard to direct the slug. Click **Run** to start the game. <iframe src="https://trinket.io/embed/python/b9e8a05f5b?outputOnly=true" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen mark="crwd-mark"></iframe>
+Use the arrow keys on your keyboard to direct the slug. Click **Run** to start the game. <iframe src="https://trinket.io/embed/python/b9e8a05f5b?outputOnly=true" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 ### What you will learn
 
