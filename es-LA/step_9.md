@@ -1,82 +1,82 @@
-## Growing and speeding up
+## Crecer y acelerar
 
-To keep the game interesting for the player, as the slug eats vegetables she should grow in length and move faster. This makes her harder to control — and worse, she might accidentally bite into her own body!
+Para mantener el juego interesante para el jugador, mientras la babosa come verduras, ésta debería ir creciendo en longitud y e irse moviendo más rápido. Esto la hace más difícil de controlar, y lo que es peor, ¡podría morder accidentalmente su propio cuerpo!
 
-The code you've written so far makes it so that, when the slug advances a pixel, her end segment is deleted. To enable her to grow, you can add a new segment to the `slug` list but **not** delete the last one. So each time the slug moves, you need to make a decision as to whether to remove a segment or not.
+El código que has escrito hasta ahora hace que, cuando la babosa avance un pixel se elimine su último segmento. Para permitirle crecer, puedes agregar un nuevo segmento a la lista `babosa` pero **no** eliminar el último. Por lo tanto, cada vez que la babosa se mueve, debes tomar una decisión sobre si eliminar un segmento o no.
 
-+ At the start of the `move()` function, create a Boolean variable called `remove` and set it to `True`, as most of the time we do want to remove the end segment when the slug moves.
++ Al comienzo de la función `mover()`, crea una variable booleana llamada `eliminar` y configúrala como `True`, ya que la mayoría de las veces queremos eliminar el último segmento cuando la babosa se mueve.
 
-+ Add a conditional statement to your function so that the following two lines of code are only executed `if` the `remove` variable is `True`.
++ Agrega una sentencia condicional a tu función para que las siguientes dos líneas de código solo se ejecuten `si` la variable `eliminar` es `Verdad`.
 
 ```python
-sense.set_pixel(first[0], first[1], blank)
-slug.remove(first)
+sense.set_pixel(primero[0], primero[1], vacio)
+babosa.remove(primero)
 ```
 
-+ Decide how often you want your slug to grow. In our example, we chose for our slug to grow one segment for every 5 vegetables she eats.
++ Decide con qué frecuencia quieres que crezca tu babosa. En nuestro ejemplo, elegimos que nuestra babosa crezca un segmento por cada 5 verduras que coma.
 
-To help your program decide when to trigger the slug to grow, you can use the **mod** operator `%`. By using it, you can work out whether the current score is a multiple of 5.
+Para ayudar a tu programa a decidir cuándo activar el crecimiento de la babosa, puedes usar el operador **mod** `%`. Al usarlo, puedes determinar si el puntaje actual es un múltiplo de 5.
 
 [[[generic-python-mod-operator]]]
 
-You'll want to ensure that the slug can only grow when it has eaten a vegetable. To do this, you should add your new code to potentially grow the slug inside this `if` statement:
+Querrás asegurarte de que la babosa solo pueda crecer cuando haya comido una verdura. Para hacer esto, deberías agregar tu nuevo código para hacer crecer potencialmente la babosa dentro de esta sentencia `if`:
 
 ```python
-if next in vegetables:
+if siguiente in verduras:
 ```
 
-+ Add code to check whether the current score is a multiple of 5. If it is, set `remove` to `False` so no segment gets removed.
++ Agrega código para verificar si el puntaje actual es múltiplo de 5. Si lo es, configura `eliminar` como `False` para que ningún segmento sea eliminado.
 
-+ Save and run the code. You might be disappointed to see that, when you eat 5 vegetables, the slug doesn't grow! Why not?
++ Graba y ejecuta el código. Puede que te decepcione ver que, cuando comes 5 verduras, ¡la babosa no crece! ¿Por qué no?
 
 --- collapse ---
 ---
-title: Answer
+title: Respuesta
 ---
 
-The code to remove the segment currently runs before the code to check whether the new pixel was a vegetable. This means that the program doesn't care whether we've told it to remove or not remove a segment, because by the time this decision is taken, the segment has already been removed!
+El código para eliminar el segmento se ejecuta actualmente antes del código para verificar si el nuevo pixel es una verdura. Esto significa que al programa no le importa si le hemos dicho que elimine o no un segmento, porque para el momento en que se toma esta decisión, ¡el segmento ya ha sido eliminado!
 
 --- /collapse ---
 
-+ Alter the order of the code so that the last thing in the `move()` function is the code to potentially remove a segment. Test again, and you should see your slug grow.
++ Cambia el orden del código para que lo último en la función `mover()` sea el código para potencialmente eliminar un segmento. Prueba otra vez y deberías ver crecer tu babosa.
 
-As well as setting `remove` to `False` to grow the slug, let's speed it up! Currently, the slug's speed is regulated by this line of code in the main program:
+Además de configurar `eliminar` como `False` para hacer crecer la babosa, ¡vamos a acelerarla! Actualmente, la velocidad de la babosa está regulada por esta línea de código en el programa principal:
 
 ```python
 sleep(0.5)
 ```
 
-This command tells your infinite loop to wait for half a second between each run, so that the slug moves at a speed of one pixel per half-second. To make it move faster, you'll want to gradually decrease this pause.
+Este comando le dice a tu bucle infinito que espere medio segundo entre cada ejecución, de modo que la babosa se mueva a una velocidad de un pixel por medio segundo. Para hacer que se mueva más rápido, deberás disminuir gradualmente esta pausa.
 
-+ In the variables section, create a variable called `pause` and set it to `0.5`.
++ En la sección de variables, crea una variable llamada `pausa` y configúrala como `0.5`.
 
-+ Replace the `0.5` in the brackets of the `sleep()` function with the variable `pause`. Now the speed of the slug will be determined by the value of `pause`.
++ Reemplaza el `0.5` entre los paréntesis de la función `sleep()` por la variable `pausa`. Ahora la velocidad de la babosa estará determinada por el valor de `pausa`.
 
-You've already added some code to section which check whether the current score is a multiple of 5, so your slug can grow. That is also the point at which the value of `pause` should become smaller. Amend your `move` function like this:
+Ya has agregado un poco de código a la sección que verifica si el puntaje actual es un múltiplo de 5, por lo que tu babosa puede crecer. Ese es también el punto en el que el valor de `pausa` debería hacerse más pequeño. Modifica tu función `mover` así:
 
 ```python
-global pause
+global pausa 
 
-if score % 5 == 0:
-    remove = False
-    pause = pause - 0.1
+if puntaje% 5 == 0:
+    eliminar = False
+    pausa = pausa - 0.1
 ```
 
-+ Save and run your program. What happens? Why is this code not a very good idea, and how could you improve it?
++ Guarda y ejecuta tu programa. ¿Qué ocurre? ¿Por qué no es bueno este código y cómo podrías mejorarlo?
 
 --- collapse ---
 ---
-title: Answer
+title: Respuesta
 ---
 
-If `pause` begins at `0.5`, and we subtract `0.1` for every five eaten vegetables, `pause` will eventually become `0`. That will make the game impossible!
+Si `pausa` comienza en `0.5` y restamos `0.1` por cada cinco verduras comidas, `pausa` se convertirá finalmente en `0`. ¡Esto hará que el juego sea imposible!
 
-Instead of subtracting a fixed amount, why not make `pause` proportionally smaller? For example:
+En lugar de restar una cantidad fija, ¿por qué no hacer `pausa` proporcionalmente más pequeña? Por ejemplo:
 
 ```python
-pause = pause * 0.8
+pausa = pausa * 0.8
 ```
 
-This will make `pause` 80% of its previous value. In this way, it will never become `0`.
+Esto hará que `pausa` tenga 80% de su valor anterior. De esta manera, nunca se convertirá en `0`.
 
 --- /collapse ---
