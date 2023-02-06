@@ -1,35 +1,35 @@
-## Create vegetables
+## Créer des légumes
 
-Our slug is hungry, so she needs something to eat! Let's generate some vegetables for her at random locations on the LED matrix.
+Notre limace a faim, elle a donc besoin de quelque chose à manger ! Nous allons générer des légumes pour elle à des endroits aléatoires sur la matrice LED.
 
-![Vegetables](images/vegetables.png)
+![Légumes](images/vegetables.png)
 
-Creating the vegetables is fairly straightforward:
+La création des légumes est assez simple :
 
-1. Pick a `x, y` random coordinate on the LED matrix
-2. Check if this coordinate is currently inhabited by the slug
-3. If it is, repeat steps 1 and 2 until you pick a location that is outside the slug
-4. Draw the vegetable on the LED matrix
+1. Choisir une coordonnée aléatoire `x, y` sur la matrice LED
+2. Vérifier si cette coordonnée est actuellement occupée par la limace
+3. Si c'est le cas, répéter les étapes 1 et 2 jusqu'à ce que tu choisisses un emplacement qui se trouve en dehors de la limace
+4. Dessiner le légume sur la matrice LED
 
-The code you need is very similar code you've written earlier for the slug, so try to do this bit by yourself. If you get stuck, use the hints.
+Le code dont tu as besoin est un code très similaire que tu as écrit précédemment pour la limace, alors essaie de le faire par toi-même. Si tu es bloqué, utilise les indices.
 
-+ Create a new variable to define the colour of the vegetables you're going to make. You can do this in the same way you defined the colour of your slug.
++ Crée une nouvelle variable pour définir la couleur des légumes que tu vas créer. Tu peux le faire de la même manière que tu as défini la couleur de ta limace.
 
-### Create the function
+### Créer la fonction
 
-+ Define a new function called `make_veg()` in your functions section. The code to put inside the function is explained in the following steps.
++ Définis une nouvelle fonction appelée `faire_legumes()` dans ta section de fonctions. Le code à mettre dans la fonction est expliqué dans les étapes suivantes.
 
-+ Inside the function, write some code to pick a random coordinate on the LED matrix.
++ À l'intérieur de la fonction, écris du code pour choisir une coordonnée aléatoire sur la matrice LED.
 
 [[[generic-python-random]]]
 
 --- hints --- --- hint ---
 
-Generate a random x coordinate and a random y coordinate and then put them together in a list. Both coordinates must be random numbers between 0 and 7.
+Génére une coordonnée x aléatoire et une coordonnée y aléatoire, puis rassemble-les dans une liste. Les deux coordonnées doivent être des nombres aléatoires entre 0 et 7.
 
 --- /hint --- --- hint ---
 
-You can use the `randint` function to generate random numbers. For example, this code generates a random number between 5 and 10:
+Tu peux utiliser la fonction `randint` pour générer des nombres aléatoires. Par exemple, ce code génère un nombre aléatoire entre 5 et 10 :
 
 ```python
 a = randint(5, 10)
@@ -37,98 +37,98 @@ a = randint(5, 10)
 
 --- /hint --- --- hint ---
 
-Here is how your code should look:
+Voici à quoi devrait ressembler ton code :
 
 ```python
 x = randint(0, 7)
 y = randint(0, 7)
-new = [x, y]
+nouveau = [x, y]
 ```
 
 --- /hint --- --- /hints ---
 
 
-+ Check if this `x, y` coordinate is in the `slug` list. If it is, pick a new coordinate and check it against the list. Repeat this until the coordinate you've picked isn't in the slug list.
++ Vérifie si cette coordonnée `x, y` est dans la liste `limace`. Si c'est le cas, choisis une nouvelle coordonnée et compare-la à la liste. Répéte cette opération jusqu'à ce que la coordonnée que tu as choisie ne soit pas dans la liste des limaces.
 
 [[[generic-python-item-in-list]]]
 
 --- hints --- --- hint ---
 
-Here is some pseudocode to help you. We start off by setting `new` equal to the first coordinate in the `slug` list so that it is guaranteed to start off inside the slug. This way a new coordinate must be generated at least once.
+Voici un pseudo-code pour t'aider. Nous commençons par définir `nouveau` égal à la première coordonnée de la liste `limace` afin qu'il soit garanti de commencer à l'intérieur de la limace. De cette façon, une nouvelle coordonnée doit être générée au moins une fois.
 
-Set `new` to the first coordinate in the `slug` list `while` the coordinate is in the `slug` list: set x to a random number between 0 and 7 set y to a random number between 0 and 7 set `new` to x, y
+Définir `nouveau` sur la première coordonnée dans la liste `limace` `tandis que` la coordonnée est dans la liste `limace`  : définir x sur un nombre aléatoire entre 0 et 7 définir y sur un nombre aléatoire entre 0 et 7 mettre `nouveau` à x, y
 
 --- /hint ---
 
 --- hint ---
 
-Here is how your code might look:
+Voici à quoi ton code pourrait ressembler :
 
 ```python
-new = slug[0]
-while new in slug:
+nouveau = limace[0]
+while nouveau in limace:
     x = randint(0, 7)
     y = randint(0, 7)
-    new = [x, y]
+    nouveau = [x, y]
 ```
 
 --- /hint --- --- /hints ---
 
-+ Once you have found an `x, y` coordinate which isn't inside the slug, draw the vegetable on the screen using your new colour variable.
++ Une fois que tu as trouvé une coordonnée `x, y` qui n'est pas à l'intérieur de la limace, dessine le légume à l'écran en utilisant ta nouvelle variable de couleur.
 
-### Call the function
+### Appeler la fonction
 
-+ In your main program, call the `make_veg` function and check that vegetables randomly appear on the LED matrix.
++ Dans ton programme principal, appelle la fonction `faire_legumes` et vérifie que les légumes apparaissent au hasard sur la matrice LED.
 
-You will probably notice that rather a lot of vegetables appear, so your slug is quickly overrun!
+Tu remarqueras sans doute que pas mal de légumes apparaissent, donc ta limace est vite envahie !
 
-![Too many vegetables](images/too-many-veggies.gif)
+![Trop de légumes](images/too-many-veggies.gif)
 
-You need a way to track how many vegetables there are, so that you can prevent this dangerous spreading of veggies!
+Tu as besoin d'un moyen de suivre le nombre de légumes, afin d'éviter cette dangereuse propagation des légumes !
 
-## Keep track of the vegetables
+## Garder la trace des légumes
 
-+ Create a new empty list called `vegetables` in your variables section.
++ Crée une nouvelle liste vide appelée `legumes` dans ta section de variables.
 
-+ Write a line of code at the end of your `make_veg` function to add the coordinates of the new vegetable to your `vegetables` list.
++ Écris une ligne de code à la fin de ta fonction `faire_legumes` pour ajouter les coordonnées du nouveau légume à ta liste `legumes`.
 
 [[[generic-python-append-list]]]
 
-+ Change the way you call the `make_veg` function in the main program so that it will only create a new vegetable if there are fewer than three items in the `vegetables` list.
++ Change la façon dont tu appelles la fonction `faire_legumes` dans le programme principal afin qu'elle ne crée un nouveau légume que s'il y a moins de trois éléments dans la liste `legumes`.
 
 --- hints --- --- hint ---
 
-You can use the function `len()` to find out the length of the `vegetables` list, or in other words, how many items are in the list.
+Tu peux utiliser la fonction `len()` pour connaître la longueur de la liste `legumes`, ou en d'autres termes, combien d'éléments sont dans la liste.
 
 --- /hint --- --- hint ---
 
-Here is some pseudocode to help you:
+Voici un pseudo-code pour t'aider :
 
-`if` the length of the vegetables list is `less than` 3 Call the `make_veg` function
+`si` la longueur de la liste des légumes est `inférieure à` 3 Appeler la fonction `faire_legumes`
 
 --- /hint --- --- hint ---
 
-Here is how your code should look:
+Voici à quoi devrait ressembler ton code :
 
 ```python
-if len(vegetables) < 3:
-   make_veg()
+if len(legumes) < 3:
+   faire_legumes()
 ```
 
 --- /hint --- --- /hints ---
 
-### Challenge
-Can you change your code so that, if there are fewer than 3 vegetables in the list, there is only a 20% chance of creating a new vegetable each time the function runs? This will make it less predictable when vegetables might appear. To create the 20% chance, randomly pick a number between 1 and 5, and only create a vegetable for one specific number in this range.
+### Défi
+Peux-tu modifier ton code pour que, s'il y a moins de 3 légumes dans la liste, il n'y ait que 20 % de chances de créer un nouveau légume à chaque exécution de la fonction ? Cela rendra moins prévisible le moment où les légumes pourraient apparaître. Pour créer une chance de 20 %, choisis aléatoirement un nombre entre 1 et 5 et ne crée un légume que pour un nombre spécifique dans cette gamme.
 
 --- collapse ---
 ---
-title: Challenge solution
+title: Solution du défi
 ---
 
 ```python
-# Let there be a 20% chance of making a veggie if there aren't many about
-if len(vegetables) < 3 and randint(1, 5) > 4:
-    make_veg()
+# Laisser 20% de chance de faire un legume s'il n'y en a pas beaucoup 
+if len(legumes) < 3 and randint(1, 5) > 4 :
+    faire_legumes()
 ```
 
 --- /collapse ---
