@@ -1,44 +1,44 @@
-## Eating vegetables
+## Manger des légumes
 
-Your slug already appears to eat the vegetables — great! However, you have probably found that, once she has eaten the first three vegetables, no more vegetables ever appear regardless of how long you wait.
+Ta limace semble déjà manger les légumes, c'est super ! Cependant, tu as probablement constaté qu'une fois qu'elle a mangé les trois premiers légumes, plus aucun légume n'apparaît, quel que soit le temps d'attente.
 
-**Can you work out why this is?**
+**Sais-tu pourquoi ?**
 
 --- collapse ---
 ---
-title: Answer
+title: Réponse
 ---
 
-Since the `make_veg` function only generates vegetables if the `vegetables` list contains fewer than three items, no new vegetables will appear once the list contains three vegetables.
+Étant donné que la fonction `faire_legumes` ne génère des légumes que si la liste `legumes` contient moins de trois éléments, aucun nouveau légume n'apparaîtra une fois que la liste contiendra trois légumes.
 
-At the moment, your first three vegetables are generated and added to the `vegetables` list. When the slug moves to a pixel containing a vegetable, the vegetable disappears because the `move` function draws the slug's pixels over the top of it. This is why the slug appears to eat it. However, the vegetable is never removed from the `vegetables` list, so the `make_veg` function isn't allowed to make more.
+Pour le moment, tes trois premiers légumes sont générés et ajoutés à la liste `legumes`. Lorsque la limace se déplace vers un pixel contenant un légume, le légume disparaît car la fonction `deplace` dessine les pixels de la limace par-dessus. C'est pourquoi la limace semble le manger. Cependant, le légume n'est jamais supprimé de la liste `legumes`, donc la fonction `faire_legumes` n'est pas autorisée à en faire plus.
 
 --- /collapse ---
 
-+ Add some code at the end of the `move()` function so that, whenever the slug moves to a new pixel, the function checks whether that pixel is in the `vegetables` list. If the pixel is in the `vegetables` list, remove it from the list.
++ Ajoute du code à la fin de la fonction `deplace()` afin que, chaque fois que la limace se déplace vers un nouveau pixel, la fonction vérifie si ce pixel se trouve dans la liste `legumes`. Si le pixel est dans la liste `legumes`, supprime-le de la liste.
 
-Let's also add a score to keep track of how many vegetables the slug has eaten, so that the player knows how well they have done when their round ends.
+Ajoutons également un score pour comptabiliser le nombre de légumes que la limace a mangés, afin que le joueur sache ce qu'il a fait à la fin de son tour.
 
-+ In the variables section, create a `score` variable which starts as `0`.
++ Dans la section des variables, crée une variable `score` qui commence à `0`.
 
-+ Whenever the slug eats a vegetable, add 1 to the score. Don't forget that, because the `score` variable was created outside of the function, you need to specify that you want to use `global score` at the start of the `move()` function so that the function is allowed to change it.
++ Chaque fois que la limace mange un légume, ajoute 1 au score. N'oublie pas que, comme la variable `score` a été créée en dehors de la fonction, tu dois spécifier que tu veux utiliser `global score` au début de la fonction `deplace()` pour que la fonction soit autorisée à le changer.
 
 --- hints --- --- hint ---
 
-Here is some pseudocode for the check which should occur within the `move()` function:
+Voici un pseudo-code pour la vérification qui devrait se produire dans la fonction `deplace()`:
 
-`if` new pixel is `in` vegetables `remove` new pixel from vegetables `add` 1 to score
+`si` nouveau pixel est `dans` légumes `enlever` nouveau pixel des légumes `ajouter` 1 à score
 
 --- /hint --- --- hint ---
 
-Here is the code you should add to the end of the `move()` function:
+Voici le code que tu dois ajouter à la fin de la fonction `deplace()` :
 
 ```python
-if next in vegetables:
-  vegetables.remove(next)
+if suivant in legumes:
+  legumes.remove(suivant)
   score += 1
 ```
 
-Don't forget to also add `global score` on the first line of the `move()` function, and to initialise the `score` variable to `0` in the variables section.
+N'oublie pas d'ajouter également `global score` sur la première ligne de la fonction `deplace()`, et d'initialiser la variable `score` à `0` dans la section des variables.
 
 --- /hint --- --- /hints ---
