@@ -1,23 +1,23 @@
-Find the last and first items in the slug list
+Trouver le dernier et le premier element de la liste limace
 
-Create a copy of the last item
+Creer une copie du dernier element
 
-Find the next pixel in the direction the slug is currently moving
+Trouver le pixel suivant dans la direction dans laquelle la limace se deplace actuellement
 
-Move along the column
+Se deplacer le long de la colonne
 
-Add this pixel at the end of the slug list
+Ajouter ce pixel a la fin de la liste limace
 
-Set the new pixel to the slug's colour
+Mettre le nouveau pixel sur la couleur de la limace
 
-Set the first pixel in the slug list to blank
+Mettre le premier pixel de la liste de la limace sur vide
 
-Remove the first pixel from the list
+Supprimer le premier pixel de la liste
 
-Wrap x coordinate
+Envelopper la coordonnée x
 
-Wrap y coordinate
+Envelopper la coordonnée y
 
-Let there be a 20% chance of making a veggie if there aren't many about
+Laisser 20% de chance de faire un legume s'il n'y en a pas beaucoup
 
-Do things relating to vegetables
+Faire des choses liées aux legumes
