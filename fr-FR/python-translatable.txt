@@ -1,14 +1,14 @@
 segment
 
-slug
+limace
 
-draw_slug
+dessiner_limace
 
-move
+deplace
 
-last
+dernier
 
-first
+premier
 
 direction
 
@@ -20,26 +20,26 @@ down
 
 up
 
-wrap
+envelopper
 
 pixel
 
-joystick_moved
+joystick_mouvement
 
 event
 
 direction
 
-new
+nouveau
 
-vegetables
+legumes
 
-make_vegetables
+faire_legumes
 
 score
 
 pause
 
-remove
+supprimer
 
-dead
+mort
