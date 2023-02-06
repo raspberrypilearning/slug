@@ -1,42 +1,42 @@
-## Game over
+## Fin de la partie
 
-The final thing you need to check when the slug moves to a new pixel is whether she will bite into her own body. If this happens, she will die and the player will lose the game. The way to do this is very similar to how you checked checked whether the slug is eating a vegetable.
+La dernière chose que tu dois vérifier lorsque la limace se déplace vers un nouveau pixel est de savoir si elle va mordre dans son propre corps. Si cela se produit, elle mourra et le joueur perdra la partie. La manière de procéder est très similaire à celle utilisée pour vérifier si la limace mange un légume.
 
-+ In the variables section, create a new Boolean variable called `dead` and initialise it to `False` (so the slug doesn't start off dead!).
++ Dans la section des variables, crée une nouvelle variable booléenne appelée `mort` et initialise-la à `False` (pour que la limace ne démarre pas morte !).
 
-+ Inside the `move()` function, add some code to check whether the next pixel the slug is moving to is part of herself.
++ Dans la fonction `deplace()`, ajoute du code pour vérifier si le prochain pixel vers lequel la limace se déplace fait partie d'elle-même.
 
-+ If it is, set the `dead` variable to `True`. Do you remember what you need to do to allow a function to alter a global variable?
++ Si c'est le cas, définis la variable `mort` sur `True`. Te souviens-tu de ce que tu dois faire pour permettre à une fonction de modifier une variable globale ?
 
 --- hints --- --- hint ---
 
-Here is the code you used to check whether the pixel the slug was moving to contained a vegetable:
+Voici le code que tu as utilisé pour vérifier si le pixel vers lequel se dirigeait la limace contenait un légume :
 
 ```python
-if next in vegetables:
-    # Do things relating to vegetables
+if suivant in legumes :
+    # Faire des choses concernant les legumes
 ```
 
-Can you use similar code to check whether the next pixel is part of the slug?
+Peux-tu utiliser un code similaire pour vérifier si le pixel suivant fait partie de la limace ?
 
 --- /hint --- --- hint ---
 
-Here is how your code should look. Make sure you add it to the `move()` function **above** the code which adds the `next` pixel to the `slug` list, otherwise you will be permanently dead!
+Voici à quoi devrait ressembler ton code. Assure-toi de l'ajouter à la fonction `deplace()` **au-dessus** du code qui ajoute les pixels`suivants` à la liste `limace`, sinon tu seras définitivement mort !
 
 ```python
-if next in slug:
-    dead = True
+if suivant in limace:
+    mort = True
 ```
 
 --- /hint --- --- /hints ---
 
 
-Save and run your code. When you make the slug bite itself now, you'll see that the game doesn't end, even though the `dead` variable is changed to `True`!
+Enregistre et exécute ton code. Lorsque tu fais mordre la limace elle-même maintenant, tu verras que le jeu ne se termine pas, même si la variable `mort` est changée en `True` !
 
-+ Change the game loop in the main program from an infinite loop to a loop which only runs while the `dead` variable is not `True`.
++ Modifie la boucle de jeu dans le programme principal d'une boucle infinie à une boucle qui ne s'exécute que lorsque la variable `mort` n'est pas `True`.
 
-Once the game loop ends, the player will want to know how they did in their game.
+Une fois la boucle de jeu terminée, le joueur voudra savoir comment il s'en est sorti dans sa partie.
 
-+ In the main program, add code to display how many vegetables the player guided the slug to by making use of the `score` variable.
++ Dans le programme principal, ajoute du code pour afficher le nombre de légumes vers lesquels le joueur a guidé la limace en utilisant la variable `score`.
 
 [[[rpi-sensehat-show-message]]]
