@@ -1,7 +1,7 @@
 ---
-title: SLUG!
+title: LIMACE !
 hero_image: images/banner.png
-description: Recreate the classic game of Snake on your Sense HAT
+description: Recréer le jeu classique de Snake sur ton Sense HAT
 theme: violet
 duration: 2
 listed: true
@@ -19,26 +19,26 @@ steps:
   - 
     title: Introduction
   - 
-    title: What you will need
+    title: Ce dont tu auras besoin
   - 
-    title: Connect to the Sense HAT
+    title: Se connecter au Sense HAT
   - 
-    title: Draw the slug
+    title: Dessiner la limace
     completion:
       - engaged
   - 
-    title: Move the slug
+    title: Déplacer la limace
   - 
-    title: Use the joystick
+    title: Utiliser le joystick
   - 
-    title: Create vegetables
+    title: Créer des légumes
   - 
-    title: Eating vegetables
+    title: Manger des légumes
   - 
-    title: Growing and speeding up
+    title: Grandir et accélérer
   - 
-    title: Game over
+    title: Fin de la partie
     completion:
       - internal
   - 
-    title: 'Challenge: crazy veggies'
+    title: 'Défi : les légumes fous'
