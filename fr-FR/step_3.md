@@ -1,13 +1,13 @@
-## Connect to the Sense HAT
+## Se connecter au Sense HAT
 
-+ If you have a Sense HAT, attach it to your Raspberry Pi.
++ Si tu as un Sense HAT, attache-le à ton Raspberry Pi.
 
 [[[rpi-sensehat-attach]]]
 
-+ If you do not have a Sense HAT, you can make this game using the Sense HAT emulator.
++ Si tu n'as pas de Sense HAT, tu peux créer ce jeu en utilisant l'émulateur Sense HAT.
 
 [[[rpi-sensehat-emulator]]]
 
-+ Open up the [starter file](resources/starter_code.py) if you are using a hardware Sense HAT, or the [starter Trinket](https://trinket.io/embed/python/3bfbb0d42b){:target="_blank"} if you are using the emulator.
++ Ouvre le [fichier de démarrage](resources/starter_code.py) si tu utilises un Sense HAT, ou le [Trinket de démarrage](https://trinket.io/embed/python/3bfbb0d42b){:target="_blank"} si tu utilises l'émulateur.
 
-This file contains the code to connect to the Sense HAT, imports the modules you will need, and provides a structure for your code.
+Ce fichier contient le code pour se connecter au Sense HAT, importe les modules dont tu auras besoin et fournit une structure pour ton code.
