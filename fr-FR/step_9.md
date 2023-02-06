@@ -1,82 +1,82 @@
-## Growing and speeding up
+## Grandir et accélérer
 
-To keep the game interesting for the player, as the slug eats vegetables she should grow in length and move faster. This makes her harder to control — and worse, she might accidentally bite into her own body!
+Pour que le jeu reste intéressant pour le joueur, quand la limace mange des légumes, elle doit grandir et se déplacer plus rapidement. Cela la rend plus difficile à contrôler, et pire, elle pourrait accidentellement mordre dans son propre corps !
 
-The code you've written so far makes it so that, when the slug advances a pixel, her end segment is deleted. To enable her to grow, you can add a new segment to the `slug` list but **not** delete the last one. So each time the slug moves, you need to make a decision as to whether to remove a segment or not.
+Le code que tu as écrit jusqu'à présent fait en sorte que, lorsque la limace avance d'un pixel, son segment final est supprimé. Pour lui permettre de grandir, tu peux ajouter un nouveau segment à la liste `limace` mais **pas** supprimer le dernier. Ainsi, chaque fois que la limace se déplace, tu dois prendre une décision quant à la suppression ou non d'un segment.
 
-+ At the start of the `move()` function, create a Boolean variable called `remove` and set it to `True`, as most of the time we do want to remove the end segment when the slug moves.
++ Au début de la fonction `deplace()`, crée une variable booléenne appelée `supprimer` et définis-la sur `True`, car la plupart du temps, nous voulons supprimer le segment de fin lorsque la limace se déplace.
 
-+ Add a conditional statement to your function so that the following two lines of code are only executed `if` the `remove` variable is `True`.
++ Ajoute une instruction conditionnelle à ta fonction pour que les deux lignes suivantes ne soient exécutées que `si` la variable `supprimer` est `True`.
 
 ```python
-sense.set_pixel(first[0], first[1], blank)
-slug.remove(first)
+sense.set_pixel(premier[0], premier[1], vide)
+limace.remove(premier)
 ```
 
-+ Decide how often you want your slug to grow. In our example, we chose for our slug to grow one segment for every 5 vegetables she eats.
++ Décide à quelle fréquence tu veux que ta limace grandisse. Dans notre exemple, nous avons choisi pour notre limace de faire pousser un segment pour 5 légumes qu'elle mange.
 
-To help your program decide when to trigger the slug to grow, you can use the **mod** operator `%`. By using it, you can work out whether the current score is a multiple of 5.
+Pour aider ton programme à décider quand déclencher la croissance de la limace, tu peux utiliser l'opérateur **mod** `%`. En l'utilisant, tu peux déterminer si le score actuel est un multiple de 5.
 
 [[[generic-python-mod-operator]]]
 
-You'll want to ensure that the slug can only grow when it has eaten a vegetable. To do this, you should add your new code to potentially grow the slug inside this `if` statement:
+Tu voudras t'assurer que la limace ne peut pousser que lorsqu'elle a mangé un légume. Pour ce faire, tu dois ajouter ton nouveau code pour potentiellement développer la limace à l'intérieur de cette instruction `if` :
 
 ```python
-if next in vegetables:
+if suivant in legumes:
 ```
 
-+ Add code to check whether the current score is a multiple of 5. If it is, set `remove` to `False` so no segment gets removed.
++ Ajoute du code pour vérifier si le score actuel est un multiple de 5. Si c'est le cas, définis `supprimer` sur `False` afin qu'aucun segment ne soit supprimé.
 
-+ Save and run the code. You might be disappointed to see that, when you eat 5 vegetables, the slug doesn't grow! Why not?
++ Enregistre et exécute le code. Tu pourrais être déçu de voir que lorsque tu manges 5 légumes, la limace ne grandit pas ! Pourquoi pas ?
 
 --- collapse ---
 ---
-title: Answer
+title: Réponse
 ---
 
-The code to remove the segment currently runs before the code to check whether the new pixel was a vegetable. This means that the program doesn't care whether we've told it to remove or not remove a segment, because by the time this decision is taken, the segment has already been removed!
+Le code pour supprimer le segment s'exécute actuellement avant le code pour vérifier si le nouveau pixel était un légume. Cela signifie que le programme ne se soucie pas de savoir si nous lui avons dit de supprimer ou non un segment, car au moment où cette décision est prise, le segment a déjà été supprimé !
 
 --- /collapse ---
 
-+ Alter the order of the code so that the last thing in the `move()` function is the code to potentially remove a segment. Test again, and you should see your slug grow.
++ Modifie l'ordre du code afin que la dernière chose dans la fonction `deplace()` soit le code permettant de supprimer potentiellement un segment. Teste à nouveau et tu devrais voir ta limace grandir.
 
-As well as setting `remove` to `False` to grow the slug, let's speed it up! Currently, the slug's speed is regulated by this line of code in the main program:
+En plus de mettre `supprimer` à `False` pour faire grandir la limace, accélérons-la ! Actuellement, la vitesse de la limace est régulée par cette ligne de code dans le programme principal :
 
 ```python
 sleep(0.5)
 ```
 
-This command tells your infinite loop to wait for half a second between each run, so that the slug moves at a speed of one pixel per half-second. To make it move faster, you'll want to gradually decrease this pause.
+Cette commande indique à ta boucle infinie d'attendre une demi-seconde entre chaque exécution, de sorte que la limace se déplace à une vitesse d'un pixel par demi-seconde. Pour le faire avancer plus vite, tu voudras diminuer progressivement cette pause.
 
-+ In the variables section, create a variable called `pause` and set it to `0.5`.
++ Dans la section des variables, crée une variable appelée `pause` et définis-la sur `0.5`.
 
-+ Replace the `0.5` in the brackets of the `sleep()` function with the variable `pause`. Now the speed of the slug will be determined by the value of `pause`.
++ Remplace le `0.5` entre parenthèses de la fonction `sleep()` par la variable `pause`. Maintenant, la vitesse de la limace sera déterminée par la valeur de `pause`.
 
-You've already added some code to section which check whether the current score is a multiple of 5, so your slug can grow. That is also the point at which the value of `pause` should become smaller. Amend your `move` function like this:
+Tu as déjà ajouté du code à la section qui vérifie si le score actuel est un multiple de 5, afin que ta limace puisse grandir. C'est aussi le point où la valeur de `pause` devrait devenir plus petite. Modifie ta fonction `deplace` comme ceci :
 
 ```python
 global pause
 
 if score % 5 == 0:
-    remove = False
+    supprimer = False
     pause = pause - 0.1
 ```
 
-+ Save and run your program. What happens? Why is this code not a very good idea, and how could you improve it?
++ Enregistre et exécute ton programme. Que se passe-t-il ? Pourquoi ce code n'est-il pas une très bonne idée, et comment pourrais-tu l'améliorer ?
 
 --- collapse ---
 ---
-title: Answer
+title: Réponse
 ---
 
-If `pause` begins at `0.5`, and we subtract `0.1` for every five eaten vegetables, `pause` will eventually become `0`. That will make the game impossible!
+Si `pause` commence à `0.5`, et que nous soustrayons `0.1` pour cinq légumes consommés, `pause` deviendra éventuellement `0`. Cela rendra le jeu impossible !
 
-Instead of subtracting a fixed amount, why not make `pause` proportionally smaller? For example:
+Au lieu de soustraire un montant fixe, pourquoi ne pas faire `pause` proportionnellement plus petit ? Par exemple :
 
 ```python
 pause = pause * 0.8
 ```
 
-This will make `pause` 80% of its previous value. In this way, it will never become `0`.
+Cela fera `pause` 80 % de sa valeur précédente. De cette façon, il ne deviendra jamais `0`.
 
 --- /collapse ---
