@@ -1,45 +1,45 @@
-## Use the joystick
+## Utiliser le joystick
 
-Next, let's link up the Sense HAT's joystick so that the player can use it to control the movement of the slug.
+Ensuite, connectons le joystick du Sense HAT afin que le joueur puisse l'utiliser pour contrôler le mouvement de la limace.
 
-![Moving slug](images/moving-slug.gif)
+![Limace en mouvement](images/moving-slug.gif)
 
-+ In the functions section, create a new function:
++ Dans la section des fonctions, crée une nouvelle fonction :
 
 ```python
-def joystick_moved(event):
+def joystick_mouvement(event):
 ```
 
-You will call this function whenever the joystick is moved. It will automatically receive a parameter called `event`, which will let you find out in which direction the joystick was moved.
+Tu appelleras cette fonction chaque fois que le joystick sera déplacé. Il recevra automatiquement un paramètre appelé `event`, qui permettra de savoir dans quel sens le joystick a été déplacé.
 
-You'll want to set the `direction` variable to the direction in which the joystick was pushed. So that you are allowed to change the value of the variable from within this function, you need to specify `global` for the variable. To find out why, read about scope in Python functions.
+Tu voudras régler la variable `direction` sur la direction dans laquelle le joystick a été poussé. Pour que tu sois autorisé à modifier la valeur de la variable à partir de cette fonction, tu dois spécifier `global` pour la variable. Pour savoir pourquoi, lis à propos de la portée dans les fonctions Python.
 
 [[[generic-python-function-scope]]]
 
-+ Add `global direction` to your function:
++ Ajoute `globale direction` à ta fonction :
 
 ```python
-def joystick_moved(event):
+def joystick_mouvement(event):
     global direction
 ```
 
-You can access the direction the joystick was moved in with the help of the `event` parameter: use the command `event.direction`.
+Tu peux accéder à la direction dans laquelle le joystick a été déplacé avec l'aide du paramètre `event` : utilise la commande `event.direction`.
 
-+ Inside your function, set the `direction` variable to be equal to `event.direction`.
++ Dans ta fonction, définis la variable `direction` pour qu'elle soit égale à `event.direction`.
 
-+ Finally, in the main part of your program, write a line of code to say that, when the Sense HAT joystick is pressed in any direction, the `joystick_moved` function will be called.
++ Enfin, dans la partie principale de ton programme, écris une ligne de code pour dire que, lorsque le joystick Sense HAT est pressé dans n'importe quelle direction, la fonction `joystick_mouvement` sera appelée.
 
 [[[rpi-python-sensehat-joystick-event-functions]]]
 
 --- hints --- --- hint ---
 
-You can find out how to do this in the information section 'Triggering function calls with the Sense HAT joystick' found above.
+Tu peux découvrir comment procéder dans la section d'information « Déclencher des appels de fonction avec le joystick Sense HAT » ci-dessus.
 
 --- /hint ---
 
 --- hint ---
 
-The code to say "when the joystick is pressed in any direction" is as follows:
+Le code à dire « quand le joystick est pressé dans n'importe quelle direction » est le suivant :
 
 ```python
 sense.stick.direction_any =
@@ -49,15 +49,15 @@ sense.stick.direction_any =
 
 --- hint ---
 
-Here is how the code in the **main program** should look:
+Voici à quoi devrait ressembler le code dans le **programme principal** :
 
 ```python
-sense.stick.direction_any = joystick_moved
+sense.stick.direction_any = joystick_mouvement
 ```
 
-Here is the full **function** code:
+Voici le code complet de la **fonction** :
 ```python
-def joystick_moved(event):
+def joystick_mouvement(event):
     global direction
     direction = event.direction
 ```
@@ -66,6 +66,6 @@ def joystick_moved(event):
 
 --- /hints ---
 
-+ Run your program and test that it works. If you are using the emulator, you can simulate moving the joystick by pressing the arrow keys on your keyboard.
++ Exécute ton programme et teste qu'il fonctionne. Si tu utilises l'émulateur, tu peux simuler le déplacement du joystick en appuyant sur les touches fléchées de ton clavier.
 
-At this point it is possible to move the slug back "through" herself, which looks rather odd. Later on we will add some code which causes the game to end if the slug bites herself, so there is no need to worry about resolving this glitch.
+À ce stade, il est possible de déplacer la limace « à travers » elle-même, ce qui semble plutôt étrange. Plus tard, nous ajouterons du code qui met fin au jeu si la limace se mord elle-même, donc il n'y a pas besoin de s'inquiéter pour résoudre ce problème.
