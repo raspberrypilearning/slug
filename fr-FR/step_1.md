@@ -1,22 +1,22 @@
 ## Introduction
 
-Create your own fun and frantic version of the classic game Snake on a Sense HAT: guide the slug around the screen to let her eat vegetables, watch her grow, and increase your score. Don't let her bite into herself though, or it's game over!
+Crée ta propre version amusante et frénétique du jeu classique Snake sur un Sense HAT : guide la limace autour de l'écran pour la laisser manger des légumes, la regarder grandir et augmenter ton score. Ne la laisse pas se mordre, sinon c'est perdu !
 
-### What you will make
+### Ce que tu feras
 
-Use the arrow keys on your keyboard to direct the slug. Click **Run** to start the game. <iframe src="https://trinket.io/embed/python/b9e8a05f5b?outputOnly=true" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+Utilise les touches fléchées de ton clavier pour diriger la limace. Clique sur **Run** pour démarrer le jeu. <iframe src="https://trinket.io/embed/python/b9e8a05f5b?outputOnly=true" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
-### What you will learn
+### Ce que tu vas apprendre
 
-This project covers elements from the following strands of the [Raspberry Pi Digital Making Curriculum](http://rpf.io/curriculum){:target="_blank"}:
+Ce projet couvre les éléments des sections suivantes du [Programme Raspberry Pi de création numérique](http://rpf.io/curriculum){:target="_blank"} :
 
-+ [Apply abstraction and decomposition to solve more complex problems](https://curriculum.raspberrypi.org/programming/developer/){:target="_blank"}
++ [Appliquer l'abstraction et la décomposition pour résoudre des problèmes plus complexes](https://curriculum.raspberrypi.org/programming/developer/){:target="_ blank"}
 
 --- collapse ---
 ---
-title: Additional information for educators
+title: Informations complémentaires pour les éducateurs
 ---
 
-[Here is a link to the resources and solution for this project](https://github.com/raspberrypilearning/slug/tree/master/en).
+[Voici un lien vers les ressources et la solution pour ce projet](https://github.com/raspberrypilearning/slug/tree/master/en).
 
 --- /collapse ---
