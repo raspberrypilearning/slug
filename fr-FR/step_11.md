@@ -1,9 +1,9 @@
-## Challenge: crazy veggies
+## Défi : les légumes fous
 
-There are lots of possible features you could add to your game to make it more difficult and entertaining for the player! Here are a few examples — can you come up with your own ideas?
+Il existe de nombreuses fonctionnalités que tu peux ajouter à ton jeu pour le rendre plus difficile et divertissant pour le joueur ! Voici quelques exemples — peux-tu proposer tes propres idées ?
 
-+ Growth vegetables: add a new type of vegetable which causes the slug to grow by more than one segment at a time. This makes the game harder because the slug will become big quickly, making it difficult to stop her from biting herself!
++ Légumes de croissance : ajoute un nouveau type de légume qui fait croître la limace de plus d'un segment à la fois. Cela rend le jeu plus difficile car la limace deviendra rapidement grosse, ce qui rendra difficile de l'empêcher de se mordre !
 
-+ Slug trails: leave a trail behind your slug in a different colour so you can see where you've been. Perhaps you could then make the game harder by not allowing vegetables to be generated in spaces where there is a slug trail?
++ Traînée de limaces : laisse une traînée derrière ta limace dans une couleur différente pour que tu puisses voir où tu es allé. Peut-être pourrais-tu alors rendre le jeu plus difficile en ne permettant pas aux légumes d'être générés dans les espaces où il y a une traînée de limaces ?
 
-+ Digest the veg: add code so that, when the slug eats a vegetable, you can see it working its way through the slug's digestive system and getting pooped out of the end! Perhaps you could make the game also end if the slug moves to a space with a pooped-out vegetable? Yuck!
++ Digérer les légumes : ajoute du code pour que, lorsque la limace mange un légume, tu puisses le voir se frayer un chemin à travers le système digestif de la limace et se faire éjecter à la fin ! Peut-être pourrais-tu également faire en sorte que le jeu se termine si la limace se déplace vers un espace avec un caca de légume ? Beurk !
