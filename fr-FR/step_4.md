@@ -1,88 +1,88 @@
-## Draw the slug
+## Dessiner la limace
 
-Your first job is to draw the slug on the Sense HAT's LED display. It is important to keep track of which pixels the slug is inhabiting so that you can move her around the screen. You will use a 2D list to store the coordinates of the pixels the slug is currently inhabiting.
+Ta première tâche consiste à dessiner la limace sur l'écran LED du Sense HAT. Il est important de garder la trace des pixels occupés par la limace afin de pouvoir la déplacer sur l'écran. Tu utiliseras une liste 2D pour stocker les coordonnées des pixels que la limace occupe actuellement.
 
-![Draw the slug](images/draw-slug.png)
+![Dessiner la limace](images/draw-slug.png)
 
 [[[generic-python-2d-lists]]]
 
-### How will it work?
+### Comment cela fonctionnera-t-il ?
 
-Your slug will begin by inhabiting three pixels on the LED display. Each pixel has a `x`, `y` coordinate which can be stored as a list, e.g. `[2, 4]`. The slug will inhabits three pixels, so it needs three coordinate lists. We will store the coordinate lists in another list, making a list of lists or a **2D list**.
+Ta limace commencera par occuper trois pixels sur l'écran LED. Chaque pixel a une coordonnée `x`, `y` qui peut être stockée sous forme de liste, par exemple `[2, 4]`. La limace occupera trois pixels, elle a donc besoin de trois listes de coordonnées. Nous stockerons les listes de coordonnées dans une autre liste, en faisant une liste de listes ou une **liste 2D**.
 
-![Storing the slug](images/2d-slug.png)
+![Stockage de la limace](images/2d-slug.png)
 
-### Write the code
+### Écrire le code
 
-To be able to light up a pixel on the LED display, you need to specify three things: the x and y coordinates of the pixel, and the colour you would like the LED to be.
+Pour pouvoir allumer un pixel sur l'écran LED, tu dois spécifier trois choses : les coordonnées x et y du pixel, et la couleur que tu souhaites donner à la LED.
 
 [[[rpi-sensehat-led-coordinates]]]
 
-+ In the variables section of your file, create an empty list called `slug`.
++ Dans la section des variables de ton fichier, crée une liste vide appelée `limace`.
 
 [[[generic-python-create-list]]]
 
-You will light up three pixels in a horizontal row to make up the slug. Each pixel's position will be represented as a list containing an x and a y coordinate.
+Tu allumeras trois pixels dans une rangée horizontale pour constituer la limace. La position de chaque pixel sera représentée sous la forme d'une liste contenant une coordonnée x et y.
 
-+ Add the coordinate lists `[2, 4]`, `[3, 4]`, and `[4, 4]` (in that order) to your `slug` list to define the coordinates where the slug will start out. You have now created a 2D list, or a list of lists!
++ Ajoute les listes de coordonnées `[2, 4]`, `[3, 4]`et `[4, 4]` (dans cet ordre) à ta liste `limace` pour définir les coordonnées avec lesquelles la limace commencera. Tu as maintenant créé une liste 2D, ou une liste de listes !
 
-You also need to specify a colour for the slug.
+Tu dois également spécifier une couleur pour la limace.
 
-+ In the variables section, create a variable to store the RGB colour of your slug. We chose white, but you can choose any colour you like.
++ Dans la section des variables, crée une variable pour stocker la couleur RVB de ta limace. Nous avons choisi le blanc, mais tu peux choisir la couleur de ton choix.
 
 ```python
-white = (255, 255, 255)
+blanc = (255, 255, 255)
 ```
 
 [[[generic-theory-colours]]]
 
-+ In the functions section, create a function called `draw_slug()`. You will put the code to draw the slug into it.
++ Dans la section des fonctions, crée une fonction appelée `dessiner_limace()`. Tu y mettras le code pour dessiner la limace.
 
 [[[generic-python-simple-functions]]]
 
-+ Inside your `draw_slug()` function, add a `for` loop to loop through each element in the `slug` list.
++ Dans ta fonction `dessiner_limace()`, ajoute une boucle `for` pour parcourir chaque élément de la liste `limace`.
 
-Each element in the list represents the `x, y` coordinates of one segment of the slug.
+Chaque élément de la liste représente les coordonnées `x, y` d'un segment de la limace.
 
-+ Inside the loop, use the `set_pixel` method to light up each pixel you specified in the `slug` list, thus drawing all segments of the slug.
++ À l'intérieur de la boucle, utilise la méthode `set_pixel` pour éclairer chaque pixel que tu as spécifié dans la liste `limace`, dessinant ainsi tous les segments de la limace.
 
 --- hints --- --- hint ---
 
-The `set_pixel` method requires three arguments: the x coordinate of the pixel, the y coordinate of the pixel, and the colour.
+La méthode `set_pixel` nécessite trois arguments : la coordonnée x du pixel, la coordonnée y du pixel et la couleur.
 
 --- /hint ---
 
 --- hint ---
 
-Your `for` loop will examine each segment of the slug in turn. If you wrote your loop like this:
+Ta boucle `for` examinera tour à tour chaque segment de la limace. Si tu as écrit ta boucle comme ceci :
 
 ```python
-for segment in slug:
+for segment in limace:
 ```
 
-...then `segment[0]` will be the x coordinate of the segment you are currently looking at.
+...alors `segment[0]` sera la coordonnée x du segment que tu regardes actuellement.
 
 --- /hint ---
 
 --- hint ---
 
-Here is how your code might look:
+Voici à quoi ton code pourrait ressembler :
 
 ```python
-def draw_slug():
-  for segment in slug:
-      sense.set_pixel(segment[0], segment[1], white)
+def dessiner_limace():
+  for segment in limace:
+      sense.set_pixel(segment[0], segment[1], blanc)
 ```
 
 --- /hint --- --- /hints ---
 
-If you run your program at this point, nothing will happen. This is because you haven't called the function, and therefore the code will not execute.
+Si tu exécutes ton programme à ce stade, rien ne se passera. C'est parce que tu n'as pas appelé la fonction, et donc le code ne s'exécutera pas.
 
-+ In the **main program** section, clear the LED screen and then call the function by adding the following code:
++ Dans la section **programme principal**, efface l'écran LED puis appelle la fonction en ajoutant le code suivant :
 
 ```python
 sense.clear()
-draw_slug()
+dessiner_limace()
 ```
 
-+ Save and run your program, and check that you see a row of three pixels light up to form your slug.
++ Enregistre et exécute ton programme, et vérifie que tu vois une rangée de trois pixels s'allumer pour former ta limace.
