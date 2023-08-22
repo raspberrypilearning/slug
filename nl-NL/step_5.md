@@ -74,7 +74,7 @@ def beweeg():
 
 + Repareer de code zodanig dat, wanneer de slak de rechterwand bereikt, ze door de muur 'beweegt' en weer op dezelfde y-coördinaat verschijnt, maar aan de andere kant van het scherm.
 
-![Wikkel de naaktslak rond](images/wrap-slug.gif)
+![The three LEDs representing the slug move across the SenseHAT, as each LED reaches the right hand edge the next move causes an LED on the left hand edge to appear, wrapping the slug.](images/wrap-slug.gif)
 
 --- hints --- --- hint ---
 
