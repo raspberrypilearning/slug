@@ -74,7 +74,7 @@ def deplace():
 
 + Corrige le code de sorte que, lorsque la limace atteint le mur de droite, elle « traverse » le mur et réapparaît à la même coordonnée y mais du côté opposé de l'écran.
 
-![Envelopper la limace](images/wrap-slug.gif)
+![The three LEDs representing the slug move across the SenseHAT, as each LED reaches the right hand edge the next move causes an LED on the left hand edge to appear, wrapping the slug.](images/wrap-slug.gif)
 
 --- hints --- --- hint ---
 
