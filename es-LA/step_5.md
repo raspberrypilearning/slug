@@ -74,7 +74,7 @@ def mover():
 
 + Arregla el código para que cuando la babosa llegue a la pared de la derecha, "se mueva" a través de ella y reaparezca en la misma coordenada "y" pero en el lado opuesto de la pantalla.
 
-![Envolver la babosa](images/wrap-slug.gif)
+![The three LEDs representing the slug move across the SenseHAT, as each LED reaches the right hand edge the next move causes an LED on the left hand edge to appear, wrapping the slug.](images/wrap-slug.gif)
 
 --- hints --- --- hint ---
 
