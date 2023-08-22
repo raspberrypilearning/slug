@@ -74,7 +74,7 @@ def move():
 
 + Fix the code so that, when the slug reaches the right-hand wall, she 'moves through' the wall and reappears at the same y coordinate but on the opposite side of the screen.
 
-![Wrap the slug](images/wrap-slug.gif)
+![The three LEDs representing the slug move across the SenseHAT, as each LED reaches the right hand edge the next move causes an LED on the left hand edge to appear, wrapping the slug.](images/wrap-slug.gif)
 
 --- hints --- --- hint ---
 
