@@ -25,7 +25,7 @@ La babosa es en realidad una estructura de datos **cola**.
 
 --- collapse ---
 ---
-título: ¿Qué es una cola?
+title: ¿Qué es una cola?
 ---
 
 Una cola es una estructura de datos donde el primer dato agregado es el primer dato que sale. También es llamada una estructura de datos PEPS o "primero en entrar, primero en salir" (FIFO en inglés). Es como esperar en la fila de un supermercado para pagar tus compras: te unes a la cola en la parte de atrás, y la persona en la parte delantera tiene que pagar primero sus artículos y luego deja la cola.
@@ -169,7 +169,7 @@ Así es como podría verse tu código. Nuevamente, hay muchas soluciones potenci
 
 --- collapse ---
 ---
-título: Una forma más eficiente
+title: Una forma más eficiente
 ---
 
 El código sugerido en la pista anterior es bastante ineficiente: hay mucha repetición. Una posible forma diferente de resolver este problema sería primero sumar o restar el valor de la coordenada, independientemente de si hacerlo crea una coordenada fuera del borde de la matriz LED. Luego, antes de realizar cualquier acción con la nueva coordenada, ejecútala a través de una función `envolver()` para verificar si está fuera del borde y, de ser así, reposiciónala. Tu función podría verse así:

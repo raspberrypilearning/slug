@@ -6,7 +6,7 @@ Tu babosa ya parece comerse las verduras. ¡Genial! Sin embargo, probablemente h
 
 --- collapse ---
 ---
-título: Respuesta
+title: Respuesta
 ---
 
 Dado que la función `crear_verdura` solo genera verduras si la lista `verduras` contiene menos de tres elementos, no aparecerán nuevas verduras una vez que la lista contenga tres verduras.

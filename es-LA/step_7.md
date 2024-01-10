@@ -137,7 +137,7 @@ if len(verduras) < 3:
 
 --- collapse ---
 ---
-título: Solución del desafío
+title: Solución del desafío
 ---
 
 ```python
