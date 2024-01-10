@@ -1,0 +1,33 @@
+---
+title: ¡BABOSA!
+hero_image: images/banner.png
+description: Recrea el clásico juego de Snake en tu Sense HAT
+theme: violet
+duration: 2
+listed: true
+ingredient: false
+copyedit: true
+curriculum: 3, design-0, programming-3, phys-comp-0, manufacture-0, community-0
+interests: games
+technologies: sense-hat, electronic-components, python
+site_areas: projects
+hardware: sense-hat, electronic-components
+software: python
+version: 4.0.1
+last_tested: 2017-10-01
+steps:
+  - title: Introducción
+  - title: Lo que necesitarás
+  - title: Conéctate al Sense HAT
+  - title: Dibuja la babosa
+    completion:
+      - engaged
+  - title: Mueve la babosa
+  - title: Usa la palanca de mando
+  - title: Crea verduras
+  - title: Comer verduras
+  - title: Crecer y acelerar
+  - title: Fin del juego
+    completion:
+      - internal
+  - title: 'Desafío: verduras locas'
