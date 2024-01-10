@@ -1,0 +1,33 @@
+---
+title: LIMACE !
+hero_image: images/banner.png
+description: Recréer le jeu classique de Snake sur ton Sense HAT
+theme: violet
+duration: 2
+listed: true
+ingredient: false
+copyedit: true
+curriculum: 3, design-0, programming-3, phys-comp-0, manufacture-0, community-0
+interests: games
+technologies: sense-hat, electronic-components, python
+site_areas: projects
+hardware: sense-hat, electronic-components
+software: python
+version: 4.0.1
+last_tested: 2017-10-01
+steps:
+  - title: Introduction
+  - title: Ce dont tu auras besoin
+  - title: Se connecter au Sense HAT
+  - title: Dessiner la limace
+    completion:
+      - engaged
+  - title: Déplacer la limace
+  - title: Utiliser le joystick
+  - title: Créer des légumes
+  - title: Manger des légumes
+  - title: Grandir et accélérer
+  - title: Fin de la partie
+    completion:
+      - internal
+  - title: 'Défi : les légumes fous'
