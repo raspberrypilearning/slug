@@ -94,9 +94,9 @@ Si nous ajoutons toujours 1 à la coordonnée x, elle finira par atteindre 8. La
 
 Voici un pseudo-code pour t'aider :
 
-`si` dernier[0] + 1 `est égal à` 8 
-  définit suivant[0] sur 0 
-`sinon` 
+`si` dernier[0] + 1 `est égal à` 8
+  définit suivant[0] sur 0
+`sinon`
   définit suivant[0] sur le dernier[0] + 1
 
 --- /hint ---

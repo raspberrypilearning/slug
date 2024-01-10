@@ -24,7 +24,7 @@ Pour pouvoir allumer un pixel sur l'écran LED, tu dois spécifier trois choses�
 
 Tu allumeras trois pixels dans une rangée horizontale pour constituer la limace. La position de chaque pixel sera représentée sous la forme d'une liste contenant une coordonnée x et y.
 
-+ Ajoute les listes de coordonnées `[2, 4]`, `[3, 4]`et `[4, 4]` (dans cet ordre) à ta liste `limace` pour définir les coordonnées avec lesquelles la limace commencera. Tu as maintenant créé une liste 2D, ou une liste de listes !
++ Ajoute les listes de coordonnées `[2, 4]`, `[3, 4]` et `[4, 4]` (dans cet ordre) à ta liste `limace` pour définir les coordonnées avec lesquelles la limace commencera. Tu as maintenant créé une liste 2D, ou une liste de listes !
 
 Tu dois également spécifier une couleur pour la limace.
 

@@ -28,7 +28,9 @@ Ajoutons également un score pour comptabiliser le nombre de légumes que la lim
 
 Voici un pseudo-code pour la vérification qui devrait se produire dans la fonction `deplace()`:
 
-`si` nouveau pixel est `dans` légumes `enlever` nouveau pixel des légumes `ajouter` 1 à score
+`si` nouveau pixel est `dans` légumes
+`enlever` nouveau pixel des légumes
+`ajouter` 1 à score
 
 --- /hint ---
 --- hint ---

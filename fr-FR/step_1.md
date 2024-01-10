@@ -4,7 +4,8 @@ Crée ta propre version amusante et frénétique du jeu classique Snake sur un S
 
 ### Ce que tu feras
 
-Utilise les touches fléchées de ton clavier pour diriger la limace. Clique sur **Run** pour démarrer le jeu. 
+Utilise les touches fléchées de ton clavier pour diriger la limace. Clique sur **Run** pour démarrer le jeu.
+
 <iframe src="https://trinket.io/embed/python/b9e8a05f5b?outputOnly=true" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 ### Ce que tu vas apprendre

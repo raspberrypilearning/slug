@@ -61,7 +61,11 @@ nouveau = [x, y]
 
 Voici un pseudo-code pour t'aider. Nous commençons par définir `nouveau` égal à la première coordonnée de la liste `limace` afin qu'il soit garanti de commencer à l'intérieur de la limace. De cette façon, une nouvelle coordonnée doit être générée au moins une fois.
 
-Définir `nouveau` sur la première coordonnée dans la liste `limace` `tandis que` la coordonnée est dans la liste `limace`  : définir x sur un nombre aléatoire entre 0 et 7 définir y sur un nombre aléatoire entre 0 et 7 mettre `nouveau` à x, y
+Définir `nouveau` sur la première coordonnée dans la liste `limace`
+`tandis que` la coordonnée est dans la liste `limace`  :
+définir x sur un nombre aléatoire entre 0 et 7
+définir y sur un nombre aléatoire entre 0 et 7
+mettre `nouveau` à x, y
 
 --- /hint ---
 
@@ -112,7 +116,8 @@ Tu peux utiliser la fonction `len()` pour connaître la longueur de la liste `le
 
 Voici un pseudo-code pour t'aider :
 
-`si` la longueur de la liste des légumes est `inférieure à` 3 Appeler la fonction `faire_legumes`
+`si` la longueur de la liste des légumes est `inférieure à` 3
+Appeler la fonction `faire_legumes`
 
 --- /hint ---
 --- hint ---
