@@ -1,0 +1,23 @@
+Trouver le dernier et le premier element de la liste limace
+
+Creer une copie du dernier element
+
+Trouver le pixel suivant dans la direction dans laquelle la limace se deplace actuellement
+
+Se deplacer le long de la colonne
+
+Ajouter ce pixel a la fin de la liste limace
+
+Mettre le nouveau pixel sur la couleur de la limace
+
+Mettre le premier pixel de la liste de la limace sur vide
+
+Supprimer le premier pixel de la liste
+
+Envelopper la coordonnée x
+
+Envelopper la coordonnée y
+
+Laisser 20% de chance de faire un legume s'il n'y en a pas beaucoup
+
+Faire des choses liées aux legumes
